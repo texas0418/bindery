@@ -14,6 +14,7 @@ T.defaultProps = { ...T.defaultProps, maxFontSizeMultiplier: 1.4 };
 import { initPurchases } from './src/proAccess';
 import { hasFlag, initState, useWorldVersion } from './src/state';
 import IntroScreen from './src/screens/IntroScreen';
+import PageScreen from './src/screens/PageScreen';
 import WorkbenchScreen from './src/screens/WorkbenchScreen';
 
 type View =
@@ -26,8 +27,8 @@ function Root() {
 
   if (!hasFlag('introDone')) return <IntroScreen />;
 
-  // Screens arrive with page design; the bench is the whole shell for now.
-  void view;
+  if (view.t === 'page')
+    return <PageScreen id={view.id} onBack={() => setView({ t: 'bench' })} />;
   return <WorkbenchScreen onOpenPage={(id) => setView({ t: 'page', id })} />;
 }
 
