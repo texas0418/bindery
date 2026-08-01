@@ -1,0 +1,244 @@
+<title>Unwriting — Act II Page Specs</title>
+<style>
+  :root{
+    --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B;
+    --word:#3D5A80; --letter:#A63A3A; --instrument:#B07D2B; --rule:#DCD9D0; --chip-ink:#FFFFFF;
+    --vera:#6B4FA0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+      --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64;
+      --word:#7FA0C8; --letter:#D07070; --instrument:#D3A34E; --rule:#2A2D33; --chip-ink:#14161A; --vera:#A78BD4; }
+  }
+  :root[data-theme="dark"]{ --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+    --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64;
+    --word:#7FA0C8; --letter:#D07070; --instrument:#D3A34E; --rule:#2A2D33; --chip-ink:#14161A; --vera:#A78BD4; }
+  :root[data-theme="light"]{ --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B;
+    --word:#3D5A80; --letter:#A63A3A; --instrument:#B07D2B; --rule:#DCD9D0; --chip-ink:#FFFFFF; --vera:#6B4FA0; }
+  body{background:var(--ground); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; margin:0; padding:0 0 4rem; line-height:1.6;}
+  .mono{font-family:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;}
+  header{border-bottom:1px solid var(--rule); padding:1.4rem 2rem 1.1rem; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  header .sys{font-size:.72rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase;}
+  header h1{font-size:1.25rem; font-weight:600; margin:.35rem 0 .1rem;}
+  header .sub{font-size:.8rem; color:var(--ink-soft);}
+  main{max-width:46rem; margin:0 auto; padding:0 2rem;}
+  .intro{margin-top:2rem; font-size:.92rem; color:var(--ink-soft); max-width:44rem;}
+  article{margin-top:2.6rem; background:var(--card); border:1px solid var(--card-edge); border-radius:5px; padding:1.5rem 1.8rem 1.3rem;}
+  article h2{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.98rem; font-weight:600; margin:0 0 .2rem; display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap;}
+  .pnum{color:var(--ink-faint); font-size:.85rem;}
+  .keychip{display:inline-block; padding:.06rem .5rem; border-radius:3px; font-family:ui-monospace,Menlo,monospace; font-size:.72rem; font-weight:700; color:var(--chip-ink);}
+  .w{background:var(--word);} .l{background:var(--letter);} .i{background:var(--instrument);}
+  .needs{font-family:ui-monospace,Menlo,monospace; font-size:.7rem; color:var(--ink-faint);}
+  h3{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.68rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint); margin:1.2rem 0 .3rem;}
+  p{margin:.3rem 0 .55rem; font-size:.92rem;}
+  .vera{font-family:Charter,"Iowan Old Style",Georgia,serif; font-style:italic; color:var(--vera); border-left:2px solid var(--vera); padding-left:1rem; margin:.4rem 0 .55rem;}
+  .reveals{font-family:Charter,"Iowan Old Style",Georgia,serif; font-style:italic; color:var(--ink-soft);}
+  .fmt{font-family:ui-monospace,Menlo,monospace; font-size:.8rem; background:var(--ground); border:1px solid var(--rule); border-radius:3px; padding:.15rem .5rem; display:inline-block;}
+  .foot{margin-top:2.6rem; border-top:1px solid var(--rule); padding-top:1rem; font-size:.85rem; color:var(--ink-soft); max-width:44rem;}
+</style>
+
+<header>
+  <div class="sys">Bindery Workstation · Page Design · Act II — Recovery · rev 1</div>
+  <h1>Unwriting — Act II Page Specs</h1>
+  <div class="sub">Pages 10 · 12–15 · 17–23 — the erasure told in reverse; every letter of her name placed</div>
+</header>
+
+<main>
+<p class="intro">Twelve pages (roots 11 and 16 were specced with the roots). Act II trends backward through her life as the restoration deepens — the forged form first, the scraped census last. Canon set here: <strong>Ostrander is her maiden name, reclaimed</strong>; the daughter is <strong>Ann</strong> (Halloran after the adoption; Magpie's mother); E. is never named, ever. Letter keys are delivered legibly on solve (doctrine 7 — the page is the puzzle, the key is the reward), and all thirteen slots are now placed: V1 · E2 · R3 · A4 · O5 · S6 · T7 · R8 · A9 · N10 · D11 · E12 · R13.</p>
+
+<article>
+  <h2><span class="pnum">10</span> The Unfiled Form <span class="keychip l">V → 1</span> <span class="keychip w">ROOM 214</span> <span class="needs">needs UV</span></h2>
+  <h3>On the scan</h3>
+  <p>A county change-of-address form, PS-14 — blank. Under UV, fully filled out: she traced his forgery in invisible ink as evidence, stroke for stroke. The hand is almost hers. The "deliver to" field reads <em>Wexford House, Room 214</em>.</p>
+  <h3>The lock</h3>
+  <p>Forgery deduction. The form convicts itself: the printed footer reads <span class="fmt">Rev. 3/89</span> but the filing-date field reads <span class="fmt">11/87</span> — a revision that did not exist when the form was supposedly filed. The software asks which field is the lie. Every field checks out against the form's own printed instructions except one.</p>
+  <h3>The turn</h3>
+  <p>Her UV margin note: <em>"He never lied about the little things. Only field one."</em> Field 1 is NAME — the backdated form is real everywhere except the person it claims filed it. The software extracts the field-1 initial: <strong>V → slot 1</strong>, and logs <strong>ROOM 214</strong> — the room he rented to collect her redirected life.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">falsified field — field number</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"I copied his forgery in ink only light can read. Let the evidence be invisible, like everything else he did to me."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">He moved her world without touching her — a form, a room, and all her mail arriving into his hands.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">12</span> The Notary's Stamp <span class="keychip l">R → 8</span> <span class="needs">needs NIGHTINGALE</span></h2>
+  <h3>On the scan</h3>
+  <p>An embossed notary seal, deliberately shattered — nine fragments arranged loose on the page, plus an intact pencil rubbing of a different, official document corner. A registration notch is visible on one rim fragment.</p>
+  <h3>The lock</h3>
+  <p>Fragment reassembly guided by expected text. The rim legend is eleven letters plus tooling — orientable only if you know what it should say: <strong>NIGHTINGALE</strong>. Without page 07's key the fragments have no anchor; with it, each shard's partial letters find their one position.</p>
+  <h3>The turn</h3>
+  <p>Reassembled, the seal reads <em>E. NIGHTINGALE · NOTARY PUBLIC</em> — the codename was simply her friend's name all along, hidden in plain hearing. Her note: <em>"count from the broken tooth."</em> Eighth character from the registration notch: <strong>R → slot 8</strong>. The friend with a stamp — the one person whose paperwork answered his.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">reassembly + rim character at position 8</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"Everything he did to me was notarized. So was everything I did back."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">Nightingale is a notary — the friend who helped her use paperwork to unmake paperwork, and broke her own seal when it was done.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">13</span> Redaction Practice <span class="keychip l">E → 12</span> <span class="needs">needs RAKING</span></h2>
+  <h3>On the scan</h3>
+  <p>Fifteen ink blackout bars on a practice page, each labeled beneath in pencil with what it hides — labels since erased, but raking light raises them as embossing: <em>"milk bill" · "the blue coat" · "his mother's ring"</em>… Down the edge, her measure: the alphabet written at fixed pitch, her calibration strip.</p>
+  <h3>The lock</h3>
+  <p>Redaction metrology. Bar widths correspond to hidden text lengths at her pitch — verifiable against every labeled bar. The twelfth bar alone has no embossed label, and it sits mid-sentence in a practice phrase: <em>"I do not fear ——."</em> Measured against her strip, the bar is exactly one character wide.</p>
+  <h3>The turn</h3>
+  <p>A one-letter word before a period, in this book, is <strong>E.</strong> — the only redaction she practiced and could not bring herself to label. Grammar confirms the solve. <strong>E → slot 12</strong>, from the twelfth trial.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">width in characters + the hidden letter</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"I practiced on the small things first. The twelfth took me a year."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">She practiced erasure like calligraphy — and the one thing she blacked out without being able to name it was him.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">14</span> Marriage Certificate <span class="keychip l">T → 7</span> <span class="needs">needs JUNE 1974 · UV</span></h2>
+  <h3>On the scan</h3>
+  <p>The certificate, dissolved in patches — solvent halos where lines used to be, ink bled outward in rings. Bleach-ghosts fluoresce under UV. The form's line numbers survive in the printed frame; line 7 is the worst wound on the page.</p>
+  <h3>The lock</h3>
+  <p>Ink-bleed physics. Bleed halos preserve stroke topology; the software's diffusion model can run backward, but needs the document's era to parameterize ink and paper — the player supplies <strong>JUNE 1974</strong>. Then line 7 is reconstructed stroke-family by stroke-family, the player choosing between candidate letterforms the model offers where halos are ambiguous.</p>
+  <h3>The turn</h3>
+  <p>Line 7 — place of ceremony — resolves: <em>TRINITY REGISTRY OFFICE</em>. Her UV margin note: <em>"I dissolved us line by line. The seventh would not go."</em> <strong>T → slot 7</strong>. In the visible margin, in old ink: <em>"the first form he ever filed for me."</em></p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">document date, then reconstructed line 7</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"A marriage is a form. I learned that on the day I signed it."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The wedding was paperwork from its first minute — and the one line she couldn't dissolve was the place she stood when she still believed it.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">15</span> The Locksmith's Receipt <span class="keychip l">O → 5</span> <span class="needs">needs 14 LARKSPUR</span></h2>
+  <h3>On the scan</h3>
+  <p>A receipt from CROSS &amp; KEELER LOCKSMITHS — three line items across one year, each a full rekeying, each with a key code in the trade's bitting notation. The customer address field is water-damaged to a street initial; the printed pin-depth legend (five pins, depths 0–9) survives at the foot.</p>
+  <h3>The lock</h3>
+  <p>Key-bitting code. The damaged address matches <strong>14 LARKSPUR</strong> — page 09's key authenticates that this is her house. The final rekeying's code is <span class="fmt">B-2-4-9-0-5</span>, and her pencil note beside it: <em>"four cuts spell, the fifth files."</em> Sum the first four depths, six-and-twenty to the alphabet (her own convention, taught on page 09); the fifth depth is the filing slot.</p>
+  <h3>The turn</h3>
+  <p>2+4+9+0 = 15 → <strong>O</strong>; fifth cut → <strong>slot 5</strong>. Three rekeyings in a year, and the dates tell the story the software flags without comment: each is followed within days by a county key-registry request stamp on the reverse. <strong>O → 5</strong>.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">letter + slot from the final key code</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"I changed the locks three times. The county kept giving him the door."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">Even her own house obeyed the records, not her — he always had a key within the week, requested through the same county desk he sat behind.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">17</span> Spectral Pair <span class="keychip i">SPECTRAL</span> <span class="needs">needs ROOM 214 · UV</span></h2>
+  <h3>On the scan</h3>
+  <p>Two facing entries, same date, describing the same unremarkable Tuesday — one in visible ink, its twin in UV ink beneath it. Near-identical, word for word. Instrument panel: <span class="fmt">SPECTRAL VIEW — TRAINING PAIR REQUIRED</span>.</p>
+  <h3>The lock</h3>
+  <p>Delta collation (chain B, taught). Seven quiet divergences separate the twins — a time, a name, a door left locked in one and open in the other. The software can learn to separate inks spectrally, but must be told which twin lies: the player anchors truth with an outside fact — the visible entry says her mail went to the post office; the UV entry says <strong>Room 214</strong>. Page 10 already proved which is true.</p>
+  <h3>The turn</h3>
+  <p>Seed the anchor, and the machine learns her two voices; SPECTRAL VIEW unlocks and the whole page splits cleanly — cover story and confession, side by side. Chain B's lesson, stated once and never repeated: <em>two accounts, and the differences are the message; truth needs an anchor from outside the page.</em></p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">the anchoring fact — where the mail truly went</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"I kept a diary he could find and a diary that was true. The trick of surviving him was remembering which was which."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">She wrote her whole life twice — one version for his eyes, one for the record. Half this book is testimony disguised as routine.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">18</span> The Daughter's Drawing <span class="keychip l">A → 4</span> <span class="needs">needs SPECTRAL</span></h2>
+  <h3>On the scan</h3>
+  <p>A child's crayon drawing: the greenhouse, two stick figures, an enormous sun. Under spectral separation, an adult pencil layer beneath the wax — written, then erased, then drawn over by the child, so the strokes interleave through the crayon.</p>
+  <h3>The lock</h3>
+  <p>Channel-separation tracing. The player isolates the pencil channel and traces the erased text from stroke fragments where the sun and glasshouse overdraw it: a name, and a caption in Vera's hand.</p>
+  <h3>The turn</h3>
+  <p>The pencil resolves: <em>ANN HALLORAN</em> — the daughter's new surname, written under the drawing years after it was made, then erased — and beneath it, <em>"aged 4. Our last summer."</em> <strong>A → slot 4</strong>. The two stick figures hold hands in the picture; the caption's arithmetic says who they were and why the surname is different.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">traced name + age from the caption</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"I gave her a name he could not follow. Then I erased even my writing of it — but I could not erase her sun."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">Ann — Magpie's mother — was given away to be kept safe. The adoption that made her unfindable is written in pencil under a four-year-old's greenhouse.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">19</span> Bus Timetable <span class="keychip l">A → 9</span> <span class="needs">needs NIGHTINGALE</span></h2>
+  <h3>On the scan</h3>
+  <p>A night-service timetable card: <span class="fmt">ROUTE 9 — NIGHT SERVICE</span>, a stops column and a times grid, pencil dots against certain runs, margin notes in her smallest hand: <em>"listen first, ride second — never before the song ends" · "never the same stop twice running" · "always off before the depot."</em></p>
+  <h3>The lock</h3>
+  <p>Timetable logic. The constraints prune the grid — and the first constraint is unreadable without page 07: <em>the song</em> is Nightingale's program, which the radio log shows ending at 23:40. Only one run departs after the song and satisfies the other notes; the dotted stops on that run converge on a single stop she never crossed off.</p>
+  <h3>The turn</h3>
+  <p>The stop is <strong>ARBOR LANE</strong> — the greenhouse stop. She rode Route 9 past it for years, off before the depot, never disembarking. <strong>A → slot 9</strong>, filed from the route's own number. The self-confirmation is the map of her grief: the one stop with no dot is the only one that mattered.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">the run + the stop</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"Nine took me past the glass every night. Getting off would have led him to her."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">She kept loving them from a moving bus — closeness rationed to a window's width, because a woman who is followed can never stop.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">20</span> The Interview <span class="keychip l">N → 10</span> <span class="needs">needs SPECTRAL · MAGPIE</span></h2>
+  <h3>On the scan</h3>
+  <p>A pasted clipping: <em>COUNTY ARCHIVE MARKS FORTY YEARS</em> — a staff photograph with one figure half out of frame, a caption, a cheerful article. Under spectral view, her ink proof-marks ride the newsprint: corrections in a proofreader's hand, some flagged with a tiny bird glyph.</p>
+  <h3>The lock</h3>
+  <p>Planted-error harvest. The article's errors divide in two: honest misprints, and errors she seeded in the interview herself — the latter proof-marked with the bird (the magpie, page 02's key, is the sorting rule). Harvest only the bird-marked corrections: wrong dates, a wrong shelf count, a misquote — and the caption, where the surname is printed <em>OSTRA_DER</em>, one letter short.</p>
+  <h3>The turn</h3>
+  <p>Her bird-marked proof note against the caption: <em>"^n — the tenth."</em> The dropped letter is the deliberate one — the paper of record misspells her, so the record cannot find her. <strong>N → slot 10</strong>, from her own caret.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">the letter the caption dropped + its position</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"I gave the reporter one true photograph of my shoulder and eleven small lies. A record with a hole in it is a door."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The only time print ever held her, she was half out of frame and one letter short — and both were her own doing, years before she ran.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">21</span> Inventory of the Lost <span class="keychip l">D → 11</span> <span class="needs">needs RAKING · UV · SPECTRAL</span></h2>
+  <h3>On the scan</h3>
+  <p>A ruled page titled INVENTORY, thirteen numbered rows — but only one column visible: WHAT. Under UV, a second column between the lines: WHERE. Under raking light, a third, written with a dry stylus, no ink at all: WHY IT HURT. Spectral view separates where the layers cross.</p>
+  <h3>The lock</h3>
+  <p>Tri-layer interleave. Her rule, written at the foot in all three layers at once: <em>"What, where, why — never on the same line. I couldn't bear them touching."</em> The WHERE column is shifted down one row, the WHY column up one; thirteen items must be rewoven into their true triples.</p>
+  <h3>The turn</h3>
+  <p>Rewoven, item 11 assembles: <em>the first diary — burned in the greenhouse stove — because it named her.</em> Her note beside the row: <em>"Eleven of thirteen. D. As in done."</em> <strong>D → slot 11</strong>. Thirteen destroyed things, thirteen letters — the inventory of the erasure is the same length as the name it protected.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">reweave, then item 11's triple</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"I wrote down everything I destroyed, in three inks, so that no one — including me — could ever read the whole grief at once."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The erasure itemized: what each thing was, where it ended, and why it hurt — thirteen entries long, like her name.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">22</span> First Day <span class="keychip l">E → 2</span> <span class="needs">needs GREENHOUSE</span></h2>
+  <h3>On the scan</h3>
+  <p>The oldest thing in the book: a pristine catalog card, county archive, 1959, stamped <span class="fmt">DRAWER 2</span> — a card for <em>A Practical Guide to Glasshouse Cultivation</em>. Under the workstation's plain magnifier (no instrument needed), the typed lines are pricked through with a needle, a hole above single letters.</p>
+  <h3>The lock</h3>
+  <p>Pinprick code — the oldest trick in the book, literally: a nineteen-year-old's game, decades before she learned fear. Page 05's key is the sorting rule for why <em>this</em> card: the glasshouse is the thread that runs her whole life, and the card is where it starts. The pricked letters, in order, spell plainly.</p>
+  <h3>The turn</h3>
+  <p>The pricks read: <em>I FILED MYSELF HERE FIRST.</em> The drawer stamp and the message's initial file the key — <strong>E → slot 2</strong>, from Drawer 2. Young Vera hides nothing; the earliest page is the most direct, and it lands like a blow after twelve pages of cipher: she started as someone with nothing to hide.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">the pricked sentence</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"Nineteen, first day, and I pricked myself into the catalog like a girl carving a tree. I wanted to be the one who decides what is remembered."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">Why she became an archivist — and that the greenhouse thread began on her first day, in glass and growing things, before any of it needed to be secret.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">23</span> The Blank Census <span class="keychip l">R → 3</span> <span class="needs">needs ROOM 214</span></h2>
+  <h3>On the scan</h3>
+  <p>A 1950 census sheet — her childhood household — bearing a rooming-house stamp: <span class="fmt">WEXFORD HOUSE 214</span>. Her annotation: <em>"found in his room. Two-fourteen kept everything."</em> Line 3 is scraped to bare fiber. The sheet's own machinery survives: tally boxes, relation codes, the enumerator's column sums.</p>
+  <h3>The lock</h3>
+  <p>Census-grid constraint deduction. Five persons tallied, two male; ages, relation codes, and "years married" must reconcile with the printed rules. The surviving lines — Edith Ostrander, 34; Vera, 10; two younger siblings — force line 3's every field.</p>
+  <h3>The turn</h3>
+  <p>Line 3 resolves: <em>OSTRANDER, R——, male, 41, head of household.</em> Her father. The scrape marks predate every other erasure in the book by decades — her mother held the blade. And the name settles the book's quietest question: <strong>Ostrander is hers</strong>, the name she was born with and took back. <strong>R → slot 3</strong>. The grid sums check; the census confirms itself.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">line 3, all fields</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"My mother taught me flowers, and one other thing. I watched her scrape him out when I was ten, and the sums still balanced. That is the whole of my education."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">Erasure is her inheritance — the first blank she ever saw was made by her mother's hand, and the name the player is assembling is the one Vera reclaimed from that household.</p>
+</article>
+
+<p class="foot">Slot map complete: <span class="mono">V1(p10) E2(p22) R3(p23) A4(p18) O5(p15) S6(p16) T7(p14) R8(p12) A9(p19) N10(p20) D11(p21) E12(p13) R13(p11)</span> — VERAOSTRANDER. Structural echoes on record: 13 destroyed things = 13 letters (p21); the mod-26 convention taught at p09 is reused at p15 in her voice (convention, not mechanism — no chain spent); reverse chronology lands the two gut punches in order: the drawing (p18), then the census (p23), then Act III begins. Chain B taught at 17; its mastery exam is p26. The reserved third chain remains unspent through Act II.</p>
+</main>

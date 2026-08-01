@@ -40,27 +40,26 @@ export interface Page {
  *  thirteen letter KEYS, not this string — guessing it early is useless. */
 export const FULL_NAME = 'VERAOSTRANDER';
 
-/** Letter keys carry their slot (1-13). Assigned so far: R→13 (p11 Carbon
- *  Paper — REF 13-R, "the last letter is the one they kept"), S→6 (p16
- *  Library Slip). null = not yet designed; test-graph enforces that
- *  assigned slots are consistent with FULL_NAME. */
+/** Letter keys carry their slot (1-13). All thirteen assigned (Act II page
+ *  design, see design/act2-pages.html); test-graph enforces consistency
+ *  with FULL_NAME and that every slot 1-13 appears exactly once. */
 export const LETTER_SLOTS: Record<
   Extract<KeyId, `L${number}`>,
-  { letter: string; slot: number } | null
+  { letter: string; slot: number }
 > = {
-  L1: null,
-  L2: { letter: 'R', slot: 13 },
-  L3: null,
-  L4: null,
-  L5: null,
-  L6: null,
-  L7: { letter: 'S', slot: 6 },
-  L8: null,
-  L9: null,
-  L10: null,
-  L11: null,
-  L12: null,
-  L13: null,
+  L1: { letter: 'V', slot: 1 }, // p10 form field one
+  L2: { letter: 'R', slot: 13 }, // p11 REF 13-R, "the last letter is the one they kept"
+  L3: { letter: 'R', slot: 8 }, // p12 eighth rim character from the broken tooth
+  L4: { letter: 'E', slot: 12 }, // p13 the twelfth trial
+  L5: { letter: 'T', slot: 7 }, // p14 line seven would not go
+  L6: { letter: 'O', slot: 5 }, // p15 "four cuts spell, the fifth files"
+  L7: { letter: 'S', slot: 6 }, // p16 "SIXTH IS S"
+  L8: { letter: 'A', slot: 4 }, // p18 Ann, aged 4
+  L9: { letter: 'A', slot: 9 }, // p19 Route 9
+  L10: { letter: 'N', slot: 10 }, // p20 "^n — the tenth"
+  L11: { letter: 'D', slot: 11 }, // p21 "Eleven of thirteen. D. As in done."
+  L12: { letter: 'E', slot: 2 }, // p22 Drawer 2
+  L13: { letter: 'R', slot: 3 }, // p23 census line 3
 };
 
 export type Flag = 'introDone' | 'endingSeen';
