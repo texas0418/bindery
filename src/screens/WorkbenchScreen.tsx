@@ -9,9 +9,33 @@ import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { keyLabel, PAGES } from '../content/unwriting/graph';
 import { isAttackable } from '../engine/graph';
-import type { KeyId, Page } from '../models';
+import type { Arc, KeyId, Page } from '../models';
 import { earnedKeys, pageSolved } from '../state';
 import { colors, fonts } from '../theme';
+
+// Chapter-grouped contents per Simon's TOC reference (2026-08-01): act
+// headers as chapter labels, titles left, page numbers right past the
+// dotted leader.
+const ARC_TITLE: Record<Arc, { label: string; name: string }> = {
+  intake: { label: 'ACT I', name: 'INTAKE' },
+  recovery: { label: 'ACT II', name: 'RECOVERY' },
+  signature: { label: 'ACT III', name: 'THE LAST SIGNATURE' },
+};
+
+type TocItem = { kind: 'header'; arc: Arc } | { kind: 'page'; page: Page };
+
+function tocItems(): TocItem[] {
+  const out: TocItem[] = [];
+  let arc: Arc | null = null;
+  for (const p of PAGES) {
+    if (p.arc !== arc) {
+      arc = p.arc;
+      out.push({ kind: 'header', arc });
+    }
+    out.push({ kind: 'page', page: p });
+  }
+  return out;
+}
 
 function TocRow({
   page,
@@ -32,18 +56,18 @@ function TocRow({
       {ribbon && <View style={s.ribbon} />}
       <View style={s.rowInner}>
         <View style={s.titleLine}>
-          <Text style={s.folio}>{String(page.id).padStart(2, '0')}</Text>
           <Text
             style={[s.title, solved ? s.titleSolved : ready ? s.titleReady : s.titleBlocked]}
             numberOfLines={1}
           >
             {page.title}
+            {solved ? '  ✓' : ''}
           </Text>
           <Text style={s.leader} numberOfLines={1} ellipsizeMode="clip">
             {'· '.repeat(60)}
           </Text>
-          <Text style={[s.mark, solved && s.markSolved]}>
-            {solved ? '✓' : ready ? '·' : '—'}
+          <Text style={[s.folio, solved && s.folioSolved]}>
+            {String(page.id).padStart(2, '0')}
           </Text>
         </View>
         {!solved && !ready && (
@@ -84,17 +108,24 @@ export default function WorkbenchScreen({
       <View style={s.book}>
         <Text style={s.contentsHead}>CONTENTS</Text>
         <FlatList
-          data={PAGES}
-          keyExtractor={(p) => String(p.id)}
+          data={tocItems()}
+          keyExtractor={(it) => (it.kind === 'header' ? `h-${it.arc}` : String(it.page.id))}
           contentContainerStyle={s.list}
-          renderItem={({ item }) => (
-            <TocRow
-              page={item}
-              earned={earned}
-              ribbon={item.id === ribbonAt}
-              onOpen={() => onOpenPage(item.id)}
-            />
-          )}
+          renderItem={({ item }) =>
+            item.kind === 'header' ? (
+              <View style={s.arcHeader}>
+                <Text style={s.arcLabel}>{ARC_TITLE[item.arc].label}</Text>
+                <Text style={s.arcName}>{ARC_TITLE[item.arc].name}</Text>
+              </View>
+            ) : (
+              <TocRow
+                page={item.page}
+                earned={earned}
+                ribbon={item.page.id === ribbonAt}
+                onOpen={() => onOpenPage(item.page.id)}
+              />
+            )
+          }
         />
       </View>
     </View>
@@ -137,6 +168,16 @@ const s = StyleSheet.create({
     paddingVertical: 14,
   },
   list: { paddingBottom: 48, paddingHorizontal: 6 },
+  arcHeader: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: 10,
+    paddingHorizontal: 12,
+    paddingTop: 22,
+    paddingBottom: 6,
+  },
+  arcLabel: { color: colors.marginRed, fontFamily: fonts.serif, fontSize: 13, letterSpacing: 2 },
+  arcName: { color: colors.ink, fontFamily: fonts.serif, fontSize: 15, letterSpacing: 3 },
   row: { flexDirection: 'row' },
   ribbon: {
     width: 4,
@@ -149,9 +190,10 @@ const s = StyleSheet.create({
   folio: {
     color: colors.inkFaint,
     fontFamily: fonts.serif,
-    fontSize: 13,
+    fontSize: 14,
     fontVariant: ['tabular-nums'],
   },
+  folioSolved: { color: colors.ink },
   title: { fontFamily: fonts.serif, fontSize: 17, flexShrink: 1 },
   titleSolved: { color: colors.ink },
   titleReady: { color: colors.ink, opacity: 0.75 },
