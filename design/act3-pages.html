@@ -1,0 +1,131 @@
+<title>Unwriting — Act III Page Specs</title>
+<style>
+  :root{
+    --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B;
+    --seal:#8A6D2F; --rule:#DCD9D0; --chip-ink:#FFFFFF; --vera:#6B4FA0; --oxblood:#4A1717;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+      --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64;
+      --seal:#C0A05A; --rule:#2A2D33; --chip-ink:#14161A; --vera:#A78BD4; --oxblood:#8A3535; }
+  }
+  :root[data-theme="dark"]{ --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+    --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64;
+    --seal:#C0A05A; --rule:#2A2D33; --chip-ink:#14161A; --vera:#A78BD4; --oxblood:#8A3535; }
+  :root[data-theme="light"]{ --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B;
+    --seal:#8A6D2F; --rule:#DCD9D0; --chip-ink:#FFFFFF; --vera:#6B4FA0; --oxblood:#4A1717; }
+  body{background:var(--ground); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; margin:0; padding:0 0 4rem; line-height:1.6;}
+  .mono{font-family:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;}
+  header{border-bottom:1px solid var(--rule); padding:1.4rem 2rem 1.1rem; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  header .sys{font-size:.72rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase;}
+  header h1{font-size:1.25rem; font-weight:600; margin:.35rem 0 .1rem;}
+  header .sub{font-size:.8rem; color:var(--ink-soft);}
+  main{max-width:46rem; margin:0 auto; padding:0 2rem;}
+  .intro{margin-top:2rem; font-size:.92rem; color:var(--ink-soft); max-width:44rem;}
+  article{margin-top:2.6rem; background:var(--card); border:1px solid var(--card-edge); border-radius:5px; padding:1.5rem 1.8rem 1.3rem;}
+  article h2{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.98rem; font-weight:600; margin:0 0 .2rem; display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap;}
+  .pnum{color:var(--ink-faint); font-size:.85rem;}
+  .keychip{display:inline-block; padding:.06rem .5rem; border-radius:3px; font-family:ui-monospace,Menlo,monospace; font-size:.72rem; font-weight:700; color:var(--chip-ink); background:var(--seal);}
+  .needs{font-family:ui-monospace,Menlo,monospace; font-size:.7rem; color:var(--ink-faint);}
+  h3{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.68rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint); margin:1.2rem 0 .3rem;}
+  p{margin:.3rem 0 .55rem; font-size:.92rem;}
+  .vera{font-family:Charter,"Iowan Old Style",Georgia,serif; font-style:italic; color:var(--vera); border-left:2px solid var(--vera); padding-left:1rem; margin:.4rem 0 .55rem;}
+  .reveals{font-family:Charter,"Iowan Old Style",Georgia,serif; font-style:italic; color:var(--ink-soft);}
+  .fmt{font-family:ui-monospace,Menlo,monospace; font-size:.8rem; background:var(--ground); border:1px solid var(--rule); border-radius:3px; padding:.15rem .5rem; display:inline-block;}
+  .ending{border-left:3px solid var(--oxblood); padding-left:1rem; margin:.6rem 0;}
+  .ending b{font-family:ui-monospace,Menlo,monospace; font-size:.8rem; letter-spacing:.08em;}
+  .foot{margin-top:2.6rem; border-top:1px solid var(--rule); padding-top:1rem; font-size:.85rem; color:var(--ink-soft); max-width:44rem;}
+</style>
+
+<header>
+  <div class="sys">Bindery Workstation · Page Design · Act III — The Last Signature · rev 1</div>
+  <h1>Unwriting — Act III Page Specs</h1>
+  <div class="sub">Pages 24–28 — the checks written for Magpie, passed by someone else</div>
+</header>
+
+<main>
+<p class="intro">The four seals and the signature. Act III's law: the puzzles are identity checks Vera wrote for her granddaughter, and the text must make the player feel that passing them is trespass. Canon resolved here (rule 2): every "the journal notices you" anomaly is <strong>Vera's contingency writing</strong> — she hoped for Magpie and wrote branches for a stranger all along. Nothing uncanny; the husband stays mundane; the horror remains that records work. Also designed here: the <strong>Delivery breadcrumb</strong> — the optional deduction thread that earns the warmest ending.</p>
+
+<article>
+  <h2><span class="pnum">24</span> First Check: The Name You Answered To <span class="keychip">FIRST SEAL</span> <span class="needs">needs MAGPIE · A→4 (the drawing)</span></h2>
+  <h3>On the scan</h3>
+  <p>The first fully legible page in the book — a letter to Magpie in clear, unhidden handwriting, warm and devastating, ending: <em>"If you are Magpie, you kept the drawing. Lay it over my words, as it folds, and read only what shows."</em> Two small suns mark the corners — registration anchors matching two suns on the drawing (page 18).</p>
+  <h3>The lock</h3>
+  <p>Grille overlay. The crayon greenhouse's window panes are the apertures. The software's overlay mode aligns the drawing over the letter by the paired suns — but <em>"as it folds"</em> means the drawing lays verso: mirrored. An unmirrored overlay yields grammatical garbage (the invariant holds even here).</p>
+  <h3>The turn</h3>
+  <p>Through the mirrored panes: <em>ONLY · MY · MAGPIE · HOLDS · BOTH · PAGES · SAY · THE · NAME</em>. The player enters MAGPIE — a word they've held since page 02 — and the seal grants. Then the page's last line, printed by the software as it files S1, from text found <em>below</em> the grille field: <em>"…or someone holding her things. I wrote this for both of you. Keep going."</em> The first open acknowledgment that she planned for the stranger — the anomaly resolves into authorship, and it lands colder than any ghost.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">mirrored overlay + the name (6 letters)</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"If you are Magpie, you kept the drawing."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The journal has two intended readers and always did — the granddaughter she hoped for, and whoever came instead.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">25</span> Second Check: The Route Home <span class="keychip">SECOND SEAL</span> <span class="needs">needs 14 LARKSPUR · O→5 · A→9</span></h2>
+  <h3>On the scan</h3>
+  <p>The book's only map, hand-drawn: unlabeled streets, landmarks in her private shorthand — a keyhole (the house that kept losing its locks), a numeral 9 winding through, a small pane of glass. Her check: <em>"Walk me home. From the house that kept losing its locks, by the way the nine goes, to where the glass stood. Mark where I would stop."</em></p>
+  <h3>The lock</h3>
+  <p>Cartographic trace. The route itself is assembly work — Larkspur anchors the start, Route 9's shape (page 19) threads the middle. The trap is the last clause: players who mark the greenhouse stop are told, gently, in her hand: <em>"You walked past where I could not."</em></p>
+  <h3>The turn</h3>
+  <p>She never got off. <em>Where I would stop</em> is nowhere — the correct mark is on the road itself, at the point where the bus window faces the glass. Marking it makes the map bloom: faint pinprick-line work, invisible until now, renders the greenhouse <em>as seen from a moving window</em> — she drew her whole home from the one angle she was allowed. This is the game's thesis image, and only someone who understood page 19's grief can place the mark.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">trace + a single mark on the map</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"Only someone who rode the route knows where it truly stops."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">It doesn't stop. Home, for her, was a view from a window that never slowed — and the map has held that picture all along.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">26</span> Third Check: The Two Truths <span class="keychip">THIRD SEAL</span> <span class="needs">needs SPECTRAL · T→7 · N→10</span></h2>
+  <h3>On the scan</h3>
+  <p>The day she left, written <strong>three</strong> times — visible ink, UV ink, and a third account woven in mixed inks that only spectral view untangles. Chain B, mastered: page 17 gave you an external anchor to tell twin accounts apart; here there is no anchor. Her check: <em>"He believed everything that was written down. Show me you don't."</em></p>
+  <h3>The lock</h3>
+  <p>Delta collation against the whole book. Each account must be convicted or acquitted using established record: one account says they married at the courthouse — but line 7 said <em>Trinity Registry Office</em> (page 14). Another quotes the anniversary clipping spelling her name in full — but the record's spelling has a hole in it, by her own hand (page 20). The third account survives cross-examination.</p>
+  <h3>The turn</h3>
+  <p>The player marks each account with its verdict <em>and its disproving fact</em> — belief with evidence, disbelief with evidence. The surviving account ends differently from the two forgeries: not <em>"I left at dawn"</em> but <em>"I left at dusk, because the nine runs at night."</em> Consistent with everything, mundane, unglamorous — true. The seal files with her one-line verdict on the player: <em>"Good. Now you read like an archivist."</em></p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">verdict per account + the disproving fact for each false one</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"He believed everything that was written down. Show me you don't."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The night she left, told truly at last — at dusk, by bus, with nothing — and the lesson she considered her whole estate: documents are testimony, not truth.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">27</span> Fourth Check: What She Taught <span class="keychip">FOURTH SEAL</span> <span class="needs">needs NIGHTINGALE · E→2 · R→3 · RAKING · UV</span></h2>
+  <h3>On the scan</h3>
+  <p>A page that appears blank — the last leaf before the endpapers. The final exam is nested: each layer, correctly read, names the next tool; a wrong order dead-ends in garbage. Solving order is itself the puzzle.</p>
+  <h3>The lock</h3>
+  <p>Nested composite, one use of everything she taught: <strong>raking</strong> first (the only visible invitation — a single embossed line: <em>"begin with the bird"</em>) → the bird is Nightingale: the embossed text continues with a frequency, <span class="fmt">1210</span>, which page 07's dial resolves to a letter → the letter is a cell coordinate on her alphabet measure strip (page 13's pitch rule, now a grid) → <strong>UV</strong> on that cell alone fluoresces the next line: <em>"Drawer two, line three."</em> → Drawer 2 (page 22) and census line 3 (page 23) yield E and R — her initials, entered as the final countersign: <span class="fmt">E. R.</span>? No: <em>Vera's</em> initials as reclaimed — <span class="fmt">V. O.</span> — the trap distinguishes players who compute from players who <em>understood</em>: E and R are the letters the steps yield, but her closing instruction reads <em>"sign the woman, not the cipher."</em></p>
+  <h3>The turn</h3>
+  <p>Entering V. O. — the initials of the name the whole game has been assembling — completes the exam. The page's full text then renders in every layer at once, the game's thesis spoken plainly: <em>"To whoever you are, now that you have come this far: she never came, did she? You have my lessons, my name, and my reasons. Finish it — or don't. You have read enough to choose."</em> S4 files, and page 28 unseals.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">tool sequence + the countersign initials</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"The last lesson is the shortest: knowing how is nothing. Knowing whom, everything."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">She knew. The last page she wrote assumes the granddaughter never came — and forgives, in advance, the stranger who did.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">28</span> The Last Signature <span class="needs">consumes 4 seals + all 13 letters — a choice, not a puzzle</span></h2>
+  <h3>On the screen</h3>
+  <p>The restoration certificate — the workstation's completion form, and the one ceremonial surface in the game: oxblood ground, gilt rules (the series binding, spent here). The thirteen letter keys slot into the name line one by one as the certificate assembles: <span class="fmt">VERA OSTRANDER</span>. The player does not type the name; the software has kept every key (doctrine 7), and a guessed string was never the lock (rule 15). Below the name, three lines where a restorer may sign:</p>
+  <p class="ending"><b>1 · ARCHIVE RECORD</b> — public accession. Epilogue: a catalog search screen, one result where none existed, her dates, her name, findable forever. The record is restored; so is her findability. The software files it without comment.</p>
+  <p class="ending"><b>2 · PRIVATE DELIVERY</b> — requires the earned breadcrumb (below). The journal is sealed, addressed <em>c/o E. Nightingale, Notary — for A. Halloran, Arbor Lane</em>, and released. Epilogue: one reply letter, months later, no face, signed only <em>M.</em> — <em>"She taught my mother the flower alphabet. Nobody ever told me why. I am learning it now."</em> Without the breadcrumb, this line reads <span class="fmt">recipient unknown</span> — visible, signposted, unearned.</p>
+  <p class="ending"><b>3 · DISPOSAL AUTHORIZATION</b> — the secure-deletion routine. The player must confirm twice, in the software's dryest procedural voice. Epilogue: the library shows an empty slot — <em>item deaccessioned by restorer</em> — and the damage log dims key by key, thirteen letters going out in the order they were found. The last screen is the intake ticket from the game's first minute, now blank.</p>
+  <h3>The Delivery breadcrumb (the optional deduction, signposted in Act II)</h3>
+  <p>The pencil rubbing loose in page 12 is flagged by the software on first view: <span class="fmt">foreign object — not part of original binding</span>. It is a deed rubbing, dated <em>after</em> Vera's last entry — someone put it in the journal before the estate sale. Read at magnification, it records a parcel transfer on <strong>Arbor Lane</strong> (page 19) to grantee <strong>A. HALLORAN</strong> (page 18). Synthesis: Ann bought back the greenhouse land, and Nightingale — whose estate the journal surfaced from, which is why there was an estate lot at all — tucked the forwarding clue in for whoever finished the restoration. Three pages, one inference, never stated aloud: that is the deduction that earns line 2.</p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"Where you enter my name decides everything. I am done deciding. That was the point."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The lock was never protecting the journal from the reader — it was choosing the reader who would have to decide what she couldn't.</p>
+</article>
+
+<p class="foot">Doctrine accounting: chain B closes at 26 (taught → mastered); chain A closed in Act I; <strong>the reserved third chain ships unspent</strong> — the book ends with two chains and 23 one-off mechanisms, per rule 18's spirit. Rule 14 holds: all three endings are choosable at the certificate with full knowledge; only Delivery's <em>address</em> is earned, and its absence is visible, not hidden. Rule 2 closes: every anomaly in the game resolves to Vera's contingency writing (the "notices you" beats are her authored branches) plus one physical intrusion — Nightingale's rubbing — flagged honestly by the software the moment it appears. Rule 16 audit point: the three epilogues use no data beyond entered answers and session state. The husband dies as he lived: a man made entirely of forms, never named, never seen.</p>
+</main>
