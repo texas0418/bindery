@@ -45,16 +45,19 @@ const finale = PAGES.find((p) => p.id === 28)!;
 assert.equal(finale.consumes.length, 17, 'p28: 4 seals + 13 letters');
 assert.equal(finale.produces.length, 0, 'p28 is a choice, not a producer');
 
-// ——— letter slots consistent with the name ———
+// ——— letter slots: consistent with the name, every slot exactly once ———
 assert.equal(FULL_NAME.length, 13);
+const slotsSeen = new Set<number>();
 for (const [id, slot] of Object.entries(LETTER_SLOTS)) {
-  if (!slot) continue;
   assert.equal(
     FULL_NAME[slot.slot - 1],
     slot.letter,
     `${id}: slot ${slot.slot} of ${FULL_NAME} is ${slot.letter}`,
   );
+  assert.ok(!slotsSeen.has(slot.slot), `slot ${slot.slot} assigned twice`);
+  slotsSeen.add(slot.slot);
 }
+assert.equal(slotsSeen.size, 13, 'all thirteen slots assigned');
 
 // ——— doctrine 18: mechanisms unique outside sanctioned chains A + B ———
 const CHAIN_OK = new Set(['delta collation', 'alignment']); // chain B; chain A (both plates align)

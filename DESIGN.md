@@ -45,9 +45,23 @@ session timestamps (rule 16: in-app data only, provably harmless).
 FULL_NAME = VERAOSTRANDER (13 letters, 13 slots). Letter keys log as
 letter + slot in scrambled discovery order. p28 consumes the 13 letter KEYS
 plus 4 seals — typing a guessed name does nothing (anti-leak, rule 15).
-Assigned so far: **L2 = R→13** (Carbon Paper), **L7 = S→6** (Library Slip).
+All thirteen slots assigned (test-graph enforces the full bijection):
+V1(p10) E2(p22) R3(p23) A4(p18) O5(p15) S6(p16) T7(p14) R8(p12) A9(p19)
+N10(p20) D11(p21) E12(p13) R13(p11).
 (Design bug caught by test-graph on day one: R was first assigned slot 12,
 but slot 12 of VERAOSTRANDER is E — R lives at 3, 8, 13.)
+
+## Canon (set during Act II design)
+
+- **Ostrander is her maiden name, reclaimed** — the census (p23) reveals her
+  scraped-out father, R. Ostrander; the name the player assembles is the one
+  she was born with, not his. E. is never named, ever, in any act.
+- Daughter: **Ann** (Halloran after the adoption; Magpie's mother).
+- Timeline: born 1940 · census 1950 (age 10, mother Edith) · archive at 19
+  (1959, Drawer 2) · journal begins 1961 · wedding June 1974, Trinity
+  Registry Office · Ann born 1976 · drawing 1980 (Ann aged 4) · adoption
+  ~1984 · flight to 14 Larkspur ~1985-86 · erasure campaign 1986-89 ·
+  Nightingale = E. Nightingale, notary public, the radio friend.
 Remaining 11 assigned during Act II page design.
 
 ## Root page solutions (full specs in design/root-pages.html)
@@ -79,6 +93,30 @@ yield garbage, never near-misses; the husband appears only as "E." and is
 never named in Act I. Note for implementers: mod 26 with remainder 0 = Z
 never occurs in Act I answers (LARKSPUR contains no Z) — if a future page
 uses remainder 0, define it explicitly on-page.
+
+## Act II page solutions (full specs in design/act2-pages.html)
+
+| p | yields | mechanism | core move |
+|---|--------|-----------|-----------|
+| 10 | V→1 + `ROOM 214` | forgery deduction | form footer Rev. 3/89 vs filing date 11/87 = backdated; "he never lied about the little things. Only field one" — field 1 is NAME |
+| 12 | R→8 | fragment reassembly + symbol key | seal shards orientable only via expected text NIGHTINGALE; rim reads "E. NIGHTINGALE · NOTARY PUBLIC"; 8th char from the notch |
+| 13 | E→12 | redaction metrology | bar widths vs her alphabet pitch strip; 12th bar = one character, mid-phrase "I do not fear ——." |
+| 14 | T→7 | ink-bleed physics | diffusion model run backward, parameterized by JUNE 1974; line 7 = TRINITY REGISTRY OFFICE |
+| 15 | O→5 | key-bitting code | final key B-2-4-9-0-5; "four cuts spell, the fifth files": 2+4+9+0=15=O, 5th cut = slot 5; reverse bears county key-registry stamps |
+| 17 | SPECTRAL | delta collation (chain B taught) | twin entries, 7 deltas; anchor truth with ROOM 214 (visible twin says "post office") to train the ink separator |
+| 18 | A→4 | channel-separation tracing | pencil under crayon: ANN HALLORAN, "aged 4. Our last summer." |
+| 19 | A→9 | timetable logic | "never before the song ends" = Nightingale's program ends 23:40 (p07 log); constraints converge on ARBOR LANE, Route 9 |
+| 20 | N→10 | planted-error harvest | bird-glyph proof-marks sort her seeded errors from misprints; caption prints OSTRA_DER; "^n — the tenth" |
+| 21 | D→11 | tri-layer interleave | WHAT visible / WHERE in UV shifted +1 / WHY embossed shifted −1; item 11: the first diary — greenhouse stove — "because it named her" |
+| 22 | E→2 | pinprick code | needle holes at plain magnification spell I FILED MYSELF HERE FIRST; DRAWER 2 stamp files the slot |
+| 23 | R→3 | census-grid constraint deduction | tally boxes + relation codes force scraped line 3: OSTRANDER, R., 41, head — her father, scraped by her mother |
+
+Act II invariants: letter keys are delivered legibly on solve (the page is
+the puzzle, the key is the reward — doctrine 7); the mod-26 convention
+taught at p09 recurs at p15 as HER convention, not a repeated mechanism (no
+chain spent); 13 destroyed things (p21) = 13 letters; reverse chronology
+lands the drawing (p18) before the census (p23) so the two gut punches
+escalate; the reserved third chain is still unspent entering Act III.
 
 ## Open design decisions
 
