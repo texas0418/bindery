@@ -66,3 +66,48 @@ export type Flag = 'introDone' | 'endingSeen';
 
 /** The three endings, chosen by where the name is entered (p28). */
 export type Ending = 'accession' | 'delivery' | 'blank';
+
+/** Uppercase, strip everything but letters/digits/spaces, collapse runs.
+ *  Rule 8's quiet half: format mistakes are normalized away, not punished. */
+export function normalizeAnswer(raw: string): string {
+  return raw
+    .toUpperCase()
+    .replace(/[^A-Z0-9 ]+/g, ' ')
+    .replace(/ +/g, ' ')
+    .trim();
+}
+
+// ——— scan content (rendered by PageScreen) ———
+
+/** 'plain' always renders. Instrument lights render only when the matching
+ *  key is earned. 'confidence' is a workstation view (free), offered only
+ *  on pages that declare it. */
+export type Light = 'plain' | 'raking' | 'uv' | 'spectral' | 'confidence';
+
+export interface ScanBlock {
+  kind: 'heading' | 'para' | 'margin' | 'label' | 'table' | 'figure';
+  text?: string;
+  rows?: string[][];
+}
+
+export interface ScanLayer {
+  light: Light;
+  blocks: ScanBlock[];
+}
+
+export interface PageContent {
+  id: number;
+  layers: ScanLayer[];
+  /** Extra software views this page offers (e.g. OCR confidence). */
+  views?: Light[];
+  /** Absent on p28 (the choice) and on pages not yet transcribed. */
+  answer?: {
+    /** Rule 8: the declared shape, shown verbatim ("four-digit year"). */
+    format: string;
+    /** Salted hash of the normalized answer (engine/hash). Plaintext lives
+     *  only in solutions.spoilers.ts, which src/ never imports. */
+    hash: string;
+  };
+  /** The restored passage shown on solve — rule 13's payoff. */
+  restored: string;
+}

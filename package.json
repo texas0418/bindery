@@ -29,7 +29,7 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "test": "npx tsx test-graph.ts && npx tsx test-db.ts",
+    "test": "npx tsx test-graph.ts && npx tsx test-content.ts && npx tsx test-db.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },

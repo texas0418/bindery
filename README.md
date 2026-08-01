@@ -36,14 +36,21 @@ npm run lint
 
 ## Pre-ship TODO
 
-- [ ] Act I non-root pages (04, 06, 07, 08, 09) — full specs
-- [ ] Act II + III page specs; assign remaining 11 letter slots
-- [ ] Page screens + the three instrument render modes (raking/UV/spectral)
-- [ ] Answer hashing (underwood pattern) — plaintext leaves src/ before ship
+- [x] All 28 page specs (design/*.html + DESIGN.md)
+- [x] Page screens + answer hashing (spoilers sealed out of src/,
+      enforced by test-content.ts)
+- [x] Act I playable end-to-end (pages 01–09; proven by the test-content
+      playthrough simulation)
+- [x] CI: fleet pipeline + branch protection (bootstrap 2026-08-01)
+- [ ] Act II + III content transcription (pages 10–28 render "SCAN QUEUED")
+- [ ] Interaction upgrades: real rotation UI for the Calibration Plates
+      (restores Plate II's counterclockwise trap), overlay mode for p24,
+      map trace for p25
+- [ ] Spectral render mode (first needed by p17)
+- [ ] Art pass: figures replace text-mode scan blocks (logic unchanged)
 - [ ] Monetization gate placement decision (solving depth; open book forbids
       page-gating) + RevenueCat keys + App Store Connect record
 - [ ] Instrument flavor layers on already-solved pages
 - [ ] Anomaly beats script (each with its one-sentence explanation, rule 2)
 - [ ] Device QA at max Dynamic Type (rule 11) + 60fps scan-viewer gate
-- [ ] CI: run `../ci-template/bootstrap-pipeline.sh` + branch protection
 - [ ] Store listing: "brutally hard, no hints" positioning (rule 17)
