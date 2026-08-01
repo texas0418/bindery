@@ -1,0 +1,330 @@
+<title>The Bindery: Unwriting — Key Graph</title>
+<style>
+  :root{
+    --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B;
+    --word:#3D5A80; --letter:#A63A3A; --raking:#B07D2B; --uv:#6B4FA0;
+    --spectral:#2E7D74; --seal:#8A6D2F; --ending:#1C1B18;
+    --chip-ink:#FFFFFF; --rule:#DCD9D0; --root-ring:#1C1B18;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+      --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64;
+      --word:#7FA0C8; --letter:#D07070; --raking:#D3A34E; --uv:#A78BD4;
+      --spectral:#5CB3A8; --seal:#C0A05A; --ending:#E8E6E0;
+      --chip-ink:#14161A; --rule:#2A2D33; --root-ring:#E8E6E0;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+    --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64;
+    --word:#7FA0C8; --letter:#D07070; --raking:#D3A34E; --uv:#A78BD4;
+    --spectral:#5CB3A8; --seal:#C0A05A; --ending:#E8E6E0;
+    --chip-ink:#14161A; --rule:#2A2D33; --root-ring:#E8E6E0;
+  }
+  :root[data-theme="light"]{
+    --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B;
+    --word:#3D5A80; --letter:#A63A3A; --raking:#B07D2B; --uv:#6B4FA0;
+    --spectral:#2E7D74; --seal:#8A6D2F; --ending:#1C1B18;
+    --chip-ink:#FFFFFF; --rule:#DCD9D0; --root-ring:#1C1B18;
+  }
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    margin:0; padding:0 0 4rem; line-height:1.55;
+  }
+  .mono{font-family:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;}
+  .serif{font-family:Charter,"Iowan Old Style","Palatino Linotype",Georgia,serif;}
+  header{
+    border-bottom:1px solid var(--rule); padding:1.4rem 2rem 1.1rem;
+    font-family:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  header .sys{font-size:.72rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase;}
+  header h1{font-size:1.25rem; font-weight:600; margin:.35rem 0 .1rem; letter-spacing:.01em;}
+  header .sub{font-size:.8rem; color:var(--ink-soft);}
+  main{max-width:72rem; margin:0 auto; padding:0 2rem;}
+  section{margin-top:2.6rem;}
+  h2{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:.78rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--ink-soft); border-bottom:1px solid var(--rule); padding-bottom:.45rem;
+  }
+  p{max-width:44rem; font-size:.92rem;}
+  .graph-wrap{overflow-x:auto; border:1px solid var(--rule); background:var(--card); border-radius:4px;}
+  svg text{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  .legend{display:flex; flex-wrap:wrap; gap:.5rem 1.2rem; margin-top:.8rem; font-size:.78rem;}
+  .legend span{display:inline-flex; align-items:center; gap:.4rem; color:var(--ink-soft);}
+  .swatch{width:.85rem; height:.55rem; border-radius:2px; display:inline-block;}
+  table{border-collapse:collapse; width:100%; font-size:.84rem;}
+  th{
+    text-align:left; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint);
+    font-weight:600; padding:.5rem .7rem .4rem; border-bottom:1px solid var(--rule);
+  }
+  td{padding:.55rem .7rem; border-bottom:1px solid var(--rule); vertical-align:top;}
+  td.num{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; color:var(--ink-faint); font-variant-numeric:tabular-nums;}
+  td.story{font-family:Charter,"Iowan Old Style",Georgia,serif; font-style:italic; color:var(--ink-soft); min-width:16rem;}
+  td.mech{font-size:.78rem; color:var(--ink-soft); min-width:13rem;}
+  .chip{
+    display:inline-block; padding:.05rem .45rem; border-radius:3px; margin:.08rem .18rem .08rem 0;
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.7rem; font-weight:600;
+    color:var(--chip-ink); white-space:nowrap;
+  }
+  .table-wrap{overflow-x:auto;}
+  ul{max-width:46rem; font-size:.9rem; padding-left:1.2rem;}
+  li{margin-bottom:.45rem;}
+  li::marker{color:var(--ink-faint);}
+  .arc-tag{font-family:ui-monospace,Menlo,monospace; font-size:.66rem; letter-spacing:.1em; color:var(--ink-faint); text-transform:uppercase;}
+  .note{border-left:2px solid var(--rule); padding:.1rem 0 .1rem 1rem; color:var(--ink-soft); font-size:.88rem; max-width:42rem;}
+</style>
+
+<header>
+  <div class="sys">Bindery Workstation · Restoration Planning · rev 1</div>
+  <h1>The Bindery: Unwriting — Key Dependency Graph</h1>
+  <div class="sub">28 pages · 8 word keys · 3 instruments · 13 letters · 4 seals · 1 signature</div>
+</header>
+
+<main>
+<section>
+  <h2>Graph</h2>
+  <p>Left to right is dependency depth, not book order — the book itself is open from intake (rule 10b). A page is attackable when every key it consumes has been earned. Double-ringed nodes are <strong>roots</strong>: solvable with nothing. Edge color = the key that flows along it. Hover any node for its full recipe.</p>
+  <div class="graph-wrap"><svg id="graph" role="img" aria-label="Dependency graph of all 28 pages"></svg></div>
+  <div class="legend">
+    <span><i class="swatch" style="background:var(--word)"></i>word key</span>
+    <span><i class="swatch" style="background:var(--letter)"></i>letter key</span>
+    <span><i class="swatch" style="background:var(--raking)"></i>raking light</span>
+    <span><i class="swatch" style="background:var(--uv)"></i>ultraviolet</span>
+    <span><i class="swatch" style="background:var(--spectral)"></i>spectral</span>
+    <span><i class="swatch" style="background:var(--seal)"></i>seal</span>
+  </div>
+</section>
+
+<section>
+  <h2>Structure notes</h2>
+  <ul>
+    <li><strong>Six roots, scattered.</strong> Pages 01, 02, 03, 05 sit early, but 11 (Carbon Paper) and 16 (Library Slip) sit mid-book — flipping ahead is rewarded on day one, which is the open-book rule made concrete.</li>
+    <li><strong>Instruments are the tier bosses.</strong> RAKING (04), UV (08), SPECTRAL (17) are each single-sourced on purpose: three world-opening moments, Metroidvania-style, each re-rendering already-seen pages with new layers. They are the only chokepoints in the graph.</li>
+    <li><strong>No hard walls.</strong> A player stuck on every instrument page can still fully solve 13 pages (01–03, 05, 07, 09, 11, 12, 15, 16, 19, 22 — and even seal 25) — with no hints, width is the mercy.</li>
+    <li><strong>Keys are reusable ingredients.</strong> Consuming never spends. The damage log records every key automatically (rule 7) — recall is never the challenge.</li>
+    <li><strong>Letters carry positions.</strong> Each of the 13 letter keys logs as letter + slot (e.g. <span class="mono">R → 07</span>), assembling on the restoration certificate in scrambled discovery order. Guessing the name early is possible and useless: page 28 consumes the thirteen <em>keys</em>, not the string.</li>
+    <li><strong>One seal cracks early, on purpose.</strong> Second Check (25) needs only the W7/L6/L9 chains — no instruments. A determined roamer can break an Act III seal before touching UV, and should feel incredible doing it.</li>
+    <li><strong>Critical path:</strong> <span class="mono">01 → 04 → 06 → 08 → 10 → 17 → 18 → 24 → 28</span> — nine pages deep, threading all three instruments.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Page manifest</h2>
+  <p>Every page carries its rule-13 sentence — the fact about Vera it must reveal. No sentence, no page.</p>
+  <div class="table-wrap">
+  <table id="manifest">
+    <thead><tr><th>#</th><th>Page</th><th>Arc</th><th>Produces</th><th>Consumes</th><th>Mechanism</th><th>What it reveals</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Mechanism inventory — rule 18 accounting</h2>
+  <p>27 puzzle pages (28 minus the signature). <strong>25 distinct solving logics</strong>: 23 one-off mechanisms plus two sanctioned recurrence chains — <strong>Chain A</strong>, Calibration Plates (04 → 08, taught/twisted; calibration is a repeated procedure in the fiction) and <strong>Chain B</strong>, delta collation (17 → 26, taught/mastered; it is Vera's central lesson — don't believe what's written down). The third sanctioned chain is <strong>reserved and unspent</strong>; if page design doesn't earn it, the book ships with two. Instruments are tools, not mechanisms — tool reuse never counts as a repeat.</p>
+  <p><strong>The bench</strong> — mechanisms that made the cut for quality but not for this book; they are series inventory for future Bindery entries, not waste: book cipher keyed to the journal's own pages · knitting-chart encoding · watermark alignment across leaves · torn-edge matching · fold-mark adjacency · shredded-strip reconstruction · microprint at magnification threshold · sewn-gathering misordering (bookbinding math) · recipe-quantity cipher · hymnal-number cipher.</p>
+</section>
+
+<section>
+  <h2>Doctrine checks</h2>
+  <ul>
+    <li><span class="mono">R4 visible hurdle</span> — every consuming field names its shape; the graph never hides that a page is waiting on a key.</li>
+    <li><span class="mono">R7 software keeps keys</span> — all produced keys auto-log; edges in this graph are lookups, never memory tests.</li>
+    <li><span class="mono">R10 no hints</span> — width is the only mercy: 6 roots, minimum frontier 5, three instrument-free chains.</li>
+    <li><span class="mono">R10b open book</span> — zero access gates anywhere in the graph; every edge is an ingredient.</li>
+    <li><span class="mono">R13 story per page</span> — manifest column six, complete, 28 of 28.</li>
+    <li><span class="mono">R15 anti-leak</span> — a leaked key list collapses depth but not the story: restored text renders only on-page, so even a walkthrough-user touches all 28.</li>
+  </ul>
+  <p class="note">Open items for page design: assign the 13 letter-to-slot mappings; decide which already-solved pages gain flavor layers per instrument (candidates: 02 under UV, 05 under raking, 14 under spectral); and playtest the 25-early-crack path to confirm it delights rather than confuses.</p>
+</section>
+</main>
+
+<script>
+(function(){
+  var K = {
+    W1:{t:"word",label:"1961"}, W2:{t:"word",label:"MAGPIE"}, W3:{t:"word",label:"THURSDAY"},
+    W4:{t:"word",label:"GREENHOUSE"}, W5:{t:"word",label:"JUNE 1974"}, W6:{t:"word",label:"NIGHTINGALE"},
+    W7:{t:"word",label:"14 LARKSPUR"}, W8:{t:"word",label:"ROOM 214"},
+    RAKING:{t:"raking",label:"RAKING"}, UV:{t:"uv",label:"UV"}, SPECTRAL:{t:"spectral",label:"SPECTRAL"},
+    L1:{t:"letter"},L2:{t:"letter"},L3:{t:"letter"},L4:{t:"letter"},L5:{t:"letter"},L6:{t:"letter"},
+    L7:{t:"letter"},L8:{t:"letter"},L9:{t:"letter"},L10:{t:"letter"},L11:{t:"letter"},L12:{t:"letter"},L13:{t:"letter"},
+    S1:{t:"seal"},S2:{t:"seal"},S3:{t:"seal"},S4:{t:"seal"}
+  };
+  for (var k in K){ if(!K[k].label) K[k].label = k; }
+  var pages = [
+    {id:1, title:"Accession", arc:"I", prod:["W1"], cons:[], story:"The journal arrived in estate lot 44 with its flyleaf name cut out by blade."},
+    {id:2, title:"The Dedication", arc:"I", prod:["W2"], cons:[], story:"The whole book is addressed to someone she calls Magpie."},
+    {id:3, title:"Household Ledger", arc:"I", prod:["W3"], cons:[], story:"Every Thursday a withdrawal hides under the grocery entries — she is saving escape money."},
+    {id:4, title:"Calibration Plate I", arc:"I", prod:["RAKING"], cons:["W1"], story:"She hand-drew a scanner calibration target decades before scanners existed; she knew this book would be scanned."},
+    {id:5, title:"Pressed Violets", arc:"I", prod:["W4"], cons:[], story:"The flowers come from the garden where she and her daughter were happiest; the garden no longer exists."},
+    {id:6, title:"The Photograph Corners", arc:"I", prod:["W5"], cons:["RAKING"], story:"Every photograph was removed, but raking light finds ghost impressions of their captions — first proof the damage is deliberate."},
+    {id:7, title:"Radio Log", arc:"I", prod:["W6"], cons:["W3"], story:"Late at night she listens for one voice on the radio — her single remaining contact."},
+    {id:8, title:"Calibration Plate II", arc:"I", prod:["UV"], cons:["W5"], story:"The second plate is drawn in two inks and one only exists under UV: half this book is written in invisible ink."},
+    {id:9, title:"Margin Arithmetic", arc:"I", prod:["W7"], cons:["W2","W4"], story:"The sums in the margins are her counting what leaving the house will cost."},
+    {id:10, title:"The Unfiled Form", arc:"II", prod:["L1","W8"], cons:["UV"], story:"A change-of-address filed in her name, in handwriting that is not hers: how he moved her world without touching her."},
+    {id:11, title:"Carbon Paper", arc:"II", prod:["L2"], cons:[], story:"A carbon sheet preserves her letter requesting her own records — denied: 'requester could not be verified.'"},
+    {id:12, title:"The Notary's Stamp", arc:"II", prod:["L3"], cons:["W6"], story:"Nightingale is a notary — the friend who helped her use paperwork to unmake paperwork."},
+    {id:13, title:"Redaction Practice", arc:"II", prod:["L4"], cons:["RAKING"], story:"She practiced erasure like calligraphy: trial blackouts, each labeled with what it hides."},
+    {id:14, title:"Marriage Certificate", arc:"II", prod:["L5"], cons:["W5","UV"], story:"June 1974, the wedding — and in the margin: 'the first form he ever filed for me.'"},
+    {id:15, title:"The Locksmith's Receipt", arc:"II", prod:["L6"], cons:["W7"], story:"She changed the locks three times in a year; he always had a key within the week, requested through the county."},
+    {id:16, title:"Library Slip", arc:"II", prod:["L7"], cons:[], story:"Her borrowing record on disappearing: privacy law, bookbinding, the chemistry of ink — and a librarian who never reported her overdue."},
+    {id:17, title:"Spectral Pair", arc:"II", prod:["SPECTRAL"], cons:["W8","UV"], story:"She wrote the same entry twice, once true and once cover story, to teach the machine to tell them apart."},
+    {id:18, title:"The Daughter's Drawing", arc:"II", prod:["L8"], cons:["SPECTRAL"], story:"Under the crayon greenhouse, spectral separation finds the daughter's new surname — the adoption that kept her unfindable."},
+    {id:19, title:"Bus Timetable", arc:"II", prod:["L9"], cons:["W6"], story:"The night route passes the greenhouse; she rode it for years and never once got off."},
+    {id:20, title:"The Interview", arc:"II", prod:["L10"], cons:["SPECTRAL","W2"], story:"The only photograph of her ever printed is half out of frame, and the misspelled caption was her own doing."},
+    {id:21, title:"Inventory of the Lost", arc:"II", prod:["L11"], cons:["RAKING","UV","SPECTRAL"], story:"A list in three inks of everything she destroyed: what it was, where it was, why it hurt."},
+    {id:22, title:"First Day", arc:"II", prod:["L12"], cons:["W4"], story:"Age nineteen, first day at the archive: 'I wanted to be the one who decides what is remembered.'"},
+    {id:23, title:"The Blank Census", arc:"II", prod:["L13"], cons:["W8"], story:"The scraped-out line in her childhood census is not hers — it is her father's, and her mother held the blade."},
+    {id:24, title:"First Check: The Name You Answered To", arc:"III", prod:["S1"], cons:["W2","L8"], story:"'If you are Magpie, you kept the drawing.'"},
+    {id:25, title:"Second Check: The Route Home", arc:"III", prod:["S2"], cons:["W7","L6","L9"], story:"Only someone who rode the route knows where it truly stops."},
+    {id:26, title:"Third Check: The Two Truths", arc:"III", prod:["S3"], cons:["SPECTRAL","L5","L10"], story:"'He believed everything that was written down. Show me you don't.'"},
+    {id:27, title:"Fourth Check: What She Taught", arc:"III", prod:["S4"], cons:["W6","L12","L13","RAKING","UV"], story:"The last lesson is addressed 'to whoever you are, now that you have come this far' — she knew it might not be Magpie."},
+    {id:28, title:"The Last Signature", arc:"III", prod:[], cons:["S1","S2","S3","S4","L1","L2","L3","L4","L5","L6","L7","L8","L9","L10","L11","L12","L13"], story:"Where you enter her name decides everything: the archive record, the delivery search, or the shredder routine.", ending:true}
+  ];
+
+  var MECH = {
+    1:"Catalog cross-reference — intake form vs flyleaf inscription",
+    2:"Null cipher — the message hides in the bleached entry's surviving word pattern",
+    3:"Ledger anomaly — the books don't balance, and the imbalances are the sequence",
+    4:"Geometric alignment (chain A, taught)",
+    5:"Floriography — species-to-meaning key printed elsewhere in the journal",
+    6:"Impression reading — ghost indentations of the removed captions",
+    7:"Dial mapping — frequencies to letters via the radio dial's own layout",
+    8:"Two-ink temporal alignment (chain A, twisted)",
+    9:"Modular arithmetic — the margin sums' remainders spell",
+    10:"Forgery deduction — the fake form's fields are internally inconsistent",
+    11:"Mirror reconstruction — overlapping reversed strikes on the carbon",
+    12:"Fragment reassembly + notary symbol key",
+    13:"Redaction metrology — bar widths give the hidden word lengths",
+    14:"Ink-bleed physics — water spreads ink predictably; run it backwards",
+    15:"Key-bitting code — locksmith cutting depths to letters",
+    16:"Date-interval cipher — gaps between due-date stamps",
+    17:"Delta collation (chain B, taught) — the two entries' differences",
+    18:"Channel-separation tracing — the under-sketch beneath the crayon",
+    19:"Timetable logic — which stop, given the constraints she recorded",
+    20:"Planted-error harvest — her deliberate mistakes across the clipping assemble",
+    21:"Tri-layer interleave — three inked lists woven by rule (all instruments)",
+    22:"Pinprick code — needle holes over letters, at magnification",
+    23:"Census-grid constraint deduction — the columns force the scraped line",
+    24:"Grille overlay — the drawing itself is the mask",
+    25:"Cartographic trace — reconstruct the route with the measuring tool",
+    26:"Delta collation (chain B, mastered) — the final exam",
+    27:"Nested composite — each layer uses a prior tool once; solving order is the puzzle",
+    28:"— (not a puzzle: the signature is a choice)"
+  };
+  pages.forEach(function(p){ p.mech = MECH[p.id]; });
+
+  var producer = {};
+  pages.forEach(function(p){ p.prod.forEach(function(k){ producer[k]=p.id; }); });
+  var byId = {}; pages.forEach(function(p){ byId[p.id]=p; });
+
+  function layerOf(p, memo){
+    memo = memo || {};
+    if (memo[p.id] != null) return memo[p.id];
+    if (!p.cons.length) return memo[p.id]=0;
+    var m = 0;
+    p.cons.forEach(function(k){ m = Math.max(m, layerOf(byId[producer[k]], memo)+1); });
+    return memo[p.id]=m;
+  }
+  var memo = {};
+  pages.forEach(function(p){ p.layer = layerOf(p, memo); });
+
+  var layers = [];
+  pages.forEach(function(p){ (layers[p.layer]=layers[p.layer]||[]).push(p); });
+  layers.forEach(function(col){ col.sort(function(a,b){ return a.id-b.id; }); });
+
+  var NW=158, NH=56, XGAP=64, YGAP=22, PAD=28;
+  var maxRows = Math.max.apply(null, layers.map(function(c){return c.length;}));
+  var H = PAD*2 + maxRows*NH + (maxRows-1)*YGAP;
+  var W = PAD*2 + layers.length*NW + (layers.length-1)*XGAP;
+
+  pages.forEach(function(p){
+    var col = layers[p.layer], i = col.indexOf(p);
+    var colH = col.length*NH + (col.length-1)*YGAP;
+    p.x = PAD + p.layer*(NW+XGAP);
+    p.y = (H-colH)/2 + i*(NH+YGAP);
+  });
+
+  var css = getComputedStyle(document.documentElement);
+  function colorFor(type){
+    return css.getPropertyValue("--"+({word:"word",letter:"letter",raking:"raking",uv:"uv",spectral:"spectral",seal:"seal"}[type]||"ink")).trim();
+  }
+
+  var NS="http://www.w3.org/2000/svg";
+  var svg = document.getElementById("graph");
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  svg.setAttribute("width", W); svg.setAttribute("height", H);
+
+  function el(name, attrs, parent){
+    var e = document.createElementNS(NS,name);
+    for (var a in attrs) e.setAttribute(a, attrs[a]);
+    (parent||svg).appendChild(e); return e;
+  }
+
+  // edges first (under nodes)
+  pages.forEach(function(p){
+    p.cons.forEach(function(k){
+      var s = byId[producer[k]];
+      var x1=s.x+NW, y1=s.y+NH/2, x2=p.x, y2=p.y+NH/2;
+      var dx=(x2-x1)*0.45;
+      var path = el("path",{
+        d:"M"+x1+" "+y1+" C"+(x1+dx)+" "+y1+","+(x2-dx)+" "+y2+","+x2+" "+y2,
+        fill:"none", stroke:colorFor(K[k].t), "stroke-width":p.id===28?1:1.6, opacity:p.id===28?0.35:0.75
+      });
+      var t = document.createElementNS(NS,"title");
+      t.textContent = K[k].label+" : p"+String(s.id).padStart(2,"0")+" → p"+String(p.id).padStart(2,"0");
+      path.appendChild(t);
+    });
+  });
+
+  var cardBg = css.getPropertyValue("--card").trim(), cardEdge = css.getPropertyValue("--card-edge").trim(),
+      ink = css.getPropertyValue("--ink").trim(), faint = css.getPropertyValue("--ink-faint").trim(),
+      ring = css.getPropertyValue("--root-ring").trim();
+
+  pages.forEach(function(p){
+    var g = el("g",{});
+    var isRoot = !p.cons.length;
+    if (isRoot) el("rect",{x:p.x-3.5,y:p.y-3.5,width:NW+7,height:NH+7,rx:7,fill:"none",stroke:ring,"stroke-width":1,opacity:.55},g);
+    el("rect",{x:p.x,y:p.y,width:NW,height:NH,rx:5,fill:cardBg,stroke:p.ending?ink:cardEdge,"stroke-width":p.ending?1.6:1},g);
+    var num = el("text",{x:p.x+10,y:p.y+18,"font-size":"10","fill":faint,"font-weight":"600"},g);
+    num.textContent = String(p.id).padStart(2,"0") + " · " + (p.arc==="I"?"INTAKE":p.arc==="II"?"RECOVERY":"SIGNATURE");
+    var title = el("text",{x:p.x+10,y:p.y+33,"font-size":"11","fill":ink,"font-weight":"600"},g);
+    title.textContent = p.title.length>22 ? p.title.slice(0,21)+"…" : p.title;
+    var px=p.x+10;
+    p.prod.forEach(function(k){
+      var lbl = K[k].label, wch = lbl.length*6.1+10;
+      el("rect",{x:px,y:p.y+40,width:wch,height:12,rx:3,fill:colorFor(K[k].t)},g);
+      var tx = el("text",{x:px+5,y:p.y+49.5,"font-size":"8.5","fill":css.getPropertyValue("--chip-ink").trim(),"font-weight":"700"},g);
+      tx.textContent = lbl;
+      px += wch+5;
+    });
+    if (p.ending){
+      var tx2 = el("text",{x:p.x+10,y:p.y+50,"font-size":"9","fill":faint},g);
+      tx2.textContent = "consumes 4 seals + 13 letters";
+    }
+    var tip = document.createElementNS(NS,"title");
+    tip.textContent = String(p.id).padStart(2,"0")+" "+p.title+"\nproduces: "+(p.prod.map(function(k){return K[k].label;}).join(", ")||"— (ending)")+"\nconsumes: "+(p.cons.map(function(k){return K[k].label;}).join(", ")||"nothing — ROOT");
+    g.appendChild(tip);
+  });
+
+  // manifest table
+  var tb = document.querySelector("#manifest tbody");
+  pages.forEach(function(p){
+    var tr = document.createElement("tr");
+    function td(cls, html){ var c=document.createElement("td"); if(cls)c.className=cls; c.innerHTML=html; tr.appendChild(c); }
+    td("num", String(p.id).padStart(2,"0"));
+    td("", "<strong>"+p.title+"</strong>"+(!p.cons.length?' <span class="arc-tag">root</span>':""));
+    td("num", p.arc);
+    td("", p.prod.map(function(k){return '<span class="chip" style="background:'+colorFor(K[k].t)+'">'+K[k].label+"</span>";}).join("")||"<span class='arc-tag'>ending</span>");
+    td("", p.cons.map(function(k){return '<span class="chip" style="background:'+colorFor(K[k].t)+'">'+K[k].label+"</span>";}).join("")||"—");
+    td("mech", p.mech);
+    td("story", p.story);
+  });
+})();
+</script>

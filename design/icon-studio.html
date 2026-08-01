@@ -1,0 +1,207 @@
+<title>Unwriting — Icon Studio</title>
+<style>
+  :root{
+    --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B; --rule:#DCD9D0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+      --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64; --rule:#2A2D33; }
+  }
+  :root[data-theme="dark"]{ --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+    --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64; --rule:#2A2D33; }
+  :root[data-theme="light"]{ --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B; --rule:#DCD9D0; }
+  body{background:var(--ground); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; margin:0; padding:0 0 4rem; line-height:1.55;}
+  header{border-bottom:1px solid var(--rule); padding:1.4rem 2rem 1.1rem; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  header .sys{font-size:.72rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase;}
+  header h1{font-size:1.25rem; font-weight:600; margin:.35rem 0 .1rem;}
+  main{max-width:64rem; margin:0 auto; padding:0 2rem;}
+  .concept{margin-top:3rem;}
+  .concept h2{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.95rem; font-weight:600; margin-bottom:.2rem;}
+  .concept p{max-width:40rem; font-size:.9rem; color:var(--ink-soft); margin:.2rem 0 1rem;}
+  .row{display:flex; align-items:flex-end; gap:2rem; flex-wrap:wrap;}
+  .sq{border-radius:22.4%; overflow:hidden; box-shadow:0 6px 24px rgba(0,0,0,.22); flex:none; font-size:0;}
+  .sq svg{width:100%; height:100%; display:block;}
+  .s360{width:360px; height:360px;} .s120{width:120px; height:120px;}
+  .s60{width:60px; height:60px;} .s40{width:40px; height:40px;}
+  .sizes{display:flex; align-items:flex-end; gap:1.2rem;}
+</style>
+
+<header>
+  <div class="sys">The Bindery · Unwriting · App Icon Candidates · rev 2 — fine bindings</div>
+  <h1>Icon Studio</h1>
+</header>
+
+<main>
+
+<div class="concept">
+  <h2>E · Oxblood &amp; Gilt</h2>
+  <p>A fine oxblood leather binding: double gold fillet frame, corner fleurons, gilt "B" monogram. The series mark — every Bindery entry could recolor the leather.</p>
+  <div class="row">
+    <div class="sq s360" id="e1"></div>
+    <div class="sizes">
+      <div class="sq s120" id="e2"></div>
+      <div class="sq s60" id="e3"></div>
+      <div class="sq s40" id="e4"></div>
+    </div>
+  </div>
+</div>
+
+<div class="concept">
+  <h2>F · The Scraped Plate</h2>
+  <p>Forest-green morocco with full gilt frame — and a gilt title plate whose lettering has been scraped away, only flecks of gold remaining. The luxury object carrying the Unwriting wound.</p>
+  <div class="row">
+    <div class="sq s360" id="f1"></div>
+    <div class="sizes">
+      <div class="sq s120" id="f2"></div>
+      <div class="sq s60" id="f3"></div>
+      <div class="sq s40" id="f4"></div>
+    </div>
+  </div>
+</div>
+
+<div class="concept">
+  <h2>G · Marbled Quarter-Binding</h2>
+  <p>Dark leather spine, combed marbled paper over boards, gold fillet at the joint. The most "rare book room" of the three; no symbol, pure material.</p>
+  <div class="row">
+    <div class="sq s360" id="g1"></div>
+    <div class="sizes">
+      <div class="sq s120" id="g2"></div>
+      <div class="sq s60" id="g3"></div>
+      <div class="sq s40" id="g4"></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+var GOLD_D="#8A6A28", GOLD="#C9A24B", GOLD_L="#F0DCA0", GOLD_HI="#FFF3CE";
+
+function goldGrad(id, angle){
+  return '<linearGradient id="'+id+'" x1="0" y1="0" x2="'+(angle?'1':'0')+'" y2="1">'
+   +'<stop offset="0" stop-color="'+GOLD_L+'"/><stop offset=".35" stop-color="'+GOLD+'"/>'
+   +'<stop offset=".65" stop-color="'+GOLD_D+'"/><stop offset=".85" stop-color="'+GOLD+'"/>'
+   +'<stop offset="1" stop-color="'+GOLD_L+'"/></linearGradient>';
+}
+function vignette(id){
+  return '<radialGradient id="'+id+'" cx=".5" cy=".42" r=".75">'
+   +'<stop offset="0" stop-color="#000" stop-opacity="0"/>'
+   +'<stop offset=".72" stop-color="#000" stop-opacity="0"/>'
+   +'<stop offset="1" stop-color="#000" stop-opacity=".42"/></radialGradient>';
+}
+function grain(id, base, light){
+  return '<radialGradient id="'+id+'" cx=".38" cy=".32" r="1.05">'
+   +'<stop offset="0" stop-color="'+light+'"/><stop offset="1" stop-color="'+base+'"/></radialGradient>';
+}
+// double fillet frame with corner fleurons
+function frame(gid, inset1, inset2){
+  var o='';
+  [inset1, inset2].forEach(function(n,idx){
+    var w = idx===0 ? 10 : 5;
+    o+='<rect x="'+n+'" y="'+n+'" width="'+(1024-2*n)+'" height="'+(1024-2*n)+'" fill="none" stroke="url(#'+gid+')" stroke-width="'+w+'"/>';
+  });
+  return o;
+}
+function fleurons(gid, d){
+  // classic corner tooling: mitred corner fillets + gilt diamond + terminal dots
+  var o='<g>';
+  [[d,d,1,1],[1024-d,d,-1,1],[d,1024-d,1,-1],[1024-d,1024-d,-1,-1]].forEach(function(c){
+    var x=c[0],y=c[1],sx=c[2],sy=c[3];
+    o+='<g transform="translate('+x+','+y+') scale('+sx+','+sy+')">'
+     // two short fillets paralleling the frame, mitred at the corner
+     +'<path d="M0 0 L96 0 M0 0 L0 96" stroke="url(#'+gid+')" stroke-width="6" fill="none" stroke-linecap="round"/>'
+     // small gilt diamond set on the mitre diagonal
+     +'<g transform="translate(40,40) rotate(45)"><rect x="-16" y="-16" width="32" height="32" fill="url(#'+gid+')"/></g>'
+     // terminal dots at the fillet ends
+     +'<circle cx="112" cy="0" r="7" fill="url(#'+gid+')"/>'
+     +'<circle cx="0" cy="112" r="7" fill="url(#'+gid+')"/>'
+     +'</g>';
+  });
+  return o+'</g>';
+}
+
+function svgE(){
+  return '<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">'
+  +'<defs>'+grain("eg","#421313","#6E2727")+goldGrad("egold")+vignette("ev")
+  +'</defs>'
+  +'<rect width="1024" height="1024" fill="url(#eg)"/>'
+  // subtle leather sheen band
+  +'<rect width="1024" height="1024" fill="url(#ev)"/>'
+  +frame("egold", 64, 96)
+  +fleurons("egold", 128)
+  // blind-tooled inner diamond (darker, embossed - no gold)
+  +'<path d="M512 250 L710 512 L512 774 L314 512 Z" fill="none" stroke="#2E0D0D" stroke-width="7" opacity=".8"/>'
+  +'<path d="M512 244 L716 512 L512 780 L308 512 Z" fill="none" stroke="#8A3535" stroke-width="3" opacity=".55"/>'
+  // gilt monogram — emboss: dark copy offset below, gold on top
+  +'<text x="512" y="640" font-family="Didot, \'Bodoni 72\', \'Playfair Display\', Georgia, serif" font-size="400" font-weight="500" text-anchor="middle" fill="#2E0D0D" opacity=".85" transform="translate(0,7)">B</text>'
+  +'<text x="512" y="640" font-family="Didot, \'Bodoni 72\', \'Playfair Display\', Georgia, serif" font-size="400" font-weight="500" text-anchor="middle" fill="url(#egold)">B</text>'
+  +'</svg>';
+}
+
+function svgF(){
+  var flecks='';
+  // gold flecks — remnants of scraped lettering, denser at plate center-left
+  var pts=[[400,494,7],[434,510,5],[452,488,4],[490,506,8],[520,492,4],[548,512,6],[578,496,3],[610,508,5],[356,508,5],[642,494,4],[470,522,3],[534,524,4]];
+  pts.forEach(function(p){ flecks+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+p[2]+'" fill="url(#fgold)"/>'; });
+  return '<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">'
+  +'<defs>'+grain("fg","#152A20","#2C4A39")+goldGrad("fgold")+vignette("fv")+'</defs>'
+  +'<rect width="1024" height="1024" fill="url(#fg)"/>'
+  +'<rect width="1024" height="1024" fill="url(#fv)"/>'
+  +frame("fgold", 64, 96)
+  +fleurons("fgold", 128)
+  // the gilt title plate: gold frame, scraped field
+  +'<rect x="272" y="420" width="480" height="170" rx="10" fill="#10201A" opacity=".55"/>'
+  +'<rect x="272" y="420" width="480" height="170" rx="10" fill="none" stroke="url(#fgold)" stroke-width="9"/>'
+  +'<rect x="292" y="440" width="440" height="130" rx="6" fill="none" stroke="url(#fgold)" stroke-width="3" opacity=".7"/>'
+  // scrape marks across the plate field
+  +'<g stroke="#0B1712" stroke-width="8" opacity=".5" stroke-linecap="round">'
+  +'<path d="M320 480 l380 14"/><path d="M330 530 l360 -6"/><path d="M350 555 l300 8"/>'
+  +'</g>'
+  +flecks
+  // small gilt crown ornament above plate (rare-book flourish)
+  +'<g fill="url(#fgold)"><path d="M512 330 q34 22 64 6 q-8 34 -30 44 l-68 0 q-22 -10 -30 -44 q30 16 64 -6 Z"/><circle cx="512" cy="316" r="10"/></g>'
+  +'</svg>';
+}
+
+function svgG(){
+  // combed marbling: rows of nested scallop arcs in alternating stones
+  var stones=["#5C6E66","#7A3030","#C9A24B","#DAD2BC","#31424E"];
+  var marble='';
+  var rowH=74;
+  for(var r=0;r<16;r++){
+    var y=r*rowH- (r%2? 26:0);
+    for(var i=0;i<9;i++){
+      var x=250+i*94-(r%2?47:0);
+      var col=stones[(r*3+i)%5];
+      marble+='<path d="M'+x+' '+y+' q47 '+(rowH*1.75)+' 94 0" fill="none" stroke="'+col+'" stroke-width="30" opacity=".85"/>';
+    }
+  }
+  return '<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">'
+  +'<defs>'+grain("gg","#241713","#3E2A22")+goldGrad("ggold")+vignette("gv")
+  +'<clipPath id="gclip"><rect x="248" y="0" width="776" height="1024"/></clipPath>'
+  +'</defs>'
+  // marbled paper field
+  +'<rect width="1024" height="1024" fill="#CEC5AE"/>'
+  +'<g clip-path="url(#gclip)">'+marble+'</g>'
+  // leather spine
+  +'<rect x="0" y="0" width="248" height="1024" fill="url(#gg)"/>'
+  // joint fillets
+  +'<rect x="222" y="0" width="8" height="1024" fill="url(#ggold)"/>'
+  +'<rect x="240" y="0" width="4" height="1024" fill="url(#ggold)" opacity=".8"/>'
+  // raised bands on spine
+  +[150,340,530,720,910].map(function(y){
+     return '<rect x="0" y="'+y+'" width="222" height="16" fill="#160D0A" opacity=".7"/>'
+      +'<rect x="0" y="'+(y-8)+'" width="222" height="6" fill="url(#ggold)" opacity=".9"/>'
+      +'<rect x="0" y="'+(y+18)+'" width="222" height="6" fill="url(#ggold)" opacity=".9"/>';
+   }).join('')
+  +'<rect width="1024" height="1024" fill="url(#gv)"/>'
+  +'</svg>';
+}
+
+[["e",svgE],["f",svgF],["g",svgG]].forEach(function(pair){
+  var svg = pair[1]();
+  for(var i=1;i<=4;i++){ document.getElementById(pair[0]+i).innerHTML = svg; }
+});
+</script>

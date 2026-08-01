@@ -1,0 +1,37 @@
+{
+  "name": "bindery",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "expo": "~57.0.8",
+    "expo-asset": "57.0.7",
+    "expo-constants": "57.0.7",
+    "expo-dev-client": "~57.0.9",
+    "expo-file-system": "57.0.1",
+    "expo-font": "57.0.1",
+    "expo-haptics": "~57.0.1",
+    "expo-keep-awake": "57.0.1",
+    "expo-modules-core": "57.0.7",
+    "expo-splash-screen": "~57.0.5",
+    "expo-sqlite": "^57.0.0",
+    "expo-status-bar": "~57.0.0",
+    "react": "19.2.3",
+    "react-native": "0.86.0",
+    "react-native-purchases": "^10.4.2"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.2",
+    "eslint": "^9.39.5",
+    "eslint-config-expo": "^57.0.0",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "test": "npx tsx test-graph.ts && npx tsx test-db.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "private": true
+}

@@ -1,0 +1,168 @@
+<title>Unwriting — Root Page Specs</title>
+<style>
+  :root{
+    --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B;
+    --word:#3D5A80; --letter:#A63A3A; --rule:#DCD9D0; --chip-ink:#FFFFFF;
+    --vera:#6B4FA0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+      --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64;
+      --word:#7FA0C8; --letter:#D07070; --rule:#2A2D33; --chip-ink:#14161A;
+      --vera:#A78BD4;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+    --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#6E6B64;
+    --word:#7FA0C8; --letter:#D07070; --rule:#2A2D33; --chip-ink:#14161A;
+    --vera:#A78BD4;
+  }
+  :root[data-theme="light"]{
+    --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#8A867B;
+    --word:#3D5A80; --letter:#A63A3A; --rule:#DCD9D0; --chip-ink:#FFFFFF;
+    --vera:#6B4FA0;
+  }
+  body{background:var(--ground); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; margin:0; padding:0 0 4rem; line-height:1.6;}
+  .mono{font-family:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;}
+  header{border-bottom:1px solid var(--rule); padding:1.4rem 2rem 1.1rem; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  header .sys{font-size:.72rem; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase;}
+  header h1{font-size:1.25rem; font-weight:600; margin:.35rem 0 .1rem;}
+  header .sub{font-size:.8rem; color:var(--ink-soft);}
+  main{max-width:46rem; margin:0 auto; padding:0 2rem;}
+  .intro{margin-top:2rem; font-size:.92rem; color:var(--ink-soft); max-width:44rem;}
+  article{margin-top:3rem; background:var(--card); border:1px solid var(--card-edge); border-radius:5px; padding:1.6rem 1.8rem 1.4rem;}
+  article h2{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:1rem; font-weight:600;
+    margin:0 0 .2rem; display:flex; align-items:baseline; gap:.7rem;
+  }
+  .pnum{color:var(--ink-faint); font-size:.85rem;}
+  .keychip{
+    display:inline-block; padding:.06rem .5rem; border-radius:3px;
+    font-family:ui-monospace,Menlo,monospace; font-size:.72rem; font-weight:700; color:var(--chip-ink);
+  }
+  .w{background:var(--word);} .l{background:var(--letter);}
+  h3{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:.68rem; font-weight:600;
+    letter-spacing:.15em; text-transform:uppercase; color:var(--ink-faint); margin:1.3rem 0 .3rem;
+  }
+  p{margin:.3rem 0 .6rem; font-size:.92rem;}
+  .vera{
+    font-family:Charter,"Iowan Old Style",Georgia,serif; font-style:italic; color:var(--vera);
+    border-left:2px solid var(--vera); padding-left:1rem; margin:.4rem 0 .6rem;
+  }
+  .reveals{font-family:Charter,"Iowan Old Style",Georgia,serif; font-style:italic; color:var(--ink-soft);}
+  .fmt{font-family:ui-monospace,Menlo,monospace; font-size:.8rem; background:var(--ground); border:1px solid var(--rule); border-radius:3px; padding:.15rem .5rem; display:inline-block;}
+  .foot{margin-top:2.6rem; border-top:1px solid var(--rule); padding-top:1rem; font-size:.85rem; color:var(--ink-soft); max-width:44rem;}
+</style>
+
+<header>
+  <div class="sys">Bindery Workstation · Page Design · The Six Roots · rev 1</div>
+  <h1>Unwriting — Root Page Specs</h1>
+  <div class="sub">Pages 01 · 02 · 03 · 05 · 11 · 16 — solvable with nothing; they define the game's contract</div>
+</header>
+
+<main>
+<p class="intro">The roots are where a player learns what this game considers fair: hard from the first page, no hints ever, every hurdle visible, every answer earnable from what's on the scan. Each spec below is complete — including solutions — because this is the design doc, not the game. Companion to the <strong>key dependency graph</strong> artifact.</p>
+
+<article>
+  <h2><span class="pnum">01</span> Accession <span class="keychip w">1961</span></h2>
+  <h3>On the scan</h3>
+  <p>Split view: the journal's flyleaf (left) and the Bindery's own intake form for estate lot 44 (right). The flyleaf inscription survives — <em>"For my ———, when she is old enough to ask"</em> — but the name and most of a bookseller's penciled catalog code have been excised by two clean blade strokes. The intake form lists the lot's other eleven items, each with its dealer code and date, and one field flagged red by the software: <span class="fmt">DATE OF FIRST ENTRY — unverified</span>.</p>
+  <h3>The lock</h3>
+  <p>Catalog cross-reference. The eleven intact dealer codes encode their dates two different plausible ways (day-month-year vs. shelf-month-year, months in Roman numerals) — only one scheme is consistent across all eleven. Applying the proven scheme to the journal's surviving code fragments reconstructs its year field.</p>
+  <h3>The turn</h3>
+  <p>The blade stroke that removed the name also passed through the catalog code — but stopped short of the year. The cut is <em>precise</em>, and a player who notices that precision has met Vera before reading a word of her. Answer: <strong>1961</strong>.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">four-digit year</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"I left the year. A year alone finds no one."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The damage to this book is not damage. It is editing — and the editor knew exactly what information is dangerous.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">02</span> The Dedication <span class="keychip w">MAGPIE</span></h2>
+  <h3>On the scan</h3>
+  <p>The first entry, ruined by bleach bloom — islands of legible text in a white haze, a small ink doodle of a black-and-white bird in the corner. The workstation introduces its <strong>OCR confidence layer</strong> here via a standard tooltip (diegetic tutorializing, rule 3): each word is shaded by transcription confidence.</p>
+  <h3>The lock</h3>
+  <p>Null cipher. Six words on the page read at 100% confidence while everything around them is degraded. Toggled to confidence view, they stand out like stones in fog — and in context they are grammatically <em>wrong</em>, each slightly misfitting its sentence, because they are not original: they were re-inked years later, over the bleach damage, in the same hand.</p>
+  <h3>The turn</h3>
+  <p>The six re-inked words don't belong to their sentences — they belong to each other. Read in page order, their initials spell <strong>MAGPIE</strong>; the bird doodle confirms the solve the moment it lands. Two inferences, both discoverable: notice the anomaly (the software shows it), then ask what the anomalous words share.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">her name for the reader — one word, 6 letters</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"The bleach was my second edit. What I re-inked, I meant to survive — but only for someone who studies how ink ages."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The whole book is addressed to someone she calls Magpie — and Vera came back to this ruined page, years later, to make sure the name would keep.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">03</span> Household Ledger <span class="keychip w">THURSDAY</span></h2>
+  <h3>On the scan</h3>
+  <p>A ruled ledger page in tidy columns — dates, items, amounts, running balance. At the head, in Vera's hand: <em>"March begins, a Sunday."</em> The software's audit note reads <span class="fmt">balance verified ✓</span> — and beneath it, smaller: <span class="fmt">cash out exceeds itemized receipts: 4.85</span>.</p>
+  <h3>The lock</h3>
+  <p>Ledger anomaly. The running balance is arithmetically perfect. The <em>prices</em> are not: several entries charge more for an item than the same item costs elsewhere on the page (eggs at 1.10 against .35 the week before). The falsified entries are the skim — and their dates, computed against "March begins, a Sunday," all land on the same weekday.</p>
+  <h3>The turn</h3>
+  <p>The player audits her the way her husband never did — and discovers the answer is <strong>THURSDAY</strong> by doing date arithmetic she set up with four words at the top of the page. The puzzle and the story are the same object: this is her escape fund, hidden in plain sight from a man who checked the math and never the groceries.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">day of the week</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"He audited arithmetic, never groceries. I kept my sums perfect and my prices dishonest."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">Every Thursday a little money vanished under the grocery entries — she was saving her escape one falsified egg-price at a time.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">05</span> Pressed Violets <span class="keychip w">GREENHOUSE</span></h2>
+  <h3>On the scan</h3>
+  <p>Ten pressed flowers arranged in a deliberate row on black paper — beautiful, labeled in pencil with species names. Margin note: <em>"mother's stitching, back cover."</em> The inside back cover (browsable — the book is open) holds a pasted-in needlepoint sampler: eight flowers stitched beside eight words, and one stitched aphorism: <em>"a bloom reversed speaks its opposite."</em></p>
+  <h3>The lock</h3>
+  <p>Floriography with an in-book key (rule 5: nothing outside the game). The sampler maps flowers to words; the arrangement reads as a sentence. Two of the ten flowers are pressed <em>upside down</em> — their meanings invert per the stitched aphorism.</p>
+  <h3>The turn</h3>
+  <p>Decoded with reversals honored, the row reads: <em>remember · the · glass · house · where · we · were · not · found · ever</em> — inverted flowers turning "lost" into "found," "never" into "ever." The sentence's own strange grammar ("not found ever") tells the player the reversals matter. Answer: <strong>GREENHOUSE</strong>.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">one word, 10 letters</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"My mother taught me flowers before the county taught me forms. It is the one language he never learned."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">The flowers come from the garden where she and her daughter were happiest; the garden no longer exists, and "not found ever" was the point of it.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">11</span> Carbon Paper <span class="keychip l">R → slot 13</span></h2>
+  <h3>On the scan</h3>
+  <p>A sheet of used carbon paper, bound in, near-black and shining. The workstation's standard <strong>invert</strong> and <strong>mirror</strong> toggles sit in the toolbar (ordinary scan tools — no instrument needed). Mirrored and inverted, the sheet holds typed text — <em>doubled</em>, two documents struck through the same carbon, interleaved.</p>
+  <h3>The lock</h3>
+  <p>Mirror reconstruction plus disentanglement. One document is her formal letter to the county requesting her own records; underneath it, offset by a line, her earlier draft of the same letter — one paragraph different. Where the fair copy says "for personal reference," the draft says what she meant: "to learn what he can see."</p>
+  <h3>The turn</h3>
+  <p>At the reconstructed letter's foot, the county's received-stamp shows a reference the typist recorded back onto the carbon — <span class="fmt">REF 13-R</span> — and in white pencil, visible only inverted, Vera's annotation: <em>"the last letter is the one they kept."</em> The damage log records <strong>R → slot 13</strong>.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">restoration key — one letter + slot number</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"He burned letters. Nobody burns the carbon."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">She asked the county for her own records and was refused — "requester could not be verified" — the machinery of documentation no longer believed she existed.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">16</span> Library Slip <span class="keychip l">S → slot 6</span></h2>
+  <h3>On the scan</h3>
+  <p>A borrower's pocket and date-due slip: fourteen due-date stamps spanning 1968–1985, and a penciled column of call numbers with faint titles — privacy statutes, bookbinding, the chemistry of ink. The software's cadence note: <span class="fmt">non-standard renewal pattern detected</span>.</p>
+  <h3>The lock</h3>
+  <p>Date-interval cipher. The gaps between consecutive stamps, in days, map to the alphabet (1–26). Fourteen stamps yield thirteen intervals; the first eight decode, the rest are noise from genuine renewals — and telling signal from noise is part of the solve (the signal intervals never exceed 26).</p>
+  <h3>The turn</h3>
+  <p>The eight signal intervals — 19 · 9 · 24 · 20 · 8 · 9 · 19 · 19 — decode to <strong>S I X T H I S S</strong>: <em>"SIXTH IS S."</em> The message is self-confirming the instant it resolves into words, which is what makes a brutal mechanism fair. The damage log records <strong>S → slot 6</strong>.</p>
+  <h3>Entry format</h3>
+  <p><span class="fmt">restoration key — one letter + slot number</span></p>
+  <h3>In Vera's voice</h3>
+  <p class="vera">"Ruth never asked why I renewed on odd days. She stamped. The stamps remembered."</p>
+  <h3>It reveals</h3>
+  <p class="reveals">Seventeen years of borrowing books on how to disappear — and a librarian who never once reported her overdue.</p>
+</article>
+
+<p class="foot">Doctrine notes: all six hurdles are visible on arrival (rule 4 — a red field, a confidence toggle, an audit discrepancy, a strange grammar, a toolbar, a cadence note); all keys are in-book (rule 5 — the floriography key is the sampler, the weekday anchor is written at the ledger's head); every solve is self-confirming at the moment it lands, which is the no-hints game's substitute for validation. Letter-slot assignments made here: <span class="mono">R→13, S→6</span> (R was first assigned slot 12 — but slot 12 of VERAOSTRANDER is E; caught by the repo's graph test); remaining eleven assigned during Act II page design. Difficulty order for onboarding-by-browsing: 03 and 05 crack first for most players, 16 last.</p>
+</main>
