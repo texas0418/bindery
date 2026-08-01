@@ -118,16 +118,52 @@ chain spent); 13 destroyed things (p21) = 13 letters; reverse chronology
 lands the drawing (p18) before the census (p23) so the two gut punches
 escalate; the reserved third chain is still unspent entering Act III.
 
+## Act III page solutions (full specs in design/act3-pages.html)
+
+| p | yields | mechanism | core move |
+|---|--------|-----------|-----------|
+| 24 | S1 | grille overlay | the drawing's window panes over the letter, MIRRORED ("as it folds"); panes read ONLY MY MAGPIE HOLDS BOTH PAGES · SAY THE NAME; after sealing: "…or someone holding her things. I wrote this for both of you." |
+| 25 | S2 | cartographic trace | trace Larkspur → Route 9 → the glass; the mark goes ON THE ROAD at the window-view point — she never got off; marking it reveals the greenhouse drawn as seen from a moving window |
+| 26 | S3 | delta collation (chain B mastered) | three accounts of the night she left, no anchor; convict two with established record (courthouse vs Trinity line 7; fully-spelled name vs the engineered misprint); true account ends "I left at dusk, because the nine runs at night" |
+| 27 | S4 | nested composite | raking → "begin with the bird" + 1210 kHz → dial letter → grid cell on the pitch strip → UV → "Drawer two, line three" → E,R computed but countersign is V.O. ("sign the woman, not the cipher") |
+| 28 | ending | choice | certificate assembles VERA OSTRANDER from the 13 keys (never typed); three signature lines = three endings |
+
+## Endings (final mechanics)
+
+- **Accession**: archive-record line. Epilogue: one catalog search result
+  where none existed.
+- **Delivery**: requires the earned breadcrumb — the FOREIGN OBJECT rubbing
+  in p12 (flagged "not part of original binding" on first view) is a deed
+  rubbing dated after Vera's last entry: parcel on ARBOR LANE (p19) →
+  grantee A. HALLORAN (p18). Synthesis across three pages, never stated.
+  Nightingale tucked it in before her own estate was sold — which is why
+  the journal was in an estate lot at all. Without it: "recipient unknown"
+  (visible, signposted). Epilogue: one reply letter, no face, signed "M." —
+  "She taught my mother the flower alphabet. Nobody ever told me why. I am
+  learning it now."
+- **Blank**: disposal authorization, double-confirmed in procedural voice.
+  Epilogue: empty library slot, damage log dims key by key in discovery
+  order, final screen is the blank intake ticket.
+
+## Canon closed in Act III
+
+- ANOMALY RESOLUTION (rule 2): every "journal notices you" beat is Vera's
+  contingency writing — she wrote branches for Magpie AND for a stranger
+  from the start ("I wrote this for both of you"). Nothing uncanny; the
+  husband stays fully mundane, never named, never seen. The one physical
+  intrusion is Nightingale's rubbing, flagged honestly by the software.
+- Granddaughter stays OFF-PAGE: one reply letter, signed M.
+- Chain accounting final: chain A (04→08), chain B (17→26), third chain
+  SHIPS UNSPENT — 2 chains + 23 one-off mechanisms.
+- p27's trap: the steps compute E,R but the countersign is V.O. — the exam
+  distinguishes computing from understanding.
+
 ## Open design decisions
 
-- Husband: fully mundane vs. one deniable sliver of uncanny (lean mundane —
-  the horror is that records really work this way).
-- Granddaughter in Delivery: on-page vs. off-page (lean off-page; one reply
-  letter, no face).
 - Monetization gate placement (solving depth, not page access).
-- Remaining 11 letter-slot assignments; instrument flavor layers on
-  already-solved pages (candidates: 02 under UV, 05 under raking, 14 under
-  spectral); playtest the early-crack path to seal 25.
+- Instrument flavor layers on already-solved pages (candidates: 02 under
+  UV, 05 under raking, 14 under spectral); playtest the early-crack path
+  to seal 25.
 
 ## Mechanism bench (series inventory — future entries, not waste)
 
