@@ -4,7 +4,7 @@
 
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { KEYS, PAGES } from '../content/unwriting/graph';
+import { keyLabel, PAGES } from '../content/unwriting/graph';
 import { isAttackable } from '../engine/graph';
 import { earnedKeys, pageSolved } from '../state';
 import { colors, fonts } from '../theme';
@@ -20,7 +20,7 @@ export default function WorkbenchScreen({
       <Text style={s.header}>THE BINDERY · UNWRITING</Text>
       <Text style={s.sub}>
         {PAGES.filter((p) => pageSolved(p.id)).length} / {PAGES.length} restored
-        · {earned.size} keys logged
+        · {earned.size} {earned.size === 1 ? 'key' : 'keys'} logged
       </Text>
       <FlatList
         data={PAGES}
@@ -40,7 +40,11 @@ export default function WorkbenchScreen({
                 <Text style={s.title}>{p.title}</Text>
                 {!solved && !ready && (
                   <Text style={s.needs}>
-                    needs {p.consumes.filter((k) => !earned.has(k)).map((k) => KEYS[k].label).join(' · ')}
+                    needs{' '}
+                    {p.consumes
+                      .filter((k) => !earned.has(k))
+                      .map((k) => keyLabel(k, earned))
+                      .join(' · ')}
                   </Text>
                 )}
               </View>
