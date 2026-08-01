@@ -12,12 +12,12 @@ export const colors = {
   panelEdge: '#32363e',
   text: '#e8e6e0',
   textSoft: '#a5a29a',
-  textFaint: '#6e6b64',
+  textFaint: '#8b8880', // raised for legibility (device QA 2026-08-01, rule 11)
   // the scan
   paper: '#ede7da',
   paperDeep: '#e4dece',
   ink: '#26221c',
-  inkFaint: '#8a867b',
+  inkFaint: '#6b6555', // raised for legibility (device QA 2026-08-01, rule 11)
   ruledLine: '#b9c0bd',
   marginRed: '#a63a3a',
   // the binding (series identity — use sparingly)
