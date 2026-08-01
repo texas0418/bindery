@@ -64,6 +64,22 @@ Remaining 11 assigned during Act II page design.
 Design law learned here: **every solve self-confirms at the moment it
 lands** — in a no-hints game, that click is the validation.
 
+## Act I dependent-page solutions (full specs in design/act1-pages.html)
+
+| p | answer | mechanism | core move |
+|---|--------|-----------|-----------|
+| 04 | rim tick `61` → RAKING | geometric alignment (chain A taught) | rim is a century dial 1900–1999; plate deliberately off-center so symmetry fails; her zero-dot inside tick 61 confirms. Lesson: the figure lies, the marks don't |
+| 06 | `JUNE 1974` | impression reading | erased captions survive as embossing under raking light; "V. & E., J-ne 19-4" disambiguated by the KODAVUE corner stamp (EST. 1968) |
+| 07 | `NIGHTINGALE` | dial mapping | filter the log to Thursdays (p03 ingredient); taped cipher-dial maps kHz→letters; 3 non-Thursday decoys decode to garbage |
+| 08 | `74 (counterclockwise) + 6` → UV | two-ring alignment (chain A twisted) | astrolabe combination keyed to the wedding; outer ring runs BACKWARD (the arrow); Plate-I habit lands on mirror tick 26 and drifts. Foreshadows Act II reverse chronology |
+| 09 | `14 LARKSPUR` | modular arithmetic | doodle-headed margin columns; flower columns' totals mod 26 spell LARKSPUR (itself a flower — the self-confirm), bird columns sum to 14; instruction parseable only with MAGPIE + GREENHOUSE |
+
+Act I invariants: instrument pages self-confirm by prediction-match; decoys
+yield garbage, never near-misses; the husband appears only as "E." and is
+never named in Act I. Note for implementers: mod 26 with remainder 0 = Z
+never occurs in Act I answers (LARKSPUR contains no Z) — if a future page
+uses remainder 0, define it explicitly on-page.
+
 ## Open design decisions
 
 - Husband: fully mundane vs. one deniable sliver of uncanny (lean mundane —
