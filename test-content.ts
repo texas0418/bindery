@@ -19,7 +19,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 // @ts-expect-error same
 import { join } from 'node:path';
 
-import { KEYS, PAGES } from './src/content/unwriting/graph';
+import { KEYS, keyLabel, PAGES } from './src/content/unwriting/graph';
 import { PAGE_CONTENT } from './src/content/unwriting/pages';
 import { pageHash } from './src/engine/hash';
 import { isAttackable } from './src/engine/graph';
@@ -102,6 +102,26 @@ function walk(dir: string, out: string[] = []): string[] {
   }
   return out;
 }
+// 7. MASKED: with nothing earned, no key's UI label leaks an answer — word,
+// letter, and seal keys mask to their producing page (caught live on device
+// 2026-08-01: the bench printed "needs 1961" before page 01 was solved).
+const nothingEarned = new Set<never>();
+for (const k of Object.keys(KEYS) as (keyof typeof KEYS)[]) {
+  const label = keyLabel(k, nothingEarned);
+  if (KEYS[k].kind === 'instrument') assert.equal(label, KEYS[k].label);
+  else {
+    assert.match(label, /^key · p\d\d$/, `${k}: unearned label is masked`);
+    assert.notEqual(label, KEYS[k].label, `${k}: unearned label hides the value`);
+  }
+}
+for (const [id, answer] of Object.entries(PAGE_SOLUTIONS)) {
+  for (const k of Object.keys(KEYS) as (keyof typeof KEYS)[])
+    assert.ok(
+      !keyLabel(k, nothingEarned).includes(answer),
+      `page ${id} answer never appears in an unearned key label`,
+    );
+}
+
 const IMPORTS_SPOILERS = /(?:from\s+['"]|require\(\s*['"])[^'"]*solutions\.spoilers/;
 for (const file of walk('src'))
   assert.ok(

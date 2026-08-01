@@ -42,6 +42,17 @@ const ALL_LETTERS: KeyId[] = [
   'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13',
 ];
 
+/** UI label for a key. Earned keys show their logged value (doctrine 7).
+ *  Unearned instruments show their tool name (it's on the panel anyway).
+ *  Everything else unearned is masked to its producing page — where a key
+ *  comes from is rule-4 information; what it says is the puzzle (rule 15:
+ *  the bench must never print an answer the player hasn't earned). */
+export function keyLabel(k: KeyId, earned: ReadonlySet<KeyId>): string {
+  if (earned.has(k) || KEYS[k].kind === 'instrument') return KEYS[k].label;
+  const producer = PAGES.find((p) => p.produces.includes(k))!;
+  return `key · p${String(producer.id).padStart(2, '0')}`;
+}
+
 export const PAGES: Page[] = [
   { id: 1, title: 'Accession', arc: 'intake', produces: ['W1'], consumes: [],
     mech: 'catalog cross-reference',

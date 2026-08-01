@@ -7,7 +7,7 @@
 import { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-import { KEYS, PAGES } from '../content/unwriting/graph';
+import { keyLabel, PAGES } from '../content/unwriting/graph';
 import { contentFor } from '../content/unwriting/pages';
 import { checkAnswer } from '../engine/hash';
 import type { KeyId, Light, PageContent, ScanBlock } from '../models';
@@ -202,7 +202,8 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
         (missing.length > 0 ? (
           <View style={s.panel}>
             <Text style={s.lockedText}>
-              RESTORATION LOCKED — requires {missing.map((k) => KEYS[k].label).join(' · ')}
+              RESTORATION LOCKED — requires{' '}
+              {missing.map((k) => keyLabel(k, earned)).join(' · ')}
             </Text>
           </View>
         ) : (
