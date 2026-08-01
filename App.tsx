@@ -13,13 +13,15 @@ T.defaultProps = { ...T.defaultProps, maxFontSizeMultiplier: 1.4 };
 
 import { initPurchases } from './src/proAccess';
 import { hasFlag, initState, useWorldVersion } from './src/state';
+import DamageLogScreen from './src/screens/DamageLogScreen';
 import IntroScreen from './src/screens/IntroScreen';
 import PageScreen from './src/screens/PageScreen';
 import WorkbenchScreen from './src/screens/WorkbenchScreen';
 
 type ViewState =
   | { t: 'bench' } // the open book: every page browsable from intake
-  | { t: 'page'; id: number };
+  | { t: 'page'; id: number }
+  | { t: 'log' };
 
 function Root() {
   useWorldVersion();
@@ -27,14 +29,24 @@ function Root() {
 
   if (!hasFlag('introDone')) return <IntroScreen />;
 
-  // The bench stays mounted beneath the page so scroll position survives
+  const toBench = () => setView({ t: 'bench' });
+
+  // The bench stays mounted beneath overlays so scroll position survives
   // (device QA 2026-08-01) — you don't close the book to look at a page.
   return (
     <View style={{ flex: 1 }}>
-      <WorkbenchScreen onOpenPage={(id) => setView({ t: 'page', id })} />
+      <WorkbenchScreen
+        onOpenPage={(id) => setView({ t: 'page', id })}
+        onOpenLog={() => setView({ t: 'log' })}
+      />
       {view.t === 'page' && (
         <View style={StyleSheet.absoluteFill}>
-          <PageScreen id={view.id} onBack={() => setView({ t: 'bench' })} />
+          <PageScreen id={view.id} onBack={toBench} />
+        </View>
+      )}
+      {view.t === 'log' && (
+        <View style={StyleSheet.absoluteFill}>
+          <DamageLogScreen onBack={toBench} />
         </View>
       )}
     </View>
