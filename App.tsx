@@ -1,6 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import * as SplashScreen from 'expo-splash-screen';
+
+// Hold the binding on screen long enough to read (walkthrough QA
+// 2026-08-02: the stock splash was a flash). The app is ready long before
+// this; the pause is ceremony, the fade is the cover opening.
+SplashScreen.preventAutoHideAsync().catch(() => {});
+SplashScreen.setOptions({ duration: 450, fade: true });
+const SPLASH_HOLD_MS = 2250;
 
 // Global safety ceiling: honor Dynamic Type but never let the workstation's
 // fixed chrome collapse. Puzzle-critical scan content caps NOWHERE — doctrine
@@ -61,6 +69,12 @@ export default function App() {
     initPurchases(); // fail-open: unlocks the entry in Expo Go / placeholder builds
     return true;
   });
+  useEffect(() => {
+    const t = setTimeout(() => {
+      SplashScreen.hideAsync().catch(() => {});
+    }, SPLASH_HOLD_MS);
+    return () => clearTimeout(t);
+  }, []);
   if (!ready) return null;
   return (
     <>
