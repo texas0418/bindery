@@ -24,14 +24,15 @@ import { PAGE_CONTENT } from './src/content/unwriting/pages';
 import { pageHash } from './src/engine/hash';
 import { isAttackable } from './src/engine/graph';
 import type { KeyId } from './src/models';
-import { PAGE_SOLUTIONS } from './solutions.spoilers';
+import { PAGE_SOLUTIONS, PAGE_SOLUTIONS_ACT2 } from './solutions.spoilers';
 
+const ALL_SOLUTIONS: Record<number, string> = { ...PAGE_SOLUTIONS, ...PAGE_SOLUTIONS_ACT2 };
 const contentIds = new Set(PAGE_CONTENT.map((p) => p.id));
 
 // 1. TRUE
 for (const c of PAGE_CONTENT) {
   if (!c.answer) continue;
-  const truth = PAGE_SOLUTIONS[c.id];
+  const truth = ALL_SOLUTIONS[c.id];
   assert.ok(truth, `spoilers entry for page ${c.id}`);
   assert.equal(
     c.answer.hash,
@@ -39,7 +40,7 @@ for (const c of PAGE_CONTENT) {
     `page ${c.id}: shipped hash matches spoilers (re-run scripts/hash_solutions.ts)`,
   );
 }
-for (const id of Object.keys(PAGE_SOLUTIONS).map(Number))
+for (const id of Object.keys(ALL_SOLUTIONS).map(Number))
   assert.ok(contentIds.has(id), `spoilers page ${id} has shipped content`);
 
 // 2. PLAYABLE — fixpoint over content pages only
@@ -56,9 +57,14 @@ while (moved) {
     moved = true;
   }
 }
-for (let id = 1; id <= 9; id += 1) assert.ok(solved.has(id), `Act I page ${id} solvable`);
-for (const k of ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'RAKING', 'UV'] as KeyId[])
-  assert.ok(earned.has(k), `Act I playthrough earns ${k} (${KEYS[k].label})`);
+for (let id = 1; id <= 23; id += 1) assert.ok(solved.has(id), `page ${id} solvable in playthrough`);
+const EXPECTED: KeyId[] = [
+  'W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8',
+  'RAKING', 'UV', 'SPECTRAL',
+  'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13',
+];
+for (const k of EXPECTED)
+  assert.ok(earned.has(k), `playthrough earns ${k} (${KEYS[k].label})`);
 
 // 3. DECLARED
 for (const c of PAGE_CONTENT) {
@@ -129,7 +135,7 @@ for (const [id, answer] of Object.entries(PAGE_SOLUTIONS)) {
 // an eight-guess solve). Short numeric parts (house numbers, tick values)
 // are exempt: they are legitimately derived data.
 for (const c of PAGE_CONTENT) {
-  const truth = PAGE_SOLUTIONS[c.id];
+  const truth = ALL_SOLUTIONS[c.id];
   if (!truth) continue;
   const words = truth.split(' ').filter((w) => /^[A-Z]{5,}$/.test(w));
   const haystack = c.layers
