@@ -6,7 +6,14 @@
 // the shipping build wipes — flagged in DESIGN.md.
 
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  View,
+} from 'react-native';
 import { BodyText, ChromeText, ChromeTextInput } from '../engine/ui';
 
 import { DELIVERY_HASH, keyLabel, PAGES } from '../content/unwriting/graph';
@@ -58,7 +65,10 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
   const missing = page.consumes.filter((k) => !earned.has(k));
 
   return (
-    <View style={s.root}>
+    <KeyboardAvoidingView
+      style={s.root}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
       <View style={s.bar}>
         <Pressable onPress={onBack} accessibilityRole="button">
           <ChromeText style={s.back}>‹ BENCH</ChromeText>
@@ -159,7 +169,7 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
           </>
         )}
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 

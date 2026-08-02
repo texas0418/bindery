@@ -50,14 +50,14 @@ export const ACT2_CONTENT: PageContent[] = [
           },
           {
             kind: 'label',
-            text: 'NOTE: the form footer reads Rev. 3/89 — a revision that did not exist in 11/87: the document is backdated, so the WHEN is already a lie. Her tracing preserves something else: the county’s verification initials sit beside fields 2 through 9, each checked against records the county itself holds. One field the county could not verify against anything. It took the form’s word.',
+            text: 'Her tracing preserves everything — the entries, the stamps, the small print. The workstation cross-dates what it scans. Something in this document’s own dates does not survive comparison.',
           },
         ],
       },
     ],
-    answer: { format: 'the falsified field — its printed label', hash: 'c9d6183e6df48798' },
+    answer: { format: 'the two dates that cannot both be true', hash: '3b6c8ff603077874' },
     restored:
-      'Field one. The form is true everywhere except the person it claims filed it — a change-of-address in her name, in a hand almost hers, sending her whole world to Room 214 of a boarding house. This is how he moved her without touching her. The damage log files V → slot 1, from field one, and ROOM 214.',
+      'Rev. 3/89 against an effective date of 11/87: the form was printed AFTER it was supposedly filed. Backdated — manufactured. And her margin closes the case: beside the verification initials that sit against fields 2 through 9, field one carries none. The county checked everything against its own records except the person. Field one is the lie; the name is forged. The damage log files V → slot 1, from field one, and ROOM 214.',
   },
   {
     id: 11,
@@ -68,15 +68,15 @@ export const ACT2_CONTENT: PageContent[] = [
           { kind: 'heading', text: 'CARBON SHEET — BOUND IN, NEAR-BLACK' },
           {
             kind: 'para',
-            text: 'A sheet of used typewriter carbon, shining where the light slides. The workstation’s standard tools apply: INVERT and MIRROR (toolbar, no instrument required). Mirrored and inverted, typed text emerges — doubled. Two documents were struck through this carbon, one line offset from the other.',
+            text: 'A sheet of used typewriter carbon, shining where the light slides. The scan reads the strike-marks as they lie: reversed, and doubled — two documents went through this sheet, their lines interleaved one for one.',
           },
           {
             kind: 'figure',
-            text: 'DOCUMENT A (fair copy): a formal letter to the County Records Office requesting copies of all records held in the writer’s name, "for personal reference."\n\nDOCUMENT B (beneath, offset): the same letter, earlier draft — one paragraph different. Where the fair copy says "for personal reference," the draft says "to learn what he can see."',
+            text: 'RAW STRIKE TRANSCRIPTION (alternating lines, as struck):\n\n.eciffO sdroceR ytnuoC eht oT\n.eciffO sdroceR ytnuoC eht oT\nym ni dleh sdrocer lla fo seipoc tseuqer I\nym ni dleh sdrocer lla fo seipoc tseuqer I\n.ecnerefer lanosrep rof ,eman\n.ees nac eh tahw nrael ot ,eman\n\ndetpiecer :pmats — R-31 FER',
           },
           {
             kind: 'label',
-            text: 'At the reconstructed letter’s foot, a received-stamp the typist recorded back onto the carbon: REF 13-R. In white pencil, visible only inverted: "the last letter is the one they kept."',
+            text: 'In white pencil, hand-written across the sheet — legible only when the scan is read the way the carbon remembers it: ".tpek yeht eno eht si rettel tsal eht"',
           },
         ],
       },
@@ -108,7 +108,7 @@ export const ACT2_CONTENT: PageContent[] = [
               ['f', '…PUBLI… (duplicate arc, worn)'],
               ['g', '…C·E.N…'],
               ['h', '…RY·…'],
-              ['i', '…IGHTINGALE·NOTA…'],
+              ['i', '…GALE·NOTA…'],
             ],
           },
           { kind: 'margin', text: 'count from the broken tooth.' },
@@ -132,7 +132,7 @@ export const ACT2_CONTENT: PageContent[] = [
           { kind: 'heading', text: 'PRACTICE PAGE — FIFTEEN INK BLACKOUTS' },
           {
             kind: 'para',
-            text: 'Fifteen redaction bars in careful ink, various widths, ruled straight. Down the page edge, her measure: the alphabet written at fixed pitch — a calibration strip in her own hand. The twelfth bar sits mid-sentence in a practice phrase: "I do not fear ——."',
+            text: 'Fifteen redaction bars in careful ink, various widths, ruled straight — several mid-sentence in practice phrases, one of them: "I do not fear ——." Down the page edge, her measure: the alphabet written at fixed pitch — a calibration strip in her own hand.',
           },
           { kind: 'label', text: 'SURFACE SCAN: pencil labels beneath each bar have been erased. Raking light may recover impressions.' },
         ],
@@ -152,7 +152,7 @@ export const ACT2_CONTENT: PageContent[] = [
         ],
       },
     ],
-    answer: { format: 'the twelfth bar — width in characters + the hidden letter', hash: 'd2b17a56ddd4ffec' },
+    answer: { format: 'the anomalous bar — number, width in characters, letter', hash: '107d1a690fb8bb7f' },
     restored:
       'One character, and the sentence closes itself: "I do not fear E." The only redaction she practiced and could not bring herself to label. She practiced on the small things. The twelfth took her a year. E, slot twelve — the twelfth trial.',
   },
@@ -178,7 +178,7 @@ export const ACT2_CONTENT: PageContent[] = [
         light: 'uv',
         blocks: [
           { kind: 'label', text: 'UV — bleach-ghosts fluoresce. Line 7 resolves to stroke families:' },
-          { kind: 'figure', text: 'LINE 7 · PLACE OF CEREMONY:\n\nT▒▒N▒TY   ▒EG▒ST▒Y   O▒F▒CE' },
+          { kind: 'figure', text: 'LINE 7 · PLACE OF CEREMONY:\n\n▒R▒N▒▒Y   ▒EG▒ST▒Y   O▒▒▒CE' },
           { kind: 'margin', text: 'I dissolved us line by line. The seventh would not go.' },
         ],
       },
@@ -271,13 +271,13 @@ export const ACT2_CONTENT: PageContent[] = [
           },
           {
             kind: 'label',
-            text: 'SPECTRAL SEPARATION — TRAINING REQUIRED: the machine can learn to split these inks page-wide, but must be told which twin is true. Supply one fact you can PROVE from elsewhere in the record: where did her post truly go?',
+            text: 'SPECTRAL SEPARATION — TRAINING REQUIRED: the machine can learn to split these inks page-wide, but must be told which twin is true — with provenance. Of the seven divergences, exactly one has been PROVEN elsewhere in this restoration. State the fact, and the leaf that proved it.',
           },
           { kind: 'margin', text: 'I kept a diary he could find and a diary that was true. The trick of surviving him was remembering which was which.' },
         ],
       },
     ],
-    answer: { format: 'the anchoring fact — where the post truly went', hash: '8315297e0f918218' },
+    answer: { format: 'the provable fact + the leaf that proved it', hash: '371f7873b1d93b71' },
     restored:
       'Room 214 — proven at the unfiled form, and the machine learns her two voices. SPECTRAL VIEW calibrated. She wrote her whole life twice: one version for his eyes, one for the record. Half this book is testimony disguised as routine.',
   },
@@ -344,7 +344,7 @@ export const ACT2_CONTENT: PageContent[] = [
           { kind: 'heading', text: 'NEWSPAPER CLIPPING — "COUNTY ARCHIVE MARKS FORTY YEARS"' },
           {
             kind: 'para',
-            text: 'A staff photograph, one figure half out of frame at the edge. The caption lists the staff; one surname is printed OSTRA_DER — a letter simply missing from the type. The article is cheerful: shelf counts, anniversaries, a quote from the archive’s longest-serving cataloguer.',
+            text: 'A staff photograph, one figure half out of frame at the edge. The caption lists the staff; one name is printed VERA OSTRA_DER — a letter simply dropped from the type. The article is cheerful: shelf counts, anniversaries, a quote from the archive’s longest-serving cataloguer.',
           },
           { kind: 'label', text: 'SURFACE SCAN: proof-marks in her ink ride the newsprint. SPECTRAL separates ink from type.' },
         ],
@@ -361,7 +361,7 @@ export const ACT2_CONTENT: PageContent[] = [
               ['"eleven thousand volumes"', 'corrected: fourteen', '(bird)'],
               ['"Mrs." before her name', 'struck out', '(none)'],
               ['a misquote of her one sentence', 'quotation marks struck', '(bird)'],
-              ['the dropped letter in the surname', '"^n — the tenth"', '(bird)'],
+              ['the dropped letter in the caption', '"^ — count what the type dropped."', '(bird)'],
               ['a smudged column rule', 'redrawn', '(none)'],
             ],
           },
@@ -369,9 +369,9 @@ export const ACT2_CONTENT: PageContent[] = [
         ],
       },
     ],
-    answer: { format: 'the letter the caption dropped + its position in the surname', hash: 'b802d1cbc55c93e9' },
+    answer: { format: 'the dropped letter + its count in the printed name', hash: 'b802d1cbc55c93e9' },
     restored:
-      'N, the tenth — and the caret is her own. She seeded the interview with small wrong things and made sure the paper of record misspelled her: a record with a hole in it is a door. The only time print ever held her, she was half out of frame and one letter short, and both were her doing. N, slot ten.',
+      'Count the printed name, letter by letter: V-E-R-A-O-S-T-R-A — and the gap falls tenth. The dropped letter is N, and the caret is her own: she seeded the interview with small wrong things and made sure the paper of record misspelled her. A record with a hole in it is a door. N, slot ten.',
   },
   {
     id: 21,
@@ -403,20 +403,20 @@ export const ACT2_CONTENT: PageContent[] = [
           { kind: 'label', text: 'RAKING — a third column, written dry, no ink at all, SHIFTED ONE ROW UP from true. WHY IT HURT:' },
           {
             kind: 'para',
-            text: '(the first line is blank) · because he read them first · because she sang · because every page was us · because it named the ward · because he pinned it on me · because they praised her hand · because my money was in it · because it showed the way out · because it was a gift · because it named her — D. As in done. Eleven of thirteen. · because they were hers · because it was mine',
+            text: '(the first line is blank) · because he read them first · because she sang · because every page was us · because it named the ward · because he pinned it on me · because they praised her hand · because my money was in it · because it showed the way out · because it was a gift · because it named her · because they were hers · because it was mine',
           },
         ],
       },
       {
         light: 'spectral',
         blocks: [
-          { kind: 'margin', text: 'What, where, why — never on the same line. I couldn’t bear them touching.' },
+          { kind: 'margin', text: 'What, where, why — never on the same line. I couldn’t bear them touching. When the weave is true, the eleventh gives its initial.' },
         ],
       },
     ],
     answer: { format: 'restoration key — letter + slot', hash: '3b28eb8b0703c435' },
     restored:
-      'Rewoven — WHERE up one, WHY down one — the eleventh row assembles: the diary, the one before this — the greenhouse stove — because it named her. D. As in done. Eleven of thirteen. Thirteen destroyed things, thirteen letters: the inventory of the erasure is the same length as the name it protected. D, slot eleven.',
+      'Rewoven — WHERE up one, WHY down one — the eleventh row assembles: the diary, the one before this — the greenhouse stove — because it named her. The eleventh gives its initial: D. Thirteen destroyed things, thirteen letters: the inventory of the erasure is the same length as the name it protected. D, slot eleven.',
   },
   {
     id: 22,
