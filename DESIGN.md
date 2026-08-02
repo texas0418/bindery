@@ -128,6 +128,21 @@ escalate; the reserved third chain is still unspent entering Act III.
 | 27 | S4 | nested composite | raking → "begin with the bird" + 1210 kHz → dial letter → grid cell on the pitch strip → UV → "Drawer two, line three" → E,R computed but countersign is V.O. ("sign the woman, not the cipher") |
 | 28 | ending | choice | certificate assembles VERA OSTRANDER from the 13 keys (never typed); three signature lines = three endings |
 
+## Act III content-build notes (2026-08-03)
+
+Answers: p24 MAGPIE (overlay message reworked to "SAY WHAT I CALLED YOU
+WHEN NO ONE HEARD" — the name itself never on the page, per check 8);
+p25 NOWHERE (the trap: any stop name fails; she never got off); p26
+"C 14 20" (true account + the two convicting leaves — binds evidence to
+verdict); p27 "V O" (the computed E R is the trap: "sign the woman, not
+the cipher"). p28 = CertificateScreen: name assembled from the 13 letter
+keys, never typed; Delivery entry = HALLORAN ARBOR LANE (hash in
+graph.DELIVERY_HASH; synthesis of p12 rubbing + p18 surname + p19 arbor).
+QA BUILD NOTE: Blank's deletion is SIMULATED (data retained, labeled
+on-screen) and endings are re-choosable so all three are testable; the
+shipping build wipes on Blank and the choice is final. p26 consumes +UV,
+p27 +SPECTRAL (declared for the LIT guard; both held by any player there).
+
 ## Endings (final mechanics)
 
 - **Accession**: archive-record line. Epilogue: one catalog search result

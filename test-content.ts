@@ -19,14 +19,23 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 // @ts-expect-error same
 import { join } from 'node:path';
 
-import { KEYS, keyLabel, PAGES } from './src/content/unwriting/graph';
+import { DELIVERY_HASH, KEYS, keyLabel, PAGES } from './src/content/unwriting/graph';
 import { PAGE_CONTENT } from './src/content/unwriting/pages';
 import { pageHash } from './src/engine/hash';
 import { isAttackable } from './src/engine/graph';
 import type { KeyId } from './src/models';
-import { PAGE_SOLUTIONS, PAGE_SOLUTIONS_ACT2 } from './solutions.spoilers';
+import {
+  DELIVERY_SOLUTION,
+  PAGE_SOLUTIONS,
+  PAGE_SOLUTIONS_ACT2,
+  PAGE_SOLUTIONS_ACT3,
+} from './solutions.spoilers';
 
-const ALL_SOLUTIONS: Record<number, string> = { ...PAGE_SOLUTIONS, ...PAGE_SOLUTIONS_ACT2 };
+const ALL_SOLUTIONS: Record<number, string> = {
+  ...PAGE_SOLUTIONS,
+  ...PAGE_SOLUTIONS_ACT2,
+  ...PAGE_SOLUTIONS_ACT3,
+};
 const contentIds = new Set(PAGE_CONTENT.map((p) => p.id));
 
 // 1. TRUE
@@ -57,14 +66,22 @@ while (moved) {
     moved = true;
   }
 }
-for (let id = 1; id <= 23; id += 1) assert.ok(solved.has(id), `page ${id} solvable in playthrough`);
+for (let id = 1; id <= 27; id += 1) assert.ok(solved.has(id), `page ${id} solvable in playthrough`);
 const EXPECTED: KeyId[] = [
   'W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8',
   'RAKING', 'UV', 'SPECTRAL',
   'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13',
+  'S1', 'S2', 'S3', 'S4',
 ];
 for (const k of EXPECTED)
   assert.ok(earned.has(k), `playthrough earns ${k} (${KEYS[k].label})`);
+// the certificate unseals at the end of the full playthrough, and its
+// Delivery line matches the spoilers (the breadcrumb synthesis)
+{
+  const p28 = PAGES.find((p) => p.id === 28)!;
+  assert.ok(isAttackable(p28, earned), 'p28 attackable after full playthrough');
+  assert.equal(DELIVERY_HASH, pageHash(28, DELIVERY_SOLUTION), 'delivery hash matches spoilers');
+}
 
 // 3. DECLARED
 for (const c of PAGE_CONTENT) {

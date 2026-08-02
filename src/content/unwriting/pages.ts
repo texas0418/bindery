@@ -9,6 +9,7 @@
 import type { PageContent } from '../../models';
 
 import { ACT2_CONTENT } from './pagesAct2';
+import { ACT3_CONTENT } from './pagesAct3';
 
 const ACT1_CONTENT: PageContent[] = [
   {
@@ -332,7 +333,7 @@ const ACT1_CONTENT: PageContent[] = [
   },
 ];
 
-export const PAGE_CONTENT: PageContent[] = [...ACT1_CONTENT, ...ACT2_CONTENT];
+export const PAGE_CONTENT: PageContent[] = [...ACT1_CONTENT, ...ACT2_CONTENT, ...ACT3_CONTENT];
 
 export const contentFor = (id: number): PageContent | undefined =>
   PAGE_CONTENT.find((p) => p.id === id);
