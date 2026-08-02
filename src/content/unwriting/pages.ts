@@ -8,7 +8,9 @@
 
 import type { PageContent } from '../../models';
 
-export const PAGE_CONTENT: PageContent[] = [
+import { ACT2_CONTENT } from './pagesAct2';
+
+const ACT1_CONTENT: PageContent[] = [
   {
     id: 1,
     layers: [
@@ -329,6 +331,8 @@ export const PAGE_CONTENT: PageContent[] = [
       'The flower columns spell it in remainders and the street is itself a flower — the garden really did name it. The margins are her escape budget, priced to the shilling, and 14 Larkspur is where she went. He read every word she ever wrote and never once read the arithmetic.',
   },
 ];
+
+export const PAGE_CONTENT: PageContent[] = [...ACT1_CONTENT, ...ACT2_CONTENT];
 
 export const contentFor = (id: number): PageContent | undefined =>
   PAGE_CONTENT.find((p) => p.id === id);

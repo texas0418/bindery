@@ -109,7 +109,7 @@ export const PAGES: Page[] = [
     mech: 'channel-separation tracing',
     story: 'Under the crayon greenhouse, spectral separation finds the daughter’s new surname — the adoption that kept her unfindable.' },
   { id: 19, title: 'Bus Timetable', arc: 'recovery', produces: ['L9'], consumes: ['W6'],
-    mech: 'timetable logic',
+    mech: 'orphan rhyme (prosody anomaly)',
     story: 'The night route passes the greenhouse; she rode it for years and never once got off.' },
   { id: 20, title: 'The Interview', arc: 'recovery', produces: ['L10'], consumes: ['SPECTRAL', 'W2'],
     mech: 'planted-error harvest',

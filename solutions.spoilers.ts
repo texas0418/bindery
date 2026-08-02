@@ -16,3 +16,20 @@ export const PAGE_SOLUTIONS: Record<number, string> = {
   8: '74 6', // two-ring alignment, outer ring descends clockwise
   9: '14 LARKSPUR', // flower columns mod 26; bird columns sum the door
 };
+
+export const PAGE_SOLUTIONS_ACT2: Record<number, string> = {
+  10: 'NAME', // the falsified field's printed label — "he never lied about the little things"
+  11: 'R 13', // REF 13-R; "the last letter is the one they kept"
+  12: 'R 8', // 8th rim character from the broken tooth of the reassembled seal
+  13: '1 E', // the twelfth bar: one character wide; "I do not fear ——."
+  14: 'TRINITY REGISTRY OFFICE', // line 7, reconstructed via the JUNE 1974 bleed model
+  15: 'O 5', // B-2-4-9-0-5: four cuts sum 15=O, the fifth files slot 5
+  16: 'S 6', // due-date intervals spell SIXTH IS S
+  17: 'ROOM 214', // the anchoring true fact that trains the spectral separator
+  18: 'ANN HALLORAN 4', // pencil under crayon; "aged 4. Our last summer."
+  19: 'A 9', // the orphan rhyme: ARBOR, line 9 — its partner never comes
+  20: 'N 10', // "^n — the tenth"; the caption prints OSTRA_DER
+  21: 'D 11', // rewoven item 11's WHY: "D. As in done."
+  22: 'I FILED MYSELF HERE FIRST', // pinprick positions over the card's type
+  23: 'HEAD M 41', // forced by the tallies: 2nd male, aggregate age 93 - 52 = 41, mandatory head
+};

@@ -105,11 +105,11 @@ uses remainder 0, define it explicitly on-page.
 | 15 | O→5 | key-bitting code | final key B-2-4-9-0-5; "four cuts spell, the fifth files": 2+4+9+0=15=O, 5th cut = slot 5; reverse bears county key-registry stamps |
 | 17 | SPECTRAL | delta collation (chain B taught) | twin entries, 7 deltas; anchor truth with ROOM 214 (visible twin says "post office") to train the ink separator |
 | 18 | A→4 | channel-separation tracing | pencil under crayon: ANN HALLORAN, "aged 4. Our last summer." |
-| 19 | A→9 | timetable logic | "never before the song ends" = Nightingale's program ends 23:40 (p07 log); constraints converge on ARBOR LANE, Route 9 |
+| 19 | A→9 | orphan rhyme (prosody anomaly) | REDESIGNED 2026-08-02 (Simon: add a hard poem puzzle, Armillary-inspired): the timetable's verso carries "The Nine" — Vera's only poem, 27 lines, written on the bus. Every end-word rhymes with a partner somewhere in the poem (cross-stanza, uneven groups, slant rhymes count) except ARBOR, line 9 — whose natural partner, harbor, the poem conspicuously never says. Her note: "every line has its partner. one waits." Key: A 9. Timetable front (dots, notes) retained for Act III's route check |
 | 20 | N→10 | planted-error harvest | bird-glyph proof-marks sort her seeded errors from misprints; caption prints OSTRA_DER; "^n — the tenth" |
 | 21 | D→11 | tri-layer interleave | WHAT visible / WHERE in UV shifted +1 / WHY embossed shifted −1; item 11: the first diary — greenhouse stove — "because it named her" |
 | 22 | E→2 | pinprick code | needle holes at plain magnification spell I FILED MYSELF HERE FIRST; DRAWER 2 stamp files the slot |
-| 23 | R→3 | census-grid constraint deduction | tally boxes + relation codes force scraped line 3: OSTRANDER, R., 41, head — her father, scraped by her mother |
+| 23 | R→3 | census-grid constraint deduction | answer = the full reconstruction HEAD M 41 (forced: 2nd male; aggregate age 93 − 52 = 41; mandatory head) — the margin index "R. O." supplies the letter only after the grid is proven (an unearned "R 3" was free-readable, fixed in content build). Her mother held the blade |
 
 Act II invariants: letter keys are delivered legibly on solve (the page is
 the puzzle, the key is the reward — doctrine 7); the mod-26 convention
