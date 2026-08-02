@@ -37,14 +37,31 @@ const INSTRUMENT_KEY: Partial<Record<Light, KeyId>> = {
   spectral: 'SPECTRAL',
 };
 
+const NUMERIC_CELL = /^[0-9.,%–—-]+$/;
+
 function Block({ block }: { block: ScanBlock }) {
   if (block.kind === 'table' && block.rows)
+    // Real columns: each cell wraps within its own lane so the grid holds
+    // at any Dynamic Type size (walkthrough QA 2026-08-02). Numeric cells
+    // right-align; the first column stays narrow (row labels/days).
     return (
       <View style={s.table}>
         {block.rows.map((row, i) => (
-          <Text key={i} style={[s.tableRow, i === 0 && s.tableHead]}>
-            {row.join('   ·   ')}
-          </Text>
+          <View key={i} style={s.tr}>
+            {row.map((cell, j) => (
+              <Text
+                key={j}
+                style={[
+                  s.td,
+                  j === 0 && s.tdFirst,
+                  i === 0 && s.th,
+                  i > 0 && NUMERIC_CELL.test(cell) && s.tdNum,
+                ]}
+              >
+                {cell}
+              </Text>
+            ))}
+          </View>
         ))}
       </View>
     );
@@ -316,8 +333,24 @@ const s = StyleSheet.create({
     borderRadius: 3,
   },
   table: { marginBottom: 12 },
-  tableRow: { color: colors.ink, fontFamily: fonts.mono, fontSize: 12, lineHeight: 20 },
-  tableHead: { color: colors.inkFaint },
+  tr: {
+    flexDirection: 'row',
+    gap: 8,
+    borderBottomColor: colors.ruledLine,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    paddingVertical: 4,
+  },
+  td: {
+    flex: 1,
+    color: colors.ink,
+    fontFamily: fonts.mono,
+    fontSize: 12,
+    lineHeight: 18,
+    fontVariant: ['tabular-nums'],
+  },
+  tdFirst: { flex: 0.55 },
+  tdNum: { textAlign: 'right' },
+  th: { color: colors.inkFaint, fontSize: 10, letterSpacing: 1 },
   restored: {
     color: colors.ink,
     fontFamily: fonts.serifItalic,
