@@ -67,7 +67,7 @@ export const PAGES: Page[] = [
     mech: 'geometric alignment (chain A taught)',
     story: 'She hand-drew a scanner calibration target decades before scanners existed; she knew this book would be scanned.' },
   { id: 5, title: 'Pressed Violets', arc: 'intake', produces: ['W4'], consumes: [],
-    mech: 'floriography (sampler key)',
+    mech: 'floriography (paired-opposites selection)',
     story: 'The flowers come from the garden where she and her daughter were happiest; the garden no longer exists.' },
   { id: 6, title: 'The Photograph Corners', arc: 'intake', produces: ['W5'], consumes: ['RAKING'],
     mech: 'impression reading',
