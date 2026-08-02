@@ -71,7 +71,7 @@ Remaining 11 assigned during Act II page design.
 | 01 | `1961` | catalog cross-reference | prove the one dealer-code scheme consistent across lot 44; the blade spared the year on purpose ("a year alone finds no one") |
 | 02 | `MAGPIE` | null cipher | six 100%-OCR-confidence words were re-inked later; they misfit their sentences; initials in page order |
 | 03 | `THURSDAY` | ledger anomaly | balance is perfect, prices are falsified; falsified dates share a weekday via "March begins, a Sunday" |
-| 05 | `GREENHOUSE` | floriography | sampler key inside back cover; two flowers pressed upside down invert ("a bloom reversed speaks its opposite") |
+| 05 | `GREENHOUSE` | floriography — paired-opposites selection | sampler stitches each bloom crown-up/crown-down with a word pair; orientation selects the word. Upright-everything reads "remember the STONE house where we were FOUND so gladly" → STONEHOUSE, a 10-letter trap that fits the format and fails. Honoring the two overturned blooms (flax, thistle): "the GLASS house where we were LOST so gladly" → GREENHOUSE. Reversal is load-bearing (Simon 2026-08-02); no letter assembly — that solving arc belongs to p02 (initials) and p07 (mapped letters), and a third use would violate rule 18's spirit (Simon caught an acrostic redesign doing exactly that) |
 | 11 | `R→13` | mirror reconstruction | invert+mirror the double-struck carbon; REF 13-R + white-pencil note "the last letter is the one they kept" |
 | 16 | `S→6` | date-interval cipher | gaps between due-date stamps, 1–26; eight signal intervals (≤26 days) spell "SIXTH IS S"; long gaps are noise |
 
