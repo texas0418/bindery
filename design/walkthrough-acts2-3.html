@@ -1,0 +1,229 @@
+<title>Unwriting — Acts II &amp; III Walkthrough</title>
+<style>
+  :root{
+    --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#7a7466;
+    --gilt:#8A6A28; --red:#A63A3A; --rule:#DCD9D0; --chip-ink:#FFFFFF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+      --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#8b8880;
+      --gilt:#C9A24B; --red:#D07070; --rule:#2A2D33; --chip-ink:#14161A; }
+  }
+  :root[data-theme="dark"]{ --ground:#14161A; --card:#1D2026; --card-edge:#32363E;
+    --ink:#E8E6E0; --ink-soft:#A5A29A; --ink-faint:#8b8880;
+    --gilt:#C9A24B; --red:#D07070; --rule:#2A2D33; --chip-ink:#14161A; }
+  :root[data-theme="light"]{ --ground:#EFEEE9; --card:#FAF9F5; --card-edge:#D8D5CC;
+    --ink:#1C1B18; --ink-soft:#5A574F; --ink-faint:#7a7466;
+    --gilt:#8A6A28; --red:#A63A3A; --rule:#DCD9D0; --chip-ink:#FFFFFF; }
+  body{background:var(--ground); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; margin:0; padding:0 0 4rem; line-height:1.6;}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  header{border-bottom:1px solid var(--rule); padding:1.3rem 1.2rem 1rem; font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+  header .sys{font-size:.7rem; letter-spacing:.13em; color:var(--ink-faint); text-transform:uppercase;}
+  header h1{font-size:1.15rem; font-weight:600; margin:.3rem 0 .1rem;}
+  header .sub{font-size:.78rem; color:var(--ink-soft);}
+  main{max-width:44rem; margin:0 auto; padding:0 1.2rem;}
+  .intro{margin-top:1.6rem; font-size:.9rem; color:var(--ink-soft);}
+  article{margin-top:1.8rem; background:var(--card); border:1px solid var(--card-edge); border-radius:6px; padding:1.1rem 1.2rem .9rem;}
+  article h2{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.9rem; font-weight:600; margin:0 0 .4rem; display:flex; gap:.6rem; align-items:baseline; flex-wrap:wrap;}
+  .pnum{color:var(--ink-faint); font-size:.78rem;}
+  .ans{background:var(--gilt); color:var(--chip-ink); border-radius:3px; padding:.05rem .5rem; font-family:ui-monospace,Menlo,monospace; font-size:.74rem; font-weight:700;}
+  .needs{font-family:ui-monospace,Menlo,monospace; font-size:.68rem; color:var(--ink-faint);}
+  p, li{font-size:.89rem; margin:.22rem 0 .4rem;}
+  ol{padding-left:1.25rem; margin:.15rem 0 .4rem;}
+  ol li{margin-bottom:.4rem;}
+  .state{border-left:3px solid var(--gilt); padding-left:.85rem; color:var(--ink-soft); font-size:.83rem;}
+  code{font-family:ui-monospace,Menlo,monospace; font-size:.85em; background:var(--ground); border:1px solid var(--rule); border-radius:3px; padding:.05rem .35rem;}
+  .foot{margin-top:2.2rem; border-top:1px solid var(--rule); padding-top:1rem; font-size:.85rem; color:var(--ink-soft);}
+</style>
+
+<header>
+  <div class="sys">The Bindery · Unwriting · QA Walkthrough · Acts II &amp; III · total spoilers</div>
+  <h1>Acts II &amp; III Walkthrough — Solutions &amp; Derivations</h1>
+  <div class="sub">Act II: 11 · 16 · 13 · 10 → 12 · 14 · 15 · 19 → 17 → 18 · 20 · 22 · 23 · 21 — then Act III: 24 · 25 · 26 · 27 → the certificate</div>
+</header>
+
+<main>
+<p class="intro">Assumes Act I complete (both instruments, W1–W7). Letter keys enter as <code>letter + slot</code> — the derivation is the puzzle, the key is the reward, and the damage log's certificate strip fills as you go. Act III follows straight on — nothing shows SCAN QUEUED anymore; the whole book is playable.</p>
+
+<article>
+  <h2><span class="pnum">11</span> Carbon Paper <span class="ans">R 13</span> <span class="needs">root</span></h2>
+  <ol>
+    <li>The scan shows the strikes as they lie: reversed, doubled, interleaved. Read the lines backwards (each appears twice, one word different — "for personal reference" vs. "to learn what he can see").</li>
+    <li>The reversed stamp line <code>detpiecer :pmats — R-31 FER</code> reads REF 13-R; her white-pencil line, read the way the carbon remembers: <em>"the last letter is the one they kept."</em></li>
+  </ol>
+  <p class="state">After: R lands in slot 13 — the strip's last box fills first.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">16</span> Library Slip <span class="ans">S 6</span> <span class="needs">root</span></h2>
+  <ol>
+    <li>Twelve stamps, three campaigns ('68, '71, '74) plus one stray in '85. The cadence note: within a campaign, gaps are "never larger than the alphabet" — cross-campaign silences are noise.</li>
+    <li>Gaps in days: 19 · 9 | 24 · 20 · 8 | 9 · 19 · 19 → against A=1…Z=26: S I X T H I S S — <em>"SIXTH IS S."</em> Self-confirming; enter <strong>S 6</strong>.</li>
+  </ol>
+  <p class="state">After: slot 6 fills.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">13</span> Redaction Practice <span class="ans">12 1 E</span> <span class="needs">RAKING</span></h2>
+  <ol>
+    <li>Under RAKING, every practice bar's erased label rises as embossing — except the twelfth, which has none.</li>
+    <li>Against her alphabet strip, that bar measures exactly one character, and it sits mid-phrase: <em>"I do not fear ——."</em> A one-letter word before a period, in this book, is <strong>E.</strong> Enter <strong>12 1 E</strong> — the bar you found, its width, its letter.</li>
+  </ol>
+  <p class="state">After: E → slot 12.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">10</span> The Unfiled Form <span class="ans">3 89 11 87</span> <span class="needs">UV</span></h2>
+  <ol>
+    <li>Blank under plain light; under UV the whole traced form fluoresces.</li>
+    <li>The workstation cross-dates what it scans: hunt the two dates on the document that cannot coexist — the printed footer <code>Rev. 3/89</code> against the effective date <code>11/87</code>. A form printed after it was filed. Enter <strong>3/89 11/87</strong> (any spacing).</li>
+    <li>The restored text closes the case: field one carries no verification initials — the county checked everything except the person. That's where V files from.</li>
+  </ol>
+  <p class="state">After: V → slot 1 AND the word key ROOM 214 both file. (Both 17 and 23 consume ROOM 214.)</p>
+</article>
+
+<article>
+  <h2><span class="pnum">12</span> The Notary's Stamp <span class="ans">R 8</span> <span class="needs">NIGHTINGALE</span></h2>
+  <ol>
+    <li>Nine rim fragments; the expected text is the anchor — you know from p07 the name is NIGHTINGALE. The ring assembles to <em>E. NIGHTINGALE · NOTARY PUBLIC</em> (repeating; two fragments are worn duplicates).</li>
+    <li>The notch fragment reads <code>(notch) …ALE·NOT…</code>. Count letters only, the tooth's letter first: A-L-E-N-O-T-A-<strong>R</strong> → 8th is R. Enter <strong>R 8</strong>.</li>
+    <li>Note the software flagging a FOREIGN OBJECT in this page — a pencil rubbing, dated after her last entry. Remember it; it matters at the end of the book.</li>
+  </ol>
+  <p class="state">After: R → slot 8.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">14</span> Marriage Certificate <span class="ans">TRINITY REGISTRY OFFICE</span> <span class="needs">JUNE 1974 · UV</span></h2>
+  <ol>
+    <li>The bleed model asks for the document's date to parameterize: JUNE 1974 (your log has it).</li>
+    <li>Under UV, line 7 resolves to stroke families: <code>T▒▒N▒TY ▒EG▒ST▒Y O▒F▒CE</code> — complete it. Enter the date, then <strong>TRINITY REGISTRY OFFICE</strong>.</li>
+  </ol>
+  <p class="state">After: T → slot 7.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">15</span> The Locksmith's Receipt <span class="ans">O 5</span> <span class="needs">14 LARKSPUR</span></h2>
+  <ol>
+    <li>The water-damaged customer address "14 L———" matches the key you hold — this is her house.</li>
+    <li>Final rekey code <code>B-2-4-9-0-5</code>; her note: <em>"four cuts spell, the fifth files."</em> 2+4+9+0 = 15 → O (six-and-twenty, her p09 convention); the fifth cut = slot 5. Enter <strong>O 5</strong>. The registry stamps on the reverse tell you why the locks never held.</li>
+  </ol>
+  <p class="state">After: O → slot 5.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">19</span> Bus Timetable — "The Nine" <span class="ans">A 9</span> <span class="needs">NIGHTINGALE</span></h2>
+  <ol>
+    <li>The card's verso holds the book's only poem — 27 lines. Her note: <em>"every line has its partner. one waits."</em></li>
+    <li>Chart the end-words by rhyme. Partners pair across stanzas, in uneven groups, and slant rhymes count: {glass·pass} {fare·air} {rain·pane} {chrome·home} {keep·deep} {slow·know} {told·cold} {grew·through·blue·true} {stone·alone·own·flown·moan} {run·none·done}.</li>
+    <li>One end-word rhymes with nothing in the poem: <strong>arbor</strong>, line 9. (Its natural partner — <em>harbor</em> — is the word the poem never says.) Enter <strong>A 9</strong>.</li>
+  </ol>
+  <p class="state">After: A → slot 9. Keep the timetable front in mind — the dots and margin notes return in Act III.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">17</span> Spectral Pair <span class="ans">ROOM 214 10</span> <span class="needs">ROOM 214 · UV</span> <span class="pnum">→ SPECTRAL</span></h2>
+  <ol>
+    <li>The same Tuesday twice: visible entry and UV twin, seven quiet divergences.</li>
+    <li>Of the seven divergences, exactly one has been proven elsewhere: the post went to Room 214, established at the unfiled form. Evidence-bound entry: <strong>ROOM 214 10</strong> — the fact plus the leaf that proved it. SPECTRAL VIEW calibrates.</li>
+  </ol>
+  <p class="state">After: the third instrument unlocks; every 🔒 SPECTRAL lamp opens. Pages 18, 20, 21 now attackable.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">18</span> The Daughter's Drawing <span class="ans">ANN HALLORAN 4</span> <span class="needs">SPECTRAL</span></h2>
+  <ol>
+    <li>Spectral isolates the pencil beneath the crayon: <code>A▒N HALLORA▒</code>, and in Vera's hand, <em>"aged 4. Our last summer."</em></li>
+    <li>The fragments force the fill. Enter <strong>ANN HALLORAN 4</strong>.</li>
+  </ol>
+  <p class="state">After: A → slot 4. The surname matters again at the end of the book.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">20</span> The Interview <span class="ans">N 10</span> <span class="needs">SPECTRAL · MAGPIE</span></h2>
+  <ol>
+    <li>Spectral lifts her proof-marks off the newsprint. The bird glyph (the magpie — her name for what she keeps) separates errors she PLANTED from honest misprints.</li>
+    <li>The caption prints <code>VERA OSTRA_DER</code>; her bird-marked caret says only <em>"count what the type dropped."</em> Count the printed name letter by letter — V·E·R·A·O·S·T·R·A — the gap falls tenth, and the surname demands an N. Enter <strong>N 10</strong>.</li>
+  </ol>
+  <p class="state">After: N → slot 10.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">22</span> First Day <span class="ans">I FILED MYSELF HERE FIRST</span> <span class="needs">GREENHOUSE</span></h2>
+  <ol>
+    <li>The 1959 catalog card, pricked with 21 needle-holes; the software lists hole positions counting letters only.</li>
+    <li>Index the card's own type at those positions — the letters, in card order, spell her sentence. Enter <strong>I FILED MYSELF HERE FIRST</strong> (five words).</li>
+  </ol>
+  <p class="state">After: E → slot 2 (from DRAWER 2). The most direct page in the book, on purpose — she was nineteen and had nothing to hide.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">23</span> The Blank Census <span class="ans">HEAD M 41</span> <span class="needs">ROOM 214</span></h2>
+  <ol>
+    <li>The Wexford House 214 stamp authenticates where this sheet was found — his room.</li>
+    <li>The grid forces line 3: persons 5 with male 2 (line 4's son is one → line 3 is male); aggregate age 93 − (34+10+6+2) = 41; one HEAD mandatory, and every other relation is taken. Enter <strong>HEAD M 41</strong>.</li>
+    <li>The margin index "R. O." then files the key: her father's initial, her mother's blade. The oldest erasure in the book.</li>
+  </ol>
+  <p class="state">After: R → slot 3.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">21</span> Inventory of the Lost <span class="ans">D 11</span> <span class="needs">RAKING · UV · SPECTRAL</span></h2>
+  <ol>
+    <li>Three columns in three media: WHAT (ink), WHERE (UV, shifted one row DOWN), WHY (raking, dry stylus, shifted one row UP). Her rule under spectral: <em>"never on the same line. I couldn't bear them touching."</em></li>
+    <li>Reweave: WHERE up one, WHY down one. Row 11 assembles: <em>the diary, the one before this — the greenhouse stove — because it named her.</em> Her spectral footer: <em>"when the weave is true, the eleventh gives its initial"</em> — the Diary's D. Enter <strong>D 11</strong>. (A misweave puts a different item at row 11 and a wrong initial — the reweave is load-bearing.)</li>
+  </ol>
+  <p class="state">After: D → slot 11 — and the certificate strip completes: <strong>V E R A O S T R A N D E R</strong>, all thirteen slots. Act II done: bench reads 23/28 · 24 keys. Pages 24–27 show attackable; 28 waits on their seals. All of Act III is SCAN QUEUED — that's the next build, not a bug.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">24</span> First Check <span class="ans">MAGPIE</span> <span class="needs">MAGPIE · A→4</span></h2>
+  <ol>
+    <li>The first fully legible page — read it; it ends by asking for the drawing, laid "as it folds."</li>
+    <li>Face-up overlay yields grammatical noise (the trap lay). MIRRORED — as a folded drawing lies — the panes read: <em>SAY WHAT I CALLED YOU WHEN NO ONE HEARD.</em></li>
+    <li>You have held the answer since page 02. Enter <strong>MAGPIE</strong>. Then read what prints under the seal — the anomaly thread resolves: she wrote this for both of you.</li>
+  </ol>
+  <p class="state">After: FIRST SEAL files.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">25</span> Second Check <span class="ans">NOWHERE</span> <span class="needs">14 LARKSPUR · O→5 · A→9</span></h2>
+  <ol>
+    <li>Trace: keyhole = Larkspur; the 9 threads the route; the glass sits past the depot-side curve. The timetable's dots mark every stop she used — one stop on the glass's stretch has no dot, ever.</li>
+    <li>The trap: entering that stop (or any stop) fails. <em>"Mark where I would stop"</em> — she never did. Enter <strong>NOWHERE</strong>.</li>
+  </ol>
+  <p class="state">After: SECOND SEAL; the restored text reveals the map's pinprick greenhouse, drawn as seen from a moving window.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">26</span> Third Check <span class="ans">C 14 20</span> <span class="needs">SPECTRAL · UV · T→7 · N→10</span></h2>
+  <ol>
+    <li>Three accounts of the night she left: A (visible — courthouse, dawn), B (UV — the clipping quoted with her surname printed whole), C (spectral — small, dusk, on foot, "because the nine runs at night").</li>
+    <li>Convict with the record: A's courthouse vs. leaf 14's TRINITY REGISTRY OFFICE; B's perfect spelling vs. leaf 20's engineered misprint. Enter <strong>C 14 20</strong>.</li>
+  </ol>
+  <p class="state">After: THIRD SEAL — "Now you read like an archivist."</p>
+</article>
+
+<article>
+  <h2><span class="pnum">27</span> Fourth Check <span class="ans">V O</span> <span class="needs">NIGHTINGALE · E→2 · R→3 · all three instruments</span></h2>
+  <ol>
+    <li>Blank page; order matters. RAKING first: <em>"begin with the bird: 1210"</em> → page 07's dial: 1210 = L.</li>
+    <li>UV on the grid cell L: <em>"Drawer two. Line three. Sign the woman, not the cipher."</em> Drawer two = E (p22); line three = R (p23).</li>
+    <li>The trap: <code>E R</code> fails — computing is not understanding. The woman: <strong>V O</strong>.</li>
+  </ol>
+  <p class="state">After: FOURTH SEAL. Spectral now shows the page's full text — her last address to whoever came. Page 28 unseals.</p>
+</article>
+
+<article>
+  <h2><span class="pnum">28</span> The Certificate — three endings <span class="needs">4 seals + 13 letters</span></h2>
+  <ol>
+    <li>The name assembles from your keys — nothing typed. Three signature lines:</li>
+    <li><strong>ARCHIVE RECORD</strong>: one tap; epilogue = the catalog result that now exists.</li>
+    <li><strong>PRIVATE DELIVERY</strong>: asks recipient + where. The synthesis nothing stated: the p12 FOREIGN OBJECT rubbing (a deed, dated after her death) + the drawing's surname + the poem's orphan → <strong>HALLORAN ARBOR LANE</strong>. Epilogue: the letter signed M.</li>
+    <li><strong>DISPOSAL</strong>: double-confirm; epilogue = the blank intake ticket. <em>QA build: deletion is simulated and endings stay re-choosable so you can test all three; the shipping build wipes and the choice is final.</em></li>
+  </ol>
+  <p class="state">End state: 28/28 restorable surfaces touched · 28 keys logged (8W + 3I + 13L + 4S) · certificate signed. The book is complete.</p>
+</article>
+
+<p class="foot"><strong>QA sweeps for this act:</strong> the certificate strip should fill in exactly the scrambled discovery order above, never out of slot; SPECTRAL's unlock at 17 should flip lamps on 18/20/21 everywhere; the FOREIGN OBJECT flag on p12 must render (it's Act III's Delivery thread); and the poem must scroll fully with the keyboard up — 27 lines is the longest scan in the game so far.</p>
+</main>
