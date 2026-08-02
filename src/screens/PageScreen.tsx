@@ -5,7 +5,16 @@
 // (10b); only the restoration field locks, visibly, on missing ingredients.
 
 import { useEffect, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 import { keyLabel, PAGES } from '../content/unwriting/graph';
 import { contentFor } from '../content/unwriting/pages';
@@ -186,7 +195,10 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
   const showEntry = content?.answer && !solved;
 
   return (
-    <View style={s.root}>
+    <KeyboardAvoidingView
+      style={s.root}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
       <View style={s.bar}>
         <Pressable onPress={onBack} accessibilityRole="button">
           <Text style={s.back}>‹ BENCH</Text>
@@ -199,7 +211,12 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
 
       <LightBar lights={lights} earned={earned} active={light} onPick={setLight} />
 
-      <ScrollView style={s.scan} contentContainerStyle={s.scanInner}>
+      <ScrollView
+        style={s.scan}
+        contentContainerStyle={s.scanInner}
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag"
+      >
         <ScanBody content={content} light={light} solved={solved} />
       </ScrollView>
 
@@ -219,7 +236,7 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
             produces={page.produces}
           />
         ))}
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
