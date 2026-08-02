@@ -122,6 +122,28 @@ for (const [id, answer] of Object.entries(PAGE_SOLUTIONS)) {
     );
 }
 
+// 8. NOT ENUMERABLE: no substantial word of a page's answer appears
+// verbatim in that page's own scan content — otherwise the answer can be
+// brute-forced from the page's visible inventory (caught live 2026-08-02:
+// LARKSPUR sat among p09's own flower doodles, making "14 <each flower>"
+// an eight-guess solve). Short numeric parts (house numbers, tick values)
+// are exempt: they are legitimately derived data.
+for (const c of PAGE_CONTENT) {
+  const truth = PAGE_SOLUTIONS[c.id];
+  if (!truth) continue;
+  const words = truth.split(' ').filter((w) => /^[A-Z]{5,}$/.test(w));
+  const haystack = c.layers
+    .flatMap((l) => l.blocks)
+    .flatMap((b) => [b.text ?? '', ...(b.rows ?? []).flat()])
+    .join('\n')
+    .toUpperCase();
+  for (const w of words)
+    assert.ok(
+      !haystack.includes(w),
+      `page ${c.id}: answer word "${w}" must not appear in the page's own scan content`,
+    );
+}
+
 const IMPORTS_SPOILERS = /(?:from\s+['"]|require\(\s*['"])[^'"]*solutions\.spoilers/;
 for (const file of walk('src'))
   assert.ok(

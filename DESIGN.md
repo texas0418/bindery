@@ -86,7 +86,7 @@ lands** — in a no-hints game, that click is the validation.
 | 06 | `JUNE 1974` | impression reading | erased captions survive as embossing under raking light; "V. & E., J-ne 19-4" disambiguated by the KODAVUE corner stamp (EST. 1968) |
 | 07 | `NIGHTINGALE` | dial mapping | filter the log to Thursdays (p03 ingredient); taped cipher-dial maps kHz→letters; 3 non-Thursday decoys decode to garbage |
 | 08 | `74 (counterclockwise) + 6` → UV | two-ring alignment (chain A twisted) | astrolabe combination keyed to the wedding; outer ring runs BACKWARD (the arrow); Plate-I habit lands on mirror tick 26 and drifts. Foreshadows Act II reverse chronology |
-| 09 | `14 LARKSPUR` | modular arithmetic | doodle-headed margin columns; flower columns' totals mod 26 spell LARKSPUR (itself a flower — the self-confirm), bird columns sum to 14; instruction parseable only with MAGPIE + GREENHOUSE |
+| 09 | `14 LARKSPUR` | modular arithmetic | doodle-headed margin columns; flower columns' totals mod 26 spell LARKSPUR, bird columns sum to 14; instruction parseable only with MAGPIE + GREENHOUSE. LARKSPUR must NEVER appear among the page's doodles (Simon 2026-08-02: a visible larkspur made "14 <each flower>" an 8-guess brute force) — the remainders spell a flower the margins don't show, which is the self-confirm |
 
 Act I invariants: instrument pages self-confirm by prediction-match; decoys
 yield garbage, never near-misses; the husband appears only as "E." and is
