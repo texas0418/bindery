@@ -309,7 +309,7 @@ export const PAGE_CONTENT: PageContent[] = [
               ['7', 'kettle', '12'],
               ['8', 'thistle', '45'],
               ['9', 'sparrow', '5'],
-              ['10', 'larkspur', '42'],
+              ['10', 'pansy', '42'],
               ['11', 'poppy', '47'],
               ['12', 'spool', '19'],
               ['13', 'iris', '70'],
