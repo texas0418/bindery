@@ -103,25 +103,41 @@ function LightBar({
   active: Light;
   onPick: (l: Light) => void;
 }) {
+  // A locked lamp answers when touched (walkthrough QA 2026-08-02: inert
+  // locked tabs made the rack a mystery twice over) — workstation voice,
+  // stating its own requirement, never a nudge.
+  const [lockedNote, setLockedNote] = useState<string | null>(null);
   return (
-    <View style={s.lightBar}>
-      {lights.map((l) => {
-        const needsKey = INSTRUMENT_KEY[l];
-        const locked = needsKey ? !earned.has(needsKey) : false;
-        const isActive = active === l;
-        return (
-          <Pressable
-            key={l}
-            onPress={() => !locked && onPick(l)}
-            accessibilityRole="button"
-            style={[s.light, isActive && s.lightActive]}
-          >
-            <ChromeText style={[s.lightText, isActive && s.lightTextActive, locked && s.lightLocked]}>
-              {locked ? `${LIGHT_LABEL[l]} 🔒` : LIGHT_LABEL[l]}
-            </ChromeText>
-          </Pressable>
-        );
-      })}
+    <View>
+      <View style={s.lightBar}>
+        {lights.map((l) => {
+          const needsKey = INSTRUMENT_KEY[l];
+          const locked = needsKey ? !earned.has(needsKey) : false;
+          const isActive = active === l;
+          return (
+            <Pressable
+              key={l}
+              onPress={() => {
+                if (locked) {
+                  setLockedNote(`${LIGHT_LABEL[l]} — INSTRUMENT NOT CALIBRATED`);
+                  return;
+                }
+                setLockedNote(null);
+                onPick(l);
+              }}
+              accessibilityRole="button"
+              style={[s.light, isActive && s.lightActive]}
+            >
+              <ChromeText
+                style={[s.lightText, isActive && s.lightTextActive, locked && s.lightLocked]}
+              >
+                {locked ? `${LIGHT_LABEL[l]} 🔒` : LIGHT_LABEL[l]}
+              </ChromeText>
+            </Pressable>
+          );
+        })}
+      </View>
+      {lockedNote && <ChromeText style={s.lockedNote}>{lockedNote}</ChromeText>}
     </View>
   );
 }
@@ -306,6 +322,14 @@ const s = StyleSheet.create({
   lightText: { color: colors.textSoft, fontFamily: fonts.mono, fontSize: 11, letterSpacing: 1 },
   lightTextActive: { color: colors.gilt },
   lightLocked: { color: colors.textFaint },
+  lockedNote: {
+    color: colors.textFaint,
+    fontFamily: fonts.mono,
+    fontSize: 11,
+    letterSpacing: 1,
+    paddingHorizontal: 16,
+    paddingBottom: 8,
+  },
   scan: { flex: 1, backgroundColor: colors.paper, marginHorizontal: 12, borderRadius: 4 },
   scanInner: { padding: 18, paddingBottom: 32 },
   blockHeading: {
