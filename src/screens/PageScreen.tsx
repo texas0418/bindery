@@ -7,21 +7,21 @@
 import { useEffect, useState } from 'react';
 import {
   KeyboardAvoidingView,
+  PixelRatio,
   Platform,
   Pressable,
   ScrollView,
   StyleSheet,
-  Text,
-  TextInput,
   View,
 } from 'react-native';
+import { BodyText, ChromeText, ChromeTextInput, TableText } from '../engine/ui';
 
 import { keyLabel, PAGES } from '../content/unwriting/graph';
 import { contentFor } from '../content/unwriting/pages';
 import { checkAnswer } from '../engine/hash';
 import type { KeyId, Light, PageContent, ScanBlock } from '../models';
 import { earnKey, earnedKeys, markPageSeen, pageSolved, setPageSolved } from '../state';
-import { colors, fonts } from '../theme';
+import { colors, fonts, TYPE_CAPS } from '../theme';
 
 const LIGHT_LABEL: Record<Light, string> = {
   plain: 'PLAIN',
@@ -37,41 +37,59 @@ const INSTRUMENT_KEY: Partial<Record<Light, KeyId>> = {
   spectral: 'SPECTRAL',
 };
 
-const NUMERIC_CELL = /^[0-9.,%–—-]+$/;
+const NUMERIC_CELL = /^[0-9.,:%–—-]+$/;
+const TABLE_FONT = 12;
+const MONO_GLYPH = 0.62; // Menlo advance width as a fraction of font size
+
+/** Column lanes (walkthrough QA 2026-08-02, third pass): short columns —
+ *  days, times, kHz, prices — get EXACT character widths (mono font makes
+ *  this precise), so a "1210" can never wrap into a misreadable "121/0".
+ *  Only long prose columns flex and wrap. Sized against the real font
+ *  scale, capped at the table ceiling. */
+function columnLanes(rows: string[][]): ({ width: number } | { flex: number })[] {
+  const scale = Math.min(PixelRatio.getFontScale(), TYPE_CAPS.table);
+  const ch = TABLE_FONT * MONO_GLYPH * scale;
+  const cols = Math.max(...rows.map((r) => r.length));
+  const lanes: ({ width: number } | { flex: number })[] = [];
+  for (let j = 0; j < cols; j += 1) {
+    const longest = Math.max(...rows.map((r) => (r[j] ?? '').length));
+    lanes.push(longest <= 12 ? { width: longest * ch + 4 } : { flex: Math.min(longest, 24) });
+  }
+  return lanes;
+}
 
 function Block({ block }: { block: ScanBlock }) {
-  if (block.kind === 'table' && block.rows)
-    // Real columns: each cell wraps within its own lane so the grid holds
-    // at any Dynamic Type size (walkthrough QA 2026-08-02). Numeric cells
-    // right-align; the first column stays narrow (row labels/days).
+  if (block.kind === 'table' && block.rows) {
+    const lanes = columnLanes(block.rows);
     return (
       <View style={s.table}>
         {block.rows.map((row, i) => (
           <View key={i} style={s.tr}>
             {row.map((cell, j) => (
-              <Text
+              <TableText
                 key={j}
                 style={[
                   s.td,
-                  j === 0 && s.tdFirst,
+                  lanes[j],
                   i === 0 && s.th,
                   i > 0 && NUMERIC_CELL.test(cell) && s.tdNum,
                 ]}
               >
                 {cell}
-              </Text>
+              </TableText>
             ))}
           </View>
         ))}
       </View>
     );
+  }
   const style =
     block.kind === 'heading' ? s.blockHeading
     : block.kind === 'margin' ? s.blockMargin
     : block.kind === 'label' ? s.blockLabel
     : block.kind === 'figure' ? s.blockFigure
     : s.blockPara;
-  return <Text style={style}>{block.text}</Text>;
+  return <BodyText style={style}>{block.text}</BodyText>;
 }
 
 function LightBar({
@@ -98,9 +116,9 @@ function LightBar({
             accessibilityRole="button"
             style={[s.light, isActive && s.lightActive]}
           >
-            <Text style={[s.lightText, isActive && s.lightTextActive, locked && s.lightLocked]}>
+            <ChromeText style={[s.lightText, isActive && s.lightTextActive, locked && s.lightLocked]}>
               {locked ? `${LIGHT_LABEL[l]} 🔒` : LIGHT_LABEL[l]}
-            </Text>
+            </ChromeText>
           </Pressable>
         );
       })}
@@ -133,10 +151,10 @@ function AnswerPanel({
 
   return (
     <View style={s.panel}>
-      <Text style={s.panelTitle}>RESTORATION KEY ENTRY</Text>
-      <Text style={s.format}>{format.toUpperCase()}</Text>
+      <ChromeText style={s.panelTitle}>RESTORATION KEY ENTRY</ChromeText>
+      <ChromeText style={s.format}>{format.toUpperCase()}</ChromeText>
       <View style={s.entryRow}>
-        <TextInput
+        <ChromeTextInput
           style={s.input}
           value={guess}
           onChangeText={(t) => {
@@ -150,10 +168,10 @@ function AnswerPanel({
           onSubmitEditing={submit}
         />
         <Pressable style={s.check} onPress={submit} accessibilityRole="button">
-          <Text style={s.checkText}>RESTORE</Text>
+          <ChromeText style={s.checkText}>RESTORE</ChromeText>
         </Pressable>
       </View>
-      {missed && <Text style={s.miss}>NO MATCH IN RESTORATION MODEL</Text>}
+      {missed && <ChromeText style={s.miss}>NO MATCH IN RESTORATION MODEL</ChromeText>}
     </View>
   );
 }
@@ -169,9 +187,9 @@ function ScanBody({
 }) {
   if (!content)
     return (
-      <Text style={s.blockLabel}>
+      <BodyText style={s.blockLabel}>
         SCAN QUEUED — this leaf is logged in the damage register but not yet transcribed.
-      </Text>
+      </BodyText>
     );
   const shown = content.layers.filter((l) => l.light === 'plain' || l.light === light);
   const litButEmpty = light !== 'plain' && !content.layers.some((l) => l.light === light);
@@ -185,9 +203,9 @@ function ScanBody({
         </View>
       ))}
       {litButEmpty && (
-        <Text style={s.blockLabel}>NO ADDITIONAL DETAIL AT THIS WAVELENGTH.</Text>
+        <BodyText style={s.blockLabel}>NO ADDITIONAL DETAIL AT THIS WAVELENGTH.</BodyText>
       )}
-      {solved && <Text style={s.restored}>{content.restored}</Text>}
+      {solved && <BodyText style={s.restored}>{content.restored}</BodyText>}
     </>
   );
 }
@@ -218,12 +236,12 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
     >
       <View style={s.bar}>
         <Pressable onPress={onBack} accessibilityRole="button">
-          <Text style={s.back}>‹ BENCH</Text>
+          <ChromeText style={s.back}>‹ BENCH</ChromeText>
         </Pressable>
-        <Text style={s.barTitle}>
+        <ChromeText style={s.barTitle}>
           {String(id).padStart(2, '0')} · {page.title.toUpperCase()}
-        </Text>
-        <Text style={[s.barMark, solved && s.barMarkSolved]}>{solved ? '✓' : ' '}</Text>
+        </ChromeText>
+        <ChromeText style={[s.barMark, solved && s.barMarkSolved]}>{solved ? '✓' : ' '}</ChromeText>
       </View>
 
       <LightBar lights={lights} earned={earned} active={light} onPick={setLight} />
@@ -240,10 +258,10 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
       {showEntry &&
         (missing.length > 0 ? (
           <View style={s.panel}>
-            <Text style={s.lockedText}>
+            <ChromeText style={s.lockedText}>
               RESTORATION LOCKED — requires{' '}
               {missing.map((k) => keyLabel(k, earned)).join(' · ')}
-            </Text>
+            </ChromeText>
           </View>
         ) : (
           <AnswerPanel
@@ -341,14 +359,12 @@ const s = StyleSheet.create({
     paddingVertical: 4,
   },
   td: {
-    flex: 1,
     color: colors.ink,
     fontFamily: fonts.mono,
     fontSize: 12,
     lineHeight: 18,
     fontVariant: ['tabular-nums'],
   },
-  tdFirst: { flex: 0.55 },
   tdNum: { textAlign: 'right' },
   th: { color: colors.inkFaint, fontSize: 10, letterSpacing: 1 },
   restored: {

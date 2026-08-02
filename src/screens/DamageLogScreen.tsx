@@ -4,7 +4,8 @@
 // its logged value, kind, and source page, plus the thirteen-slot letter
 // certificate assembling toward the name.
 
-import { ScrollView, Pressable, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, Pressable, StyleSheet, View } from 'react-native';
+import { ChromeText } from '../engine/ui';
 
 import { KEYS, PAGES } from '../content/unwriting/graph';
 import { LETTER_SLOTS, type KeyId } from '../models';
@@ -32,8 +33,8 @@ function CertificateStrip({ earned }: { earned: ReadonlySet<KeyId> }) {
     <View style={s.strip}>
       {Array.from({ length: 13 }, (_, i) => (
         <View key={i} style={s.slot}>
-          <Text style={s.slotLetter}>{bySlot.get(i + 1) ?? ' '}</Text>
-          <Text style={s.slotNum}>{i + 1}</Text>
+          <ChromeText style={s.slotLetter}>{bySlot.get(i + 1) ?? ' '}</ChromeText>
+          <ChromeText style={s.slotNum}>{i + 1}</ChromeText>
         </View>
       ))}
     </View>
@@ -48,33 +49,33 @@ export default function DamageLogScreen({ onBack }: { onBack: () => void }) {
     <View style={s.root}>
       <View style={s.bar}>
         <Pressable onPress={onBack} accessibilityRole="button">
-          <Text style={s.back}>‹ BENCH</Text>
+          <ChromeText style={s.back}>‹ BENCH</ChromeText>
         </Pressable>
-        <Text style={s.barTitle}>DAMAGE LOG</Text>
+        <ChromeText style={s.barTitle}>DAMAGE LOG</ChromeText>
       </View>
       <ScrollView contentContainerStyle={s.body}>
-        <Text style={s.note}>
+        <ChromeText style={s.note}>
           Every recovered key files here automatically. Later pages consume
           them; nothing must be remembered.
-        </Text>
+        </ChromeText>
         {KIND_ORDER.map((kind) => {
           const ofKind = rows.filter((k) => KEYS[k].kind === kind);
           if (kind !== 'letter' && ofKind.length === 0) return null;
           return (
             <View key={kind} style={s.section}>
-              <Text style={s.sectionTitle}>{KIND_TITLE[kind]}</Text>
+              <ChromeText style={s.sectionTitle}>{KIND_TITLE[kind]}</ChromeText>
               {ofKind.map((k) => (
                 <View key={k} style={s.row}>
-                  <Text style={s.keyLabel}>{KEYS[k].label}</Text>
-                  <Text style={s.keySource}>
+                  <ChromeText style={s.keyLabel}>{KEYS[k].label}</ChromeText>
+                  <ChromeText style={s.keySource}>
                     p{String(producerOf(k)).padStart(2, '0')}
-                  </Text>
+                  </ChromeText>
                 </View>
               ))}
               {kind === 'letter' && (
                 <>
                   {ofKind.length === 0 && (
-                    <Text style={s.empty}>none recovered yet</Text>
+                    <ChromeText style={s.empty}>none recovered yet</ChromeText>
                   )}
                   <CertificateStrip earned={earned} />
                 </>
@@ -83,7 +84,7 @@ export default function DamageLogScreen({ onBack }: { onBack: () => void }) {
           );
         })}
         {rows.length === 0 && (
-          <Text style={s.empty}>The log is empty. Restore a page.</Text>
+          <ChromeText style={s.empty}>The log is empty. Restore a page.</ChromeText>
         )}
       </ScrollView>
     </View>

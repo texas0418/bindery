@@ -5,7 +5,8 @@
 // leaders, damaged titles healing to crisp ink as pages restore, and a
 // ribbon at the reading edge (first attackable unsolved page).
 
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, View } from 'react-native';
+import { BodyText, ChromeText } from '../engine/ui';
 
 import { keyLabel, PAGES } from '../content/unwriting/graph';
 import { isAttackable } from '../engine/graph';
@@ -56,24 +57,24 @@ function TocRow({
       {ribbon && <View style={s.ribbon} />}
       <View style={s.rowInner}>
         <View style={s.titleLine}>
-          <Text
+          <BodyText
             style={[s.title, solved ? s.titleSolved : ready ? s.titleReady : s.titleBlocked]}
             numberOfLines={1}
           >
             {page.title}
             {solved ? '  ✓' : ''}
-          </Text>
-          <Text style={s.leader} numberOfLines={1} ellipsizeMode="clip">
+          </BodyText>
+          <BodyText style={s.leader} numberOfLines={1} ellipsizeMode="clip">
             {'· '.repeat(60)}
-          </Text>
-          <Text style={[s.folio, solved && s.folioSolved]}>
+          </BodyText>
+          <BodyText style={[s.folio, solved && s.folioSolved]}>
             {String(page.id).padStart(2, '0')}
-          </Text>
+          </BodyText>
         </View>
         {!solved && !ready && (
-          <Text style={s.needs}>
+          <BodyText style={s.needs}>
             needs {missing.map((k) => keyLabel(k, earned)).join(' · ')}
-          </Text>
+          </BodyText>
         )}
       </View>
     </Pressable>
@@ -95,18 +96,18 @@ export default function WorkbenchScreen({
     <View style={s.root}>
       <View style={s.chrome}>
         <View style={s.chromeText}>
-          <Text style={s.header}>THE BINDERY · UNWRITING</Text>
-          <Text style={s.sub}>
+          <ChromeText style={s.header}>THE BINDERY · UNWRITING</ChromeText>
+          <ChromeText style={s.sub}>
             {solvedCount} / {PAGES.length} restored · {earned.size}{' '}
             {earned.size === 1 ? 'key' : 'keys'} logged
-          </Text>
+          </ChromeText>
         </View>
         <Pressable style={s.logBtn} onPress={onOpenLog} accessibilityRole="button">
-          <Text style={s.logBtnText}>DAMAGE LOG</Text>
+          <ChromeText style={s.logBtnText}>DAMAGE LOG</ChromeText>
         </Pressable>
       </View>
       <View style={s.book}>
-        <Text style={s.contentsHead}>CONTENTS</Text>
+        <BodyText style={s.contentsHead}>CONTENTS</BodyText>
         <FlatList
           data={tocItems()}
           keyExtractor={(it) => (it.kind === 'header' ? `h-${it.arc}` : String(it.page.id))}
@@ -114,8 +115,8 @@ export default function WorkbenchScreen({
           renderItem={({ item }) =>
             item.kind === 'header' ? (
               <View style={s.arcHeader}>
-                <Text style={s.arcLabel}>{ARC_TITLE[item.arc].label}</Text>
-                <Text style={s.arcName}>{ARC_TITLE[item.arc].name}</Text>
+                <BodyText style={s.arcLabel}>{ARC_TITLE[item.arc].label}</BodyText>
+                <BodyText style={s.arcName}>{ARC_TITLE[item.arc].name}</BodyText>
               </View>
             ) : (
               <TocRow
