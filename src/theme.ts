@@ -31,6 +31,16 @@ export const colors = {
   spectral: '#5cb3a8',
 } as const;
 
+/** Dynamic Type ceilings (maxFontSizeMultiplier), applied explicitly per
+ *  surface. Rule 11: scan prose scales generously; TABLES cap tighter
+ *  because their legibility IS the grid — alignment beats point size;
+ *  workstation chrome stays furniture. */
+export const TYPE_CAPS = {
+  chrome: 1.3,
+  body: 1.7,
+  table: 1.35,
+} as const;
+
 export const fonts = {
   /** Workstation voice: everything the lab's software says. */
   mono: 'Menlo',

@@ -18,7 +18,7 @@ export const PAGE_CONTENT: PageContent[] = [
           { kind: 'heading', text: 'FLYLEAF — SCAN 01' },
           {
             kind: 'para',
-            text: 'For my ———, when she is old enough to ask.\n\nBelow the inscription, a bookseller’s penciled catalog code, cut through by the same blade that took the name. Surviving fragment:  ▮—VI–61',
+            text: 'For my ———, when she is old enough to ask.\n\nBelow the inscription, a bookseller’s penciled catalog code, cut through by the same blade that took the name. Surviving fragment:\n\n▮—VI–61',
           },
           { kind: 'label', text: 'INTAKE — ESTATE LOT 44 · CONSIGNOR: ESTATE OF E. N.' },
           {
@@ -231,7 +231,7 @@ export const PAGE_CONTENT: PageContent[] = [
           {
             kind: 'table',
             rows: [
-              ['DATE', 'TIME', 'FREQ (kHz)', 'NOTES'],
+              ['DATE', 'TIME', 'kHz', 'NOTES'],
               ['THU 2 APR', '23:55', '560', 'clear tonight'],
               ['SAT 4 APR', '00:40', '1210', 'storm to the west'],
               ['THU 9 APR', '23:50', '640', 'sang late'],

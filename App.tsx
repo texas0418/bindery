@@ -10,14 +10,10 @@ SplashScreen.preventAutoHideAsync().catch(() => {});
 SplashScreen.setOptions({ duration: 450, fade: true });
 const SPLASH_HOLD_MS = 2250;
 
-// Global safety ceiling: honor Dynamic Type but never let the workstation's
-// fixed chrome collapse. Puzzle-critical scan content caps NOWHERE — doctrine
-// 11: ciphertext must be fully legible at max text size (QA'd on device).
-type TextWithDefaults = typeof Text & {
-  defaultProps?: { maxFontSizeMultiplier?: number };
-};
-const T = Text as TextWithDefaults;
-T.defaultProps = { ...T.defaultProps, maxFontSizeMultiplier: 1.4 };
+// Dynamic Type ceilings live in theme.ts (TYPE_CAPS) and are applied as
+// explicit maxFontSizeMultiplier props per surface — Text.defaultProps is
+// silently DEAD under React 19 (caught in the 2026-08-02 max-type sweep:
+// the "global cap" did nothing and AX sizes scaled unbounded).
 
 import { initPurchases } from './src/proAccess';
 import { hasFlag, initState, useWorldVersion } from './src/state';
