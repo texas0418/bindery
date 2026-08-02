@@ -107,6 +107,7 @@ function AnswerPanel({
 
   return (
     <View style={s.panel}>
+      <Text style={s.panelTitle}>RESTORATION KEY ENTRY</Text>
       <Text style={s.format}>{format.toUpperCase()}</Text>
       <View style={s.entryRow}>
         <TextInput
@@ -118,7 +119,7 @@ function AnswerPanel({
           }}
           autoCapitalize="characters"
           autoCorrect={false}
-          placeholder="—"
+          placeholder="transcribe your finding…"
           placeholderTextColor={colors.textFaint}
           onSubmitEditing={submit}
         />
@@ -146,17 +147,20 @@ function ScanBody({
         SCAN QUEUED — this leaf is logged in the damage register but not yet transcribed.
       </Text>
     );
+  const shown = content.layers.filter((l) => l.light === 'plain' || l.light === light);
+  const litButEmpty = light !== 'plain' && !content.layers.some((l) => l.light === light);
   return (
     <>
-      {content.layers
-        .filter((l) => l.light === 'plain' || l.light === light)
-        .map((l, i) => (
-          <View key={i}>
-            {l.blocks.map((b, j) => (
-              <Block key={j} block={b} />
-            ))}
-          </View>
-        ))}
+      {shown.map((l, i) => (
+        <View key={i}>
+          {l.blocks.map((b, j) => (
+            <Block key={j} block={b} />
+          ))}
+        </View>
+      ))}
+      {litButEmpty && (
+        <Text style={s.blockLabel}>NO ADDITIONAL DETAIL AT THIS WAVELENGTH.</Text>
+      )}
       {solved && <Text style={s.restored}>{content.restored}</Text>}
     </>
   );
@@ -172,10 +176,11 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
 
   useEffect(() => markPageSeen(id), [id]);
 
-  const lights: Light[] = ['plain'];
+  // The full rack is always present — a real bench has all its lamps
+  // (device QA 2026-08-01: a lone PLAIN tab read as a mystery button).
+  // Locked instruments show 🔒; page-specific views (OCR conf) append.
+  const lights: Light[] = ['plain', 'raking', 'uv', 'spectral'];
   for (const v of content?.views ?? []) lights.push(v);
-  for (const l of content?.layers ?? [])
-    if (INSTRUMENT_KEY[l.light] && !lights.includes(l.light)) lights.push(l.light);
 
   const missing = page.consumes.filter((k) => !earned.has(k));
   const showEntry = content?.answer && !solved;
@@ -307,7 +312,8 @@ const s = StyleSheet.create({
     borderTopColor: colors.ruledLine,
   },
   panel: { padding: 14, gap: 8 },
-  format: { color: colors.textFaint, fontFamily: fonts.mono, fontSize: 11, letterSpacing: 1.5 },
+  panelTitle: { color: colors.gilt, fontFamily: fonts.mono, fontSize: 11, letterSpacing: 2 },
+  format: { color: colors.textSoft, fontFamily: fonts.mono, fontSize: 11, letterSpacing: 1.5 },
   entryRow: { flexDirection: 'row', gap: 10 },
   input: {
     flex: 1,

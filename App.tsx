@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 // Global safety ceiling: honor Dynamic Type but never let the workstation's
@@ -17,19 +17,28 @@ import IntroScreen from './src/screens/IntroScreen';
 import PageScreen from './src/screens/PageScreen';
 import WorkbenchScreen from './src/screens/WorkbenchScreen';
 
-type View =
+type ViewState =
   | { t: 'bench' } // the open book: every page browsable from intake
   | { t: 'page'; id: number };
 
 function Root() {
   useWorldVersion();
-  const [view, setView] = useState<View>({ t: 'bench' });
+  const [view, setView] = useState<ViewState>({ t: 'bench' });
 
   if (!hasFlag('introDone')) return <IntroScreen />;
 
-  if (view.t === 'page')
-    return <PageScreen id={view.id} onBack={() => setView({ t: 'bench' })} />;
-  return <WorkbenchScreen onOpenPage={(id) => setView({ t: 'page', id })} />;
+  // The bench stays mounted beneath the page so scroll position survives
+  // (device QA 2026-08-01) — you don't close the book to look at a page.
+  return (
+    <View style={{ flex: 1 }}>
+      <WorkbenchScreen onOpenPage={(id) => setView({ t: 'page', id })} />
+      {view.t === 'page' && (
+        <View style={StyleSheet.absoluteFill}>
+          <PageScreen id={view.id} onBack={() => setView({ t: 'bench' })} />
+        </View>
+      )}
+    </View>
+  );
 }
 
 export default function App() {

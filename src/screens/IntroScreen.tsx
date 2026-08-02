@@ -14,6 +14,11 @@ export default function IntroScreen() {
         <Text style={s.line}>Estate lot 44 — one item, damaged.</Text>
         <Text style={s.line}>Journal, cloth-bound, author unknown.</Text>
         <Text style={s.line}>Flyleaf name excised. Begin scan.</Text>
+        <Text style={s.procedure}>
+          PROCEDURE: study each leaf under the bench lights. Transcribe your
+          finding into the RESTORATION KEY ENTRY field; the model verifies.
+          Recovered keys file to the damage log automatically.
+        </Text>
         <Pressable
           style={s.btn}
           onPress={() => setFlag('introDone')}
@@ -52,6 +57,13 @@ const s = StyleSheet.create({
     marginBottom: 8,
   },
   line: { color: colors.text, fontFamily: fonts.mono, fontSize: 15 },
+  procedure: {
+    color: colors.textSoft,
+    fontFamily: fonts.mono,
+    fontSize: 12,
+    lineHeight: 18,
+    marginTop: 6,
+  },
   btn: {
     marginTop: 16,
     borderColor: colors.gilt,
