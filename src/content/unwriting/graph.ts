@@ -38,6 +38,12 @@ export const KEYS: Record<KeyId, KeyDef> = {
   S4: { kind: 'seal', label: 'Fourth seal' },
 };
 
+/** p28's Delivery line accepts recipient + where — synthesized from the
+ *  foreign rubbing (p12), the drawing's surname (p18), and the poem's
+ *  orphan (p19). Never stated anywhere; that synthesis IS the earned
+ *  breadcrumb (rule 14: signposted, optional, visible when absent). */
+export const DELIVERY_HASH = 'a5e9bedfc1cfd69d';
+
 const ALL_LETTERS: KeyId[] = [
   'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13',
 ];
@@ -133,11 +139,11 @@ export const PAGES: Page[] = [
     mech: 'cartographic trace',
     story: 'Only someone who rode the route knows where it truly stops.' },
   { id: 26, title: 'Third Check: The Two Truths', arc: 'signature', produces: ['S3'],
-    consumes: ['SPECTRAL', 'L5', 'L10'],
+    consumes: ['SPECTRAL', 'UV', 'L5', 'L10'],
     mech: 'delta collation (chain B mastered)',
     story: "'He believed everything that was written down. Show me you don’t.'" },
   { id: 27, title: 'Fourth Check: What She Taught', arc: 'signature', produces: ['S4'],
-    consumes: ['W6', 'L12', 'L13', 'RAKING', 'UV'],
+    consumes: ['W6', 'L12', 'L13', 'RAKING', 'UV', 'SPECTRAL'],
     mech: 'nested composite',
     story: "The last lesson is addressed 'to whoever you are, now that you have come this far' — she knew it might not be Magpie." },
   { id: 28, title: 'The Last Signature', arc: 'signature', produces: [],

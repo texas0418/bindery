@@ -17,6 +17,7 @@ const SPLASH_HOLD_MS = 2250;
 
 import { initPurchases } from './src/proAccess';
 import { hasFlag, initState, useWorldVersion } from './src/state';
+import CertificateScreen from './src/screens/CertificateScreen';
 import DamageLogScreen from './src/screens/DamageLogScreen';
 import IntroScreen from './src/screens/IntroScreen';
 import PageScreen from './src/screens/PageScreen';
@@ -45,7 +46,12 @@ function Root() {
       />
       {view.t === 'page' && (
         <View style={StyleSheet.absoluteFill}>
-          <PageScreen id={view.id} onBack={toBench} />
+          {view.id === 28 ? (
+            // Page 28 is the certificate — the choice, not a puzzle.
+            <CertificateScreen onBack={toBench} />
+          ) : (
+            <PageScreen id={view.id} onBack={toBench} />
+          )}
         </View>
       )}
       {view.t === 'log' && (
