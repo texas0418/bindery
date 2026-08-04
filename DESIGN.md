@@ -176,9 +176,35 @@ BRUTE-FORCE FLOOR (confirmed, Simon 2026-08-04): p14's masked word fell to
 a 457k-candidate loop in under a second. That is the stated threat model —
 hash.ts buys spoiler-resistance, not secrecy; the finite answer space means
 a determined datamine always wins. The floor holds only because nothing
-readable leaks (rule 15). Corollary now enforced by habit: never write an
-answer's plaintext into a comment under src/ — the alt hashes ship bare,
-their plaintext lives in solutions.spoilers.ts only.
+readable leaks (rule 15). Corollary now enforced by test: never write an
+answer's plaintext into a file under src/ — not in content, not in a
+comment. The alt hashes ship bare; plaintext lives in solutions.spoilers.ts.
+
+THE ASSEMBLED FORM (Simon 2026-08-04, second pass): individual answer words
+necessarily ship readable — the player must read restored passages — but
+the SYNTHESIS is what rule 15 protects, and the Delivery epilogue was
+handing it over composed ("for A. Halloran, Arbor Lane") to anyone running
+`strings`. No hash cracking, no cross-page work. Fixed by encrypting that
+one string under the player's own answer (engine/cipher.ts): the epilogue
+only ever renders after a correct entry, so the solve IS the key and no
+secret exists in the bundle. The derived key is stored in kv (`deliveryKey`)
+so the epilogue survives a relaunch; kv is on-device and only ever written
+after a correct solve. Accession and Blank name nothing earned and ship
+plain.
+
+answerKey() keeps the two longest tokens, sorted — the parts every accepted
+phrasing shares (optional qualifiers "A"/"ANN" and the street type "LANE"
+are the short ones), so all twelve phrasings derive one key. test-content
+guard 10 proves that invariant and round-trips the shipped ciphertext;
+guard 9 proves no src/ file states recipient and place within 120 chars of
+each other. VERIFIED at the bundle level 2026-08-04: a byte scan of the
+exported .hbc (UTF-8 and UTF-16 — Hermes stores non-ASCII strings as UTF-16,
+so plain `strings` misses them and is NOT a sufficient check) finds every
+assembled form absent while sanity strings are present.
+
+Guard 2b matches whole words, not substrings: "LANE" must not be satisfiable
+by "PLANE"/"LANES", or cutting the rubbing in a future edit would leave the
+guard green. Mutation-tested both ways.
 
 ## Full-book run fixes (Simon, 2026-08-04)
 

@@ -27,11 +27,13 @@ import {
   PAGES,
 } from './src/content/unwriting/graph';
 import { PAGE_CONTENT } from './src/content/unwriting/pages';
+import { answerKey, decryptWithKey } from './src/engine/cipher';
 import { pageHash } from './src/engine/hash';
 import { isAttackable } from './src/engine/graph';
 import type { KeyId } from './src/models';
 import {
   DELIVERY_ALT_SOLUTIONS,
+  DELIVERY_EPILOGUE,
   DELIVERY_SOLUTION,
   PAGE_ALT_SOLUTIONS,
   PAGE_SOLUTIONS,
@@ -120,9 +122,12 @@ for (const k of EXPECTED)
     ]
       .join('\n')
       .toUpperCase();
+  // Whole-word matching: a substring test would let "LANE" pass vacuously on
+  // "PLANE"/"LANES", so a future edit could cut the rubbing and still be green.
   const carriers = new Map<string, number[]>();
   for (const w of DELIVERY_SOLUTION.split(' ')) {
-    const found = PAGE_CONTENT.filter((c) => pageText(c).includes(w)).map((c) => c.id);
+    const word = new RegExp(`\\b${w}\\b`);
+    const found = PAGE_CONTENT.filter((c) => word.test(pageText(c))).map((c) => c.id);
     assert.ok(found.length > 0, `delivery word "${w}" is rendered on some page`);
     carriers.set(w, found);
   }
@@ -220,5 +225,56 @@ for (const file of walk('src'))
     !IMPORTS_SPOILERS.test(readFileSync(file, 'utf8')),
     `${file} must not import the spoilers file`,
   );
+
+// 9. UNASSEMBLED: no file under src/ states a multi-part answer in its
+// composed form — not in content, not in a comment (Simon's run 2026-08-04
+// caught the Delivery epilogue shipping "for A. Halloran, Arbor Lane" as
+// plaintext, and before that the alt phrasings sat in graph.ts comments).
+// The words may ship readable — the player must read them — but the
+// synthesis is what rule 15 protects. Delivery is checked as the pairing of
+// its recipient and its place, so ordinary prose mentioning one is fine.
+{
+  const srcText = walk('src')
+    .map((f) => readFileSync(f, 'utf8'))
+    .join('\n')
+    .toUpperCase();
+  const [recipient, ...place] = DELIVERY_SOLUTION.split(' ');
+  const window = 120;
+  const re = new RegExp(`\\b${recipient}\\b`, 'g');
+  for (let m = re.exec(srcText); m; m = re.exec(srcText)) {
+    const near = srcText.slice(Math.max(0, m.index - window), m.index + window);
+    for (const p of place)
+      assert.ok(
+        !new RegExp(`\\b${p}\\b`).test(near),
+        `src must never state the Delivery line assembled (found "${recipient}" within ${window} chars of "${p}")`,
+      );
+  }
+  for (const phrase of [DELIVERY_SOLUTION, ...DELIVERY_ALT_SOLUTIONS])
+    assert.ok(!srcText.includes(phrase), `src must not contain the Delivery phrasing "${phrase}"`);
+}
+
+// 10. DECRYPTABLE: every accepted Delivery phrasing derives the same key,
+// and that key turns the shipped ciphertext back into the spoilers' epilogue.
+// Without this, a correct-but-differently-phrased answer would sign the
+// ending and then render an empty epilogue.
+{
+  const keys = new Set([DELIVERY_SOLUTION, ...DELIVERY_ALT_SOLUTIONS].map(answerKey));
+  assert.equal(keys.size, 1, 'all accepted Delivery phrasings derive one key');
+  const cipher = readFileSync('src/screens/CertificateScreen.tsx', 'utf8').match(
+    /DELIVERY_EPILOGUE_CIPHER\s*=\s*\n?\s*'([0-9a-f]+)'/,
+  );
+  assert.ok(cipher, 'shipped Delivery ciphertext found');
+  for (const phrasing of [DELIVERY_SOLUTION, ...DELIVERY_ALT_SOLUTIONS])
+    assert.equal(
+      decryptWithKey(cipher![1], answerKey(phrasing)),
+      DELIVERY_EPILOGUE,
+      `Delivery epilogue decrypts from the phrasing "${phrasing}"`,
+    );
+  assert.notEqual(
+    decryptWithKey(cipher![1], answerKey('MAGPIE NOWHERE')),
+    DELIVERY_EPILOGUE,
+    'a wrong key does not decrypt the epilogue',
+  );
+}
 
 console.log('test-content: ok');
