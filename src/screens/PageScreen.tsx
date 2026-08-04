@@ -20,6 +20,7 @@ import { keyLabel, PAGES } from '../content/unwriting/graph';
 import { contentFor } from '../content/unwriting/pages';
 import { checkAnswer } from '../engine/hash';
 import type { KeyId, Light, PageContent, ScanBlock } from '../models';
+import { purchaseEntry, restoreEntry, useEntryUnlocked } from '../proAccess';
 import { earnKey, earnedKeys, markPageSeen, pageSolved, setPageSolved } from '../state';
 import { colors, fonts, TYPE_CAPS } from '../theme';
 
@@ -192,6 +193,88 @@ function AnswerPanel({
   );
 }
 
+/** The gate falls on RESTORING, never on reading (doctrine 10b: the book is
+ *  open). Act I restores free; past it the entry panel becomes this. The scan
+ *  itself, every lamp the player has earned, and the damage log are untouched
+ *  — you can read all twenty-eight leaves without paying, which is the honest
+ *  version of a demo and the only one this design allows. */
+function LicencePanel() {
+  const [busy, setBusy] = useState(false);
+  const run = (fn: () => Promise<boolean>) => () => {
+    setBusy(true);
+    fn().finally(() => setBusy(false));
+  };
+
+  return (
+    <View style={s.panel}>
+      <ChromeText style={s.panelTitle}>RESTORATION LICENCE</ChromeText>
+      <ChromeText style={s.licenceBody}>
+        THIS WORKSTATION IS LICENSED FOR INTAKE ONLY. LEAVES 10–28 MAY BE
+        EXAMINED UNDER EVERY INSTRUMENT YOU HAVE CALIBRATED, BUT NOT RESTORED.
+      </ChromeText>
+      <View style={s.entryRow}>
+        <Pressable
+          style={s.check}
+          onPress={run(purchaseEntry)}
+          disabled={busy}
+          accessibilityRole="button"
+        >
+          <ChromeText style={s.checkText}>
+            {busy ? 'CONTACTING STORE…' : 'LICENSE FULL RESTORATION'}
+          </ChromeText>
+        </Pressable>
+        <Pressable
+          style={s.restore}
+          onPress={run(restoreEntry)}
+          disabled={busy}
+          accessibilityRole="button"
+        >
+          <ChromeText style={s.restoreText}>RESTORE</ChromeText>
+        </Pressable>
+      </View>
+      <ChromeText style={s.licenceFoot}>
+        ONE-TIME PURCHASE · NO SUBSCRIPTION · NO HINTS SOLD SEPARATELY
+      </ChromeText>
+    </View>
+  );
+}
+
+/** What sits under the scan bed: the licence, the missing ingredients, or
+ *  the entry field. Exactly one of the three, always. */
+function EntryArea({
+  gated,
+  missing,
+  earned,
+  pageId,
+  answer,
+  produces,
+}: {
+  gated: boolean;
+  missing: KeyId[];
+  earned: ReadonlySet<KeyId>;
+  pageId: number;
+  answer: NonNullable<PageContent['answer']>;
+  produces: KeyId[];
+}) {
+  if (gated) return <LicencePanel />;
+  if (missing.length > 0)
+    return (
+      <View style={s.panel}>
+        <ChromeText style={s.lockedText}>
+          RESTORATION LOCKED — requires {missing.map((k) => keyLabel(k, earned)).join(' · ')}
+        </ChromeText>
+      </View>
+    );
+  return (
+    <AnswerPanel
+      pageId={pageId}
+      format={answer.format}
+      hashes={[answer.hash, ...(answer.alt ?? [])]}
+      produces={produces}
+    />
+  );
+}
+
 function ScanBody({
   content,
   light,
@@ -222,6 +305,14 @@ function ScanBody({
         <BodyText style={s.blockLabel}>NO ADDITIONAL DETAIL AT THIS WAVELENGTH.</BodyText>
       )}
       {solved && <BodyText style={s.restored}>{content.restored}</BodyText>}
+      {/* Testers tapped the scan expecting it to respond (issue #8). The bed
+          is a scan, not a control surface — say so in the software's own
+          voice rather than letting the silence read as a broken tap. */}
+      {!solved && (
+        <BodyText style={s.bedNote}>
+          SCAN BED — IMAGE ONLY. FINDINGS ARE ENTERED BELOW.
+        </BodyText>
+      )}
     </>
   );
 }
@@ -233,6 +324,7 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
   const solved = pageSolved(id);
 
   const [light, setLight] = useState<Light>('plain');
+  const unlocked = useEntryUnlocked();
 
   useEffect(() => markPageSeen(id), [id]);
 
@@ -244,6 +336,8 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
 
   const missing = page.consumes.filter((k) => !earned.has(k));
   const showEntry = content?.answer && !solved;
+  // Act I is the trial: everything in 'intake' restores free, forever.
+  const gated = !unlocked && page.arc !== 'intake';
 
   return (
     <KeyboardAvoidingView
@@ -271,22 +365,16 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
         <ScanBody content={content} light={light} solved={solved} />
       </ScrollView>
 
-      {showEntry &&
-        (missing.length > 0 ? (
-          <View style={s.panel}>
-            <ChromeText style={s.lockedText}>
-              RESTORATION LOCKED — requires{' '}
-              {missing.map((k) => keyLabel(k, earned)).join(' · ')}
-            </ChromeText>
-          </View>
-        ) : (
-          <AnswerPanel
-            pageId={id}
-            format={content.answer!.format}
-            hashes={[content.answer!.hash, ...(content.answer!.alt ?? [])]}
-            produces={page.produces}
-          />
-        ))}
+      {showEntry && (
+        <EntryArea
+          gated={gated}
+          missing={missing}
+          earned={earned}
+          pageId={id}
+          answer={content.answer!}
+          produces={page.produces}
+        />
+      )}
     </KeyboardAvoidingView>
   );
 }
@@ -425,5 +513,34 @@ const s = StyleSheet.create({
   },
   checkText: { color: colors.gilt, fontFamily: fonts.mono, fontSize: 12, letterSpacing: 2 },
   miss: { color: colors.marginRed, fontFamily: fonts.mono, fontSize: 12, letterSpacing: 1 },
+  bedNote: {
+    color: colors.textFaint,
+    fontFamily: fonts.mono,
+    fontSize: 9.5,
+    letterSpacing: 1.2,
+    marginTop: 18,
+    textAlign: 'center',
+  },
+  licenceBody: {
+    color: colors.textSoft,
+    fontFamily: fonts.mono,
+    fontSize: 11,
+    letterSpacing: 1,
+    lineHeight: 17,
+  },
+  licenceFoot: {
+    color: colors.textFaint,
+    fontFamily: fonts.mono,
+    fontSize: 9.5,
+    letterSpacing: 1.2,
+  },
+  restore: {
+    borderColor: colors.panelEdge,
+    borderWidth: 1,
+    borderRadius: 3,
+    paddingHorizontal: 12,
+    justifyContent: 'center',
+  },
+  restoreText: { color: colors.textSoft, fontFamily: fonts.mono, fontSize: 11, letterSpacing: 1.5 },
   lockedText: { color: colors.textFaint, fontFamily: fonts.mono, fontSize: 12, letterSpacing: 1 },
 });

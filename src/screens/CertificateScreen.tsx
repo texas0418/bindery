@@ -21,7 +21,8 @@ import { answerKey, decryptWithKey } from '../engine/cipher';
 import { checkAnswer } from '../engine/hash';
 import { isAttackable } from '../engine/graph';
 import { LETTER_SLOTS, type Ending, type KeyId } from '../models';
-import { earnedKeys, getKv, putKv, setPageSolved } from '../state';
+import { QA_BUILD } from '../buildConfig';
+import { earnedKeys, getKv, putKv, resetWorld, setPageSolved } from '../state';
 import { colors, fonts } from '../theme';
 
 /** The Delivery epilogue names recipient and place TOGETHER — the assembled
@@ -36,15 +37,38 @@ const EPILOGUE: Record<Exclude<Ending, 'delivery'>, string> = {
   accession:
     'ACCESSION FILED. The volume enters the public record under its author’s name. Somewhere, a catalog search that found nothing for forty years now returns one result: her dates, her name, findable forever. The record is restored. So is her findability. The software files it without comment.',
   blank:
-    'DISPOSAL AUTHORIZED. The library shows an empty slot — item deaccessioned by restorer. The damage log dims, key by key, in the order they were found, thirteen letters going out one by one. The last screen is the intake ticket from the first minute, blank. You honored the erasure. You are the last to know her. (QA BUILD: deletion simulated — data retained.)',
+    'DISPOSAL AUTHORIZED. The library shows an empty slot — item deaccessioned by restorer. The damage log dims, key by key, in the order they were found, thirteen letters going out one by one. The last screen is the intake ticket from the first minute, blank. You honored the erasure. You are the last to know her.',
 };
+
+const QA_SIMULATED = ' (QA BUILD: deletion simulated — data retained.)';
 
 /** Delivery decrypts under the key its own solve produced; the others are
  *  plain (they name nothing the player had to earn). */
 function epilogueFor(chosen: Ending): string {
+  if (chosen === 'blank') return EPILOGUE.blank + (QA_BUILD ? QA_SIMULATED : '');
   if (chosen !== 'delivery') return EPILOGUE[chosen];
   const key = getKv('deliveryKey');
   return key ? decryptWithKey(DELIVERY_EPILOGUE_CIPHER, key) : '';
+}
+
+/** After a real Blank the record is gone, so there is no strip to draw and
+ *  nothing to sign again. The bench behind this screen is already empty. */
+function DisposalView({ onBack }: { onBack: () => void }) {
+  return (
+    <View style={s.root}>
+      <View style={s.bar}>
+        <Pressable onPress={onBack} accessibilityRole="button">
+          <ChromeText style={s.back}>‹ BENCH</ChromeText>
+        </Pressable>
+        <ChromeText style={s.barTitle}>28 · THE LAST SIGNATURE</ChromeText>
+      </View>
+      <ScrollView style={s.parchment} contentContainerStyle={s.inner}>
+        <BodyText style={s.certHead}>CERTIFICATE OF DISPOSAL</BodyText>
+        <BodyText style={s.certSub}>ESTATE LOT 44 · ONE VOLUME · NO AUTHOR OF RECORD</BodyText>
+        <BodyText style={s.epilogue}>{EPILOGUE.blank}</BodyText>
+      </ScrollView>
+    </View>
+  );
 }
 
 function NameStrip() {
@@ -70,8 +94,17 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
   const [mode, setMode] = useState<'lines' | 'delivery' | 'blankConfirm'>('lines');
   const [guess, setGuess] = useState('');
   const [missed, setMissed] = useState(false);
+  // Blank wipes the record it just signed, so the epilogue cannot be read
+  // back out of state afterwards — it is held here for the rest of the
+  // session and goes when the app does, which is the point.
+  const [wiped, setWiped] = useState(false);
 
   const choose = (e: Ending) => {
+    if (e === 'blank' && !QA_BUILD) {
+      setWiped(true);
+      resetWorld();
+      return;
+    }
     putKv('ending', e);
     setPageSolved(28);
     setMode('lines');
@@ -85,6 +118,10 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
   };
 
   const missing = page.consumes.filter((k) => !earned.has(k));
+  // Signed is final in a shipping build; only a QA build reopens the lines.
+  const reopenable = !chosen || QA_BUILD;
+
+  if (wiped) return <DisposalView onBack={onBack} />;
 
   return (
     <KeyboardAvoidingView
@@ -122,7 +159,13 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
 
             {chosen && <BodyText style={s.epilogue}>{epilogueFor(chosen)}</BodyText>}
 
-            {mode === 'lines' && (
+            {chosen && !QA_BUILD && (
+              <BodyText style={s.assembled}>
+                the certificate is signed · this record is closed
+              </BodyText>
+            )}
+
+            {mode === 'lines' && reopenable && (
               <View style={s.lines}>
                 <BodyText style={s.linesHead}>
                   {chosen
