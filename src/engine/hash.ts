@@ -30,5 +30,11 @@ export function saltedHash(...parts: string[]): string {
 export const pageHash = (pageId: number, answer: string): string =>
   saltedHash(String(pageId), normalizeAnswer(answer));
 
-export const checkAnswer = (pageId: number, raw: string, answerHash: string): boolean =>
-  pageHash(pageId, raw) === answerHash;
+export const checkAnswer = (
+  pageId: number,
+  raw: string,
+  accepted: string | readonly string[],
+): boolean => {
+  const h = pageHash(pageId, raw);
+  return typeof accepted === 'string' ? h === accepted : accepted.includes(h);
+};

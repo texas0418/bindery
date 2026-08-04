@@ -34,6 +34,14 @@ export const PAGE_SOLUTIONS_ACT2: Record<number, string> = {
   23: 'HEAD M 41', // forced by the tallies: 2nd male, aggregate age 93 - 52 = 41, mandatory head
 };
 
+/** Equally-correct phrasings. Where a declared format states no order for
+ *  a multi-part answer, every order is accepted (Simon's full-book run,
+ *  2026-08-04: a correct-but-reordered answer must never read as wrong). */
+export const PAGE_ALT_SOLUTIONS: Record<number, string[]> = {
+  10: ['11 87 3 89'], // the two dates, either first
+  26: ['C 20 14'], // the two convicting leaves, either first
+};
+
 export const PAGE_SOLUTIONS_ACT3: Record<number, string> = {
   24: 'MAGPIE', // the overlay demands the name she never said aloud
   25: 'NOWHERE', // she never got off; the mark goes on the road

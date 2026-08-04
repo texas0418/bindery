@@ -88,7 +88,11 @@ export const ACT3_CONTENT: PageContent[] = [
         ],
       },
     ],
-    answer: { format: 'true account (A, B, or C) + the two leaf numbers that convict the others', hash: 'ce8d84aedc7a3448' },
+    answer: {
+      format: 'true account (A, B, or C) + the two leaf numbers that convict the others',
+      hash: 'ce8d84aedc7a3448',
+      alt: ['d3cac464de0e0ca6'],
+    },
     restored:
       'C — convicted by the record itself: A marries her at a courthouse, but leaf 14 restored the registry office, line by bleeding line; B quotes a caption printed whole, but leaf 20 proved the record’s spelling has a hole in it by her own hand. The small, unglamorous account survives cross-examination. "Good. Now you read like an archivist." The THIRD SEAL files.',
   },
