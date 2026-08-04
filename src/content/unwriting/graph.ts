@@ -19,28 +19,45 @@ export const KEYS: Record<KeyId, KeyDef> = {
   RAKING: { kind: 'instrument', label: 'Raking light' },
   UV: { kind: 'instrument', label: 'Ultraviolet' },
   SPECTRAL: { kind: 'instrument', label: 'Spectral view' },
-  L1: { kind: 'letter', label: 'L1' },
+  L1: { kind: 'letter', label: 'V → 1' },
   L2: { kind: 'letter', label: 'R → 13' },
-  L3: { kind: 'letter', label: 'L3' },
-  L4: { kind: 'letter', label: 'L4' },
-  L5: { kind: 'letter', label: 'L5' },
-  L6: { kind: 'letter', label: 'L6' },
+  L3: { kind: 'letter', label: 'R → 8' },
+  L4: { kind: 'letter', label: 'E → 12' },
+  L5: { kind: 'letter', label: 'T → 7' },
+  L6: { kind: 'letter', label: 'O → 5' },
   L7: { kind: 'letter', label: 'S → 6' },
-  L8: { kind: 'letter', label: 'L8' },
-  L9: { kind: 'letter', label: 'L9' },
-  L10: { kind: 'letter', label: 'L10' },
-  L11: { kind: 'letter', label: 'L11' },
-  L12: { kind: 'letter', label: 'L12' },
-  L13: { kind: 'letter', label: 'L13' },
+  L8: { kind: 'letter', label: 'A → 4' },
+  L9: { kind: 'letter', label: 'A → 9' },
+  L10: { kind: 'letter', label: 'N → 10' },
+  L11: { kind: 'letter', label: 'D → 11' },
+  L12: { kind: 'letter', label: 'E → 2' },
+  L13: { kind: 'letter', label: 'R → 3' },
   S1: { kind: 'seal', label: 'First seal' },
   S2: { kind: 'seal', label: 'Second seal' },
   S3: { kind: 'seal', label: 'Third seal' },
   S4: { kind: 'seal', label: 'Fourth seal' },
 };
 
+/** p28's Delivery line accepts recipient + where — synthesized from the
+ *  foreign rubbing (p12), the drawing's surname (p18), and the poem's
+ *  orphan (p19). Never stated anywhere; that synthesis IS the earned
+ *  breadcrumb (rule 14: signposted, optional, visible when absent). */
+export const DELIVERY_HASH = 'a5e9bedfc1cfd69d';
+
 const ALL_LETTERS: KeyId[] = [
   'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13',
 ];
+
+/** UI label for a key. Earned keys show their logged value (doctrine 7).
+ *  Unearned instruments show their tool name (it's on the panel anyway).
+ *  Everything else unearned is masked to its producing page — where a key
+ *  comes from is rule-4 information; what it says is the puzzle (rule 15:
+ *  the bench must never print an answer the player hasn't earned). */
+export function keyLabel(k: KeyId, earned: ReadonlySet<KeyId>): string {
+  if (earned.has(k) || KEYS[k].kind === 'instrument') return KEYS[k].label;
+  const producer = PAGES.find((p) => p.produces.includes(k))!;
+  return `key · p${String(producer.id).padStart(2, '0')}`;
+}
 
 export const PAGES: Page[] = [
   { id: 1, title: 'Accession', arc: 'intake', produces: ['W1'], consumes: [],
@@ -56,7 +73,7 @@ export const PAGES: Page[] = [
     mech: 'geometric alignment (chain A taught)',
     story: 'She hand-drew a scanner calibration target decades before scanners existed; she knew this book would be scanned.' },
   { id: 5, title: 'Pressed Violets', arc: 'intake', produces: ['W4'], consumes: [],
-    mech: 'floriography (sampler key)',
+    mech: 'floriography (paired-opposites selection)',
     story: 'The flowers come from the garden where she and her daughter were happiest; the garden no longer exists.' },
   { id: 6, title: 'The Photograph Corners', arc: 'intake', produces: ['W5'], consumes: ['RAKING'],
     mech: 'impression reading',
@@ -98,7 +115,7 @@ export const PAGES: Page[] = [
     mech: 'channel-separation tracing',
     story: 'Under the crayon greenhouse, spectral separation finds the daughter’s new surname — the adoption that kept her unfindable.' },
   { id: 19, title: 'Bus Timetable', arc: 'recovery', produces: ['L9'], consumes: ['W6'],
-    mech: 'timetable logic',
+    mech: 'orphan rhyme (prosody anomaly)',
     story: 'The night route passes the greenhouse; she rode it for years and never once got off.' },
   { id: 20, title: 'The Interview', arc: 'recovery', produces: ['L10'], consumes: ['SPECTRAL', 'W2'],
     mech: 'planted-error harvest',
@@ -122,11 +139,11 @@ export const PAGES: Page[] = [
     mech: 'cartographic trace',
     story: 'Only someone who rode the route knows where it truly stops.' },
   { id: 26, title: 'Third Check: The Two Truths', arc: 'signature', produces: ['S3'],
-    consumes: ['SPECTRAL', 'L5', 'L10'],
+    consumes: ['SPECTRAL', 'UV', 'L5', 'L10'],
     mech: 'delta collation (chain B mastered)',
     story: "'He believed everything that was written down. Show me you don’t.'" },
   { id: 27, title: 'Fourth Check: What She Taught', arc: 'signature', produces: ['S4'],
-    consumes: ['W6', 'L12', 'L13', 'RAKING', 'UV'],
+    consumes: ['W6', 'L12', 'L13', 'RAKING', 'UV', 'SPECTRAL'],
     mech: 'nested composite',
     story: "The last lesson is addressed 'to whoever you are, now that you have come this far' — she knew it might not be Magpie." },
   { id: 28, title: 'The Last Signature', arc: 'signature', produces: [],
