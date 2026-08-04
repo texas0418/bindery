@@ -19,12 +19,19 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 // @ts-expect-error same
 import { join } from 'node:path';
 
-import { DELIVERY_HASH, KEYS, keyLabel, PAGES } from './src/content/unwriting/graph';
+import {
+  DELIVERY_ALT_HASHES,
+  DELIVERY_HASH,
+  KEYS,
+  keyLabel,
+  PAGES,
+} from './src/content/unwriting/graph';
 import { PAGE_CONTENT } from './src/content/unwriting/pages';
 import { pageHash } from './src/engine/hash';
 import { isAttackable } from './src/engine/graph';
 import type { KeyId } from './src/models';
 import {
+  DELIVERY_ALT_SOLUTIONS,
   DELIVERY_SOLUTION,
   PAGE_ALT_SOLUTIONS,
   PAGE_SOLUTIONS,
@@ -87,6 +94,40 @@ for (const k of EXPECTED)
   const p28 = PAGES.find((p) => p.id === 28)!;
   assert.ok(isAttackable(p28, earned), 'p28 attackable after full playthrough');
   assert.equal(DELIVERY_HASH, pageHash(28, DELIVERY_SOLUTION), 'delivery hash matches spoilers');
+  assert.deepEqual(
+    DELIVERY_ALT_HASHES,
+    DELIVERY_ALT_SOLUTIONS.map((a) => pageHash(28, a)),
+    'delivery alt hashes match the spoilers\' alternate phrasings',
+  );
+}
+
+// 2b. DERIVABLE: every part of the Delivery line is rendered somewhere a
+// player can read it (Simon's run 2026-08-04: the rubbing was named only in
+// p12's restored text and the street type appeared nowhere, leaving the
+// warmest ending half-underivable). Each word of the canonical answer must
+// appear in some page's scan content — and NOT all on one page, or the
+// synthesis that earns the ending collapses into a single read.
+// Player-visible text includes the restored passage: a word masked in the
+// scan (p18 prints "A▒N HALLORA▒" — check 8 forbids its own answer verbatim)
+// still reaches the player when that page is solved.
+{
+  const pageText = (c: (typeof PAGE_CONTENT)[number]): string =>
+    [
+      ...c.layers
+        .flatMap((l) => l.blocks)
+        .flatMap((b) => [b.text ?? '', ...(b.rows ?? []).flat()]),
+      c.restored,
+    ]
+      .join('\n')
+      .toUpperCase();
+  const carriers = new Map<string, number[]>();
+  for (const w of DELIVERY_SOLUTION.split(' ')) {
+    const found = PAGE_CONTENT.filter((c) => pageText(c).includes(w)).map((c) => c.id);
+    assert.ok(found.length > 0, `delivery word "${w}" is rendered on some page`);
+    carriers.set(w, found);
+  }
+  const shared = [...carriers.values()].reduce((a, b) => a.filter((id) => b.includes(id)));
+  assert.equal(shared.length, 0, 'no single page renders the whole Delivery line');
 }
 
 // 3. DECLARED

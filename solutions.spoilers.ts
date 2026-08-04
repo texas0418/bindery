@@ -50,5 +50,20 @@ export const PAGE_SOLUTIONS_ACT3: Record<number, string> = {
 };
 
 /** p28's Delivery line: recipient + where, synthesized from the foreign
- *  rubbing (p12) + the drawing's surname (p18) + the poem's arbor (p19). */
+ *  rubbing (p12, which gives the street type and the deed-in-trust) + the
+ *  drawing's surname (p18) + the poem's arbor (p19). */
 export const DELIVERY_SOLUTION = 'HALLORAN ARBOR LANE';
+
+/** Equally-correct Delivery phrasings (Simon's run, 2026-08-04). The line
+ *  asks for recipient + where and states no order; the street type is the
+ *  rubbing's contribution, so a player who has the place without it is
+ *  still right. Recipient may carry her initial or her given name — both
+ *  are in the record (p18 traces "A▒N HALLORA▒"). "Magpie" is NOT accepted:
+ *  the nickname addresses no one the record can deliver to, which is the
+ *  ending's whole point. */
+const DELIVERY_RECIPIENTS = ['HALLORAN', 'A HALLORAN', 'ANN HALLORAN'];
+const DELIVERY_PLACES = ['ARBOR LANE', 'ARBOR'];
+export const DELIVERY_ALT_SOLUTIONS: string[] = [
+  ...DELIVERY_RECIPIENTS.flatMap((r) => DELIVERY_PLACES.map((p) => `${r} ${p}`)),
+  ...DELIVERY_PLACES.flatMap((p) => DELIVERY_RECIPIENTS.map((r) => `${p} ${r}`)),
+].filter((a) => a !== DELIVERY_SOLUTION);
