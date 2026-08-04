@@ -212,9 +212,13 @@ function LicencePanel() {
         THIS WORKSTATION IS LICENSED FOR INTAKE ONLY. LEAVES 10–28 MAY BE
         EXAMINED UNDER EVERY INSTRUMENT YOU HAVE CALIBRATED, BUT NOT RESTORED.
       </ChromeText>
-      <View style={s.entryRow}>
+      {/* Stacked, never side by side: at large Dynamic Type a row pushed
+          RESTORE off the right edge (device QA 2026-08-04). Apple requires a
+          reachable restore path for non-consumables, and rule 11 says
+          legibility beats layout — so each control gets the full width. */}
+      <View style={s.licenceButtons}>
         <Pressable
-          style={s.check}
+          style={s.licenceBuy}
           onPress={run(purchaseEntry)}
           disabled={busy}
           accessibilityRole="button"
@@ -224,12 +228,12 @@ function LicencePanel() {
           </ChromeText>
         </Pressable>
         <Pressable
-          style={s.restore}
+          style={s.licenceRestore}
           onPress={run(restoreEntry)}
           disabled={busy}
           accessibilityRole="button"
         >
-          <ChromeText style={s.restoreText}>RESTORE</ChromeText>
+          <ChromeText style={s.restoreText}>RESTORE A PREVIOUS PURCHASE</ChromeText>
         </Pressable>
       </View>
       <ChromeText style={s.licenceFoot}>
@@ -534,13 +538,29 @@ const s = StyleSheet.create({
     fontSize: 9.5,
     letterSpacing: 1.2,
   },
-  restore: {
+  licenceButtons: { gap: 8 },
+  licenceBuy: {
+    borderColor: colors.gilt,
+    borderWidth: 1,
+    borderRadius: 3,
+    paddingVertical: 13,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+  },
+  licenceRestore: {
     borderColor: colors.panelEdge,
     borderWidth: 1,
     borderRadius: 3,
+    paddingVertical: 11,
     paddingHorizontal: 12,
-    justifyContent: 'center',
+    alignItems: 'center',
   },
-  restoreText: { color: colors.textSoft, fontFamily: fonts.mono, fontSize: 11, letterSpacing: 1.5 },
+  restoreText: {
+    color: colors.textSoft,
+    fontFamily: fonts.mono,
+    fontSize: 11,
+    letterSpacing: 1.5,
+    textAlign: 'center',
+  },
   lockedText: { color: colors.textFaint, fontFamily: fonts.mono, fontSize: 12, letterSpacing: 1 },
 });
