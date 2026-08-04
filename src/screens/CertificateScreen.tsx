@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 import { BodyText, ChromeText, ChromeTextInput } from '../engine/ui';
 
-import { DELIVERY_HASH, keyLabel, PAGES } from '../content/unwriting/graph';
+import { DELIVERY_ALT_HASHES, DELIVERY_HASH, keyLabel, PAGES } from '../content/unwriting/graph';
 import { checkAnswer } from '../engine/hash';
 import { isAttackable } from '../engine/graph';
 import { LETTER_SLOTS, type Ending, type KeyId } from '../models';
@@ -127,7 +127,7 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
             {mode === 'delivery' && (
               <View style={s.lines}>
                 <ChromeText style={s.entryLabel}>
-                  RECIPIENT + WHERE — FROM WHAT WAS LEFT IN THE BOOK
+                  RECIPIENT + WHERE — AS THE RECORD NAMES THEM. FROM WHAT WAS LEFT IN THE BOOK
                 </ChromeText>
                 <ChromeTextInput
                   style={s.input}
@@ -141,7 +141,8 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
                   placeholder="—"
                   placeholderTextColor={colors.inkFaint}
                   onSubmitEditing={() => {
-                    if (checkAnswer(28, guess, DELIVERY_HASH)) choose('delivery');
+                    if (checkAnswer(28, guess, [DELIVERY_HASH, ...DELIVERY_ALT_HASHES]))
+                      choose('delivery');
                     else setMissed(true);
                   }}
                 />

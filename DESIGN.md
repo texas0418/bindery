@@ -143,6 +143,43 @@ on-screen) and endings are re-choosable so all three are testable; the
 shipping build wipes on Blank and the choice is final. p26 consumes +UV,
 p27 +SPECTRAL (declared for the LIT guard; both held by any player there).
 
+## The Delivery line (2026-08-04 run fix)
+
+The warmest ending was half-underivable as shipped: the graph named three
+synthesis inputs, but p12's rubbing was mentioned only in restored text
+(its contents never rendered) and the street type appeared in no
+player-visible content at all. Now one input per leaf, none stated whole:
+
+- **p18** → HALLORAN (traced under the crayon; masked in scan per check 8,
+  so it reaches the player via the restored passage — that counts as
+  player-visible and the derivability guard knows it).
+- **p19** → ARBOR (the orphan rhyme).
+- **p12** → the street type, from the rendered rubbing: a deed held in
+  trust, "the last house but one on ▒▒▒▒▒ LANE, the parcel carrying glass
+  along its south wall," plus why the volume reached estate lot 44
+  (Nightingale held it until death).
+
+DELIBERATE: the rubbing must NEVER print ARBOR. p12 and p19 are both
+early-attackable, so the word appearing on p12 would let a player scan the
+poem for it, land on line 9, and read A off the front — collapsing the
+orphan-rhyme mechanism into a word search. The rubbing's seal is also
+"clogged" so it cannot shortcut p12's own rim reassembly.
+
+Accepted phrasings (DELIVERY_ALT_HASHES / DELIVERY_ALT_SOLUTIONS): either
+order, recipient bare or with initial/given name, place with or without
+LANE. NOT accepted: MAGPIE — the nickname addresses no one the record can
+deliver to, which is the ending's whole point; the entry label now says
+"as the record names them." test-content guard 2b proves every word of the
+line is rendered somewhere AND that no single page carries all of it.
+
+BRUTE-FORCE FLOOR (confirmed, Simon 2026-08-04): p14's masked word fell to
+a 457k-candidate loop in under a second. That is the stated threat model —
+hash.ts buys spoiler-resistance, not secrecy; the finite answer space means
+a determined datamine always wins. The floor holds only because nothing
+readable leaks (rule 15). Corollary now enforced by habit: never write an
+answer's plaintext into a comment under src/ — the alt hashes ship bare,
+their plaintext lives in solutions.spoilers.ts only.
+
 ## Full-book run fixes (Simon, 2026-08-04)
 
 ORDER RULE (permanent): where a declared format states no order for a

@@ -39,10 +39,29 @@ export const KEYS: Record<KeyId, KeyDef> = {
 };
 
 /** p28's Delivery line accepts recipient + where — synthesized from the
- *  foreign rubbing (p12), the drawing's surname (p18), and the poem's
- *  orphan (p19). Never stated anywhere; that synthesis IS the earned
- *  breadcrumb (rule 14: signposted, optional, visible when absent). */
+ *  foreign rubbing (p12: the deed in trust, and the street type), the
+ *  drawing's surname (p18), and the poem's orphan (p19). Never stated
+ *  anywhere whole; that synthesis IS the earned breadcrumb (rule 14:
+ *  signposted, optional, visible when absent). */
 export const DELIVERY_HASH = 'a5e9bedfc1cfd69d';
+
+/** Equally-correct phrasings of the Delivery line: either order, recipient
+ *  with or without her initial/given name, place with or without the street
+ *  type. Plaintext in solutions.spoilers (DELIVERY_ALT_SOLUTIONS); test-content
+ *  proves these match. Rule 8: a correct answer never reads as wrong. */
+export const DELIVERY_ALT_HASHES: string[] = [
+  '8ded9df7e2f4754d',
+  'ebcdd70087ad0416',
+  'a75f56aecf6525d4',
+  '2b98e458792d86be',
+  '4dbebb5682c40c0c',
+  '03554cb50be2cfeb',
+  '1b6674886075517e',
+  '49fd6900cdfdf946',
+  'f00c1d5b42475579',
+  'a1f0fa6e5730354c',
+  '2bb858362ef7fc84',
+];
 
 const ALL_LETTERS: KeyId[] = [
   'L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11', 'L12', 'L13',

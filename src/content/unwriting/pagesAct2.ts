@@ -120,12 +120,21 @@ export const ACT2_CONTENT: PageContent[] = [
             kind: 'label',
             text: 'REASSEMBLY: the rim text repeats around the ring. Order the fragments; the notch is the zero point. Count letters only; the tooth’s own letter counts first. Some fragments are worn duplicates from the same arc — not every piece is needed.',
           },
+          {
+            kind: 'label',
+            text: 'FOREIGN OBJECT — a pencil rubbing, loose in this gathering. Not part of the original binding: the paper post-dates the volume’s last entry. Logged and rendered as scanned.',
+          },
+          {
+            kind: 'figure',
+            text: 'RUBBING — RAISED SEAL AND UPPER CORNER OF A DEED\n\n(the seal came up clogged: the rim reads as one dark ring, no letters)\n\nHELD IN TRUST BY THE NOTARY WHOSE SEAL IS ABOVE,\nFOR THE GRANTEE NAMED OVERLEAF — overleaf not rubbed.\n\nPROPERTY: the last house but one on ▒▒▒▒▒ LANE,\nthe parcel carrying glass along its south wall.',
+          },
+          { kind: 'margin', text: 'she took a rubbing instead of a copy. a copy would have been filed.' },
         ],
       },
     ],
     answer: { format: 'restoration key — letter + slot (8th rim character from the notch)', hash: 'b86f8e379c8729f9' },
     restored:
-      'The ring reads E. NIGHTINGALE · NOTARY PUBLIC — the codename was simply her friend’s name, hidden in plain hearing. Eighth character from the broken tooth: R, slot eight. Everything he did to her was notarized. So was everything she did back. Loose in this page: a pencil rubbing of a document corner, flagged by the software — FOREIGN OBJECT, not part of original binding, dated after the last entry.',
+      'The ring reads E. NIGHTINGALE · NOTARY PUBLIC — the codename was simply her friend’s name, hidden in plain hearing. Eighth character from the broken tooth: R, slot eight. Everything he did to her was notarized. So was everything she did back. And the rubbing loose in this gathering is the same notary holding a deed in trust for a grantee named on a leaf she did not rub: a house on a lane, with glass along its south wall. Nightingale kept the book until Nightingale died — which is how a private volume reached estate lot 44.',
   },
   {
     id: 13,
