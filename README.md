@@ -42,15 +42,22 @@ npm run lint
 - [x] Act I playable end-to-end (pages 01–09; proven by the test-content
       playthrough simulation)
 - [x] CI: fleet pipeline + branch protection (bootstrap 2026-08-01)
-- [ ] Act II + III content transcription (pages 10–28 render "SCAN QUEUED")
+- [x] Act II + III content transcription (all 28 leaves playable)
 - [ ] Interaction upgrades: real rotation UI for the Calibration Plates
       (restores Plate II's counterclockwise trap), overlay mode for p24,
       map trace for p25
 - [ ] Spectral render mode (first needed by p17)
 - [ ] Art pass: figures replace text-mode scan blocks (logic unchanged)
-- [ ] Monetization gate placement decision (solving depth; open book forbids
-      page-gating) + RevenueCat keys + App Store Connect record
+- [x] Monetization gate placement DECIDED (Simon 2026-08-04): Act I restores
+      free, leaves 10–28 need the one-time unlock; browsing all 28 stays free
+      (doctrine 10b). Gate is wired and inert until real keys land.
+- [ ] RevenueCat project + real API keys (proAccess fails OPEN until then,
+      so the gate does nothing in any build shipped before this)
+- [ ] App Store Connect app record (Simon — not creatable via the API)
 - [ ] Instrument flavor layers on already-solved pages
 - [ ] Anomaly beats script (each with its one-sentence explanation, rule 2)
 - [ ] Device QA at max Dynamic Type (rule 11) + 60fps scan-viewer gate
-- [ ] Store listing: "brutally hard, no hints" positioning (rule 17)
+- [x] Shipping-build ending behavior: Blank wipes for real, the signature is
+      final (src/buildConfig.ts QA_BUILD; test-content asserts it ships false)
+- [ ] Store listing: "brutally hard, no hints" positioning (rule 17) —
+      copy drafted in design/store-listing.md
