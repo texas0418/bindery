@@ -27,6 +27,7 @@ import {
   PAGES,
 } from './src/content/unwriting/graph';
 import { PAGE_CONTENT } from './src/content/unwriting/pages';
+import { QA_BUILD } from './src/buildConfig';
 import { answerKey, decryptWithKey } from './src/engine/cipher';
 import { pageHash } from './src/engine/hash';
 import { isAttackable } from './src/engine/graph';
@@ -276,5 +277,11 @@ for (const file of walk('src'))
     'a wrong key does not decrypt the epilogue',
   );
 }
+
+// 11. SHIPPABLE: the QA relaxations (Blank's deletion simulated, the
+// signature re-choosable) must never reach the App Store — both are lies
+// about the one irreversible choice in the game. Flip QA_BUILD locally for a
+// device pass; committing it true fails CI here.
+assert.equal(QA_BUILD, false, 'QA_BUILD must be false on any committed build');
 
 console.log('test-content: ok');
