@@ -87,11 +87,33 @@ Expect **12+**. The questionnaire answers that matter:
 - No user-generated content, no social features, no data collection.
 
 ## App Privacy (nutrition labels — Simon fills these in the UI)
-**Data Not Collected.** Every answer is checked on-device against a salted
-hash; the damage log is a local SQLite file. RevenueCat sees a purchase
-receipt and an anonymous app-user id — declare **Purchases → linked to no
-identity** if the reviewer asks, and nothing else. Do not claim analytics we
-do not have.
+
+CORRECTED 2026-08-04: an earlier draft of this section said "Data Not
+Collected." That was true while the RevenueCat keys were placeholders and
+the SDK never transmitted anything. It stopped being true the moment the
+live key shipped, because RevenueCat is a third-party partner that receives
+data. Answer **YES** to "Do you or your third-party partners collect data
+from this app?"
+
+Declare exactly two, and nothing else:
+
+| Category | Type | Purpose | Linked to identity | Used for tracking |
+|---|---|---|---|---|
+| Purchases | Purchase History | App Functionality | **No** | **No** |
+| Identifiers | User ID | App Functionality | **No** | **No** |
+
+- *Purchases* is the App Store transaction receipt RevenueCat validates.
+- *Identifiers* is the anonymous app-user id RevenueCat generates. We never
+  set a custom app user id and never send it a name, email, or device
+  contact, which is why both rows are "not linked."
+- Everything else is genuinely absent: no contact info, location, usage
+  data, diagnostics, or content. Every answer is checked on-device against
+  a salted hash and the damage log is a local SQLite file, so the gameplay
+  itself transmits nothing.
+- Tracking is **No** everywhere: no ad networks, no analytics, no brokers.
+
+Do not claim analytics we do not have — and do not claim "collects nothing"
+now that a payment processor is in the build.
 
 ## Support / marketing URLs
 - Support URL: needed before submit (a single page is fine).
