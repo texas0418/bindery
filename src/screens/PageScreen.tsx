@@ -145,19 +145,19 @@ function LightBar({
 function AnswerPanel({
   pageId,
   format,
-  hash,
+  hashes,
   produces,
 }: {
   pageId: number;
   format: string;
-  hash: string;
+  hashes: string[];
   produces: KeyId[];
 }) {
   const [guess, setGuess] = useState('');
   const [missed, setMissed] = useState(false);
 
   const submit = () => {
-    if (!checkAnswer(pageId, guess, hash)) {
+    if (!checkAnswer(pageId, guess, hashes)) {
       setMissed(true);
       return;
     }
@@ -283,7 +283,7 @@ export default function PageScreen({ id, onBack }: { id: number; onBack: () => v
           <AnswerPanel
             pageId={id}
             format={content.answer!.format}
-            hash={content.answer!.hash}
+            hashes={[content.answer!.hash, ...(content.answer!.alt ?? [])]}
             produces={page.produces}
           />
         ))}

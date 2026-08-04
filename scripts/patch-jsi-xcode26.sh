@@ -10,8 +10,15 @@
 set -e
 cd "$(dirname "$0")/.."
 
-J=node_modules/expo-modules-jsi/apple/Sources/ExpoModulesJSI
-C=node_modules/expo-modules-core/ios/Core
+# npm may hoist or nest these packages depending on dedup state — resolve
+# whichever location exists.
+for d in node_modules/expo-modules-jsi node_modules/expo/node_modules/expo-modules-jsi; do
+  [ -d "$d/apple/Sources/ExpoModulesJSI" ] && J="$d/apple/Sources/ExpoModulesJSI"
+done
+for d in node_modules/expo-modules-core node_modules/expo/node_modules/expo-modules-core; do
+  [ -d "$d/ios/Core" ] && C="$d/ios/Core"
+done
+[ -n "$J" ] && [ -n "$C" ] || { echo "expo-modules-jsi / expo-modules-core not found"; exit 1; }
 
 grep -rl 'weak let' "$J" "$C" 2>/dev/null | xargs sed -i '' 's/weak let /weak var /g' 2>/dev/null || true
 

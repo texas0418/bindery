@@ -107,6 +107,10 @@ export interface PageContent {
     /** Salted hash of the normalized answer (engine/hash). Plaintext lives
      *  only in solutions.spoilers.ts, which src/ never imports. */
     hash: string;
+    /** Hashes of equally-correct phrasings — multi-part answers whose
+     *  declared format states no part order accept every order (rule 8:
+     *  a correct answer must never read as wrong). */
+    alt?: string[];
   };
   /** The restored passage shown on solve — rule 13's payoff. */
   restored: string;
