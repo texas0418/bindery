@@ -55,7 +55,11 @@ export const ACT2_CONTENT: PageContent[] = [
         ],
       },
     ],
-    answer: { format: 'the two dates that cannot both be true', hash: '3b6c8ff603077874' },
+    answer: {
+      format: 'the two dates that cannot both be true',
+      hash: '3b6c8ff603077874',
+      alt: ['be4ec2d8bd8bc7ae'],
+    },
     restored:
       'Rev. 3/89 against an effective date of 11/87: the form was printed AFTER it was supposedly filed. Backdated — manufactured. And her margin closes the case: beside the verification initials that sit against fields 2 through 9, field one carries none. The county checked everything against its own records except the person. Field one is the lie; the name is forged. The damage log files V → slot 1, from field one, and ROOM 214.',
   },
@@ -170,7 +174,7 @@ export const ACT2_CONTENT: PageContent[] = [
           { kind: 'margin', text: 'the first form he ever filed for me.' },
           {
             kind: 'label',
-            text: 'BLEED RECONSTRUCTION: the diffusion model can run backward, but must be parameterized by the document’s date (ink and paper era). Supply the date; the model offers candidate letterforms where halos are ambiguous.',
+            text: 'BLEED RECONSTRUCTION: the diffusion model can run backward, but must be parameterized by the document’s date (ink and paper era). The restoration record holds it — the album leaf’s recovered caption. Where halos are ambiguous, the model offers candidate letterforms.',
           },
         ],
       },
@@ -183,7 +187,7 @@ export const ACT2_CONTENT: PageContent[] = [
         ],
       },
     ],
-    answer: { format: 'the document date, then line 7 in full (three words)', hash: '7293c21171a970e3' },
+    answer: { format: 'line 7 in full (three words)', hash: '7293c21171a970e3' },
     restored:
       'June 1974, and line seven comes back whole: the registry office where she stood when she still believed it. A marriage is a form; she learned that on the day she signed it. T, slot seven — the line that would not go.',
   },
@@ -221,7 +225,7 @@ export const ACT2_CONTENT: PageContent[] = [
       {
         light: 'plain',
         blocks: [
-          { kind: 'heading', text: 'LIBRARY POCKET — DATE-DUE SLIP, FOURTEEN STAMPS' },
+          { kind: 'heading', text: 'LIBRARY POCKET — DATE-DUE SLIP, TWELVE STAMPS' },
           {
             kind: 'para',
             text: 'A borrower’s pocket pasted in, its slip stamped: 12 MAR 68 · 31 MAR 68 · 9 APR 68 · 2 MAY 71 · 26 MAY 71 · 15 JUN 71 · 23 JUN 71 · 27 AUG 74 · 5 SEP 74 · 24 SEP 74 · 13 OCT 74 · 10 MAR 85',

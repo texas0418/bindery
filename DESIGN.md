@@ -83,10 +83,10 @@ lands** — in a no-hints game, that click is the validation.
 | p | answer | mechanism | core move |
 |---|--------|-----------|-----------|
 | 04 | rim tick `61` → RAKING | geometric alignment (chain A taught) | rim is a century dial 1900–1999; plate deliberately off-center so symmetry fails; her zero-dot inside tick 61 confirms. Lesson: the figure lies, the marks don't |
-| 06 | `JUNE 1974` | impression reading | erased captions survive as embossing under raking light; "V. & E., J-ne 19-4" disambiguated by the KODAVUE corner stamp (EST. 1968) |
+| 06 | `JUNE 1974` | impression reading | erased captions survive as embossing under raking light; "V. & E., Trinity, J-ne 19-4" — the crushed decade digit's skeleton (flat top stroke + one diagonal, no loop/curve/upright) forces 7; KODAVUE stamp (EST. 1968) is atmosphere, it dates the corner not the photo. Trinity in the caption seeds p14's line 7 (2026-08-04 run fix: page was underdetermined — 74/84/94 all fit the old bound) |
 | 07 | `NIGHTINGALE` | dial mapping | filter the log to Thursdays (p03 ingredient); taped cipher-dial maps kHz→letters; 3 non-Thursday decoys decode to garbage |
 | 08 | `74 (counterclockwise) + 6` → UV | two-ring alignment (chain A twisted) | astrolabe combination keyed to the wedding; outer ring runs BACKWARD (the arrow); Plate-I habit lands on mirror tick 26 and drifts. Foreshadows Act II reverse chronology |
-| 09 | `14 LARKSPUR` | modular arithmetic | doodle-headed margin columns; flower columns' totals mod 26 spell LARKSPUR, bird columns sum to 14; instruction parseable only with MAGPIE + GREENHOUSE. LARKSPUR must NEVER appear among the page's doodles (Simon 2026-08-02: a visible larkspur made "14 <each flower>" an 8-guess brute force) — the remainders spell a flower the margins don't show, which is the self-confirm |
+| 09 | `14 LARKSPUR` | modular arithmetic | doodle-headed margin columns; flower columns' totals mod 26 spell LARKSPUR, bird columns sum to 14; instruction parseable only with MAGPIE + GREENHOUSE. LARKSPUR must NEVER appear among the page's doodles (Simon 2026-08-02: a visible larkspur made "14 <each flower>" an 8-guess brute force) — the remainders spell a flower the margins don't show, which is the self-confirm. Margin reads "the magpie keeps what shines — never spend that. the little birds buy the door" (2026-08-04 run fix: the old line pointed folklore-readers at the shiny-object columns, sum 93; now the hoard is explicitly excluded and the birds carry the door) |
 
 Act I invariants: instrument pages self-confirm by prediction-match; decoys
 yield garbage, never near-misses; the husband appears only as "E." and is
@@ -101,7 +101,7 @@ uses remainder 0, define it explicitly on-page.
 | 10 | V→1 + `ROOM 214` | forgery deduction | form footer Rev. 3/89 vs filing date 11/87 = backdated; "he never lied about the little things. Only field one" — field 1 is NAME |
 | 12 | R→8 | fragment reassembly + symbol key | seal shards orientable only via expected text NIGHTINGALE; rim reads "E. NIGHTINGALE · NOTARY PUBLIC"; 8th char from the notch |
 | 13 | E→12 | redaction metrology | bar widths vs her alphabet pitch strip; 12th bar = one character, mid-phrase "I do not fear ——." |
-| 14 | T→7 | ink-bleed physics | diffusion model run backward, parameterized by JUNE 1974; line 7 = TRINITY REGISTRY OFFICE |
+| 14 | T→7 | ink-bleed physics | diffusion model run backward, auto-parameterized by the JUNE 1974 key on file (doctrine 7: no retyping earned keys); answer is line 7 alone = TRINITY REGISTRY OFFICE, with TRINITY confirmed by p06's wedding caption (2026-08-04 run fix: format demanded the date but the hash refused it, and TRINITY was a pure guess) |
 | 15 | O→5 | key-bitting code | final key B-2-4-9-0-5; "four cuts spell, the fifth files": 2+4+9+0=15=O, 5th cut = slot 5; reverse bears county key-registry stamps |
 | 17 | SPECTRAL | delta collation (chain B taught) | twin entries, 7 deltas; anchor truth with ROOM 214 (visible twin says "post office") to train the ink separator |
 | 18 | A→4 | channel-separation tracing | pencil under crayon: ANN HALLORAN, "aged 4. Our last summer." |
@@ -142,6 +142,20 @@ QA BUILD NOTE: Blank's deletion is SIMULATED (data retained, labeled
 on-screen) and endings are re-choosable so all three are testable; the
 shipping build wipes on Blank and the choice is final. p26 consumes +UV,
 p27 +SPECTRAL (declared for the LIT guard; both held by any player there).
+
+## Full-book run fixes (Simon, 2026-08-04)
+
+ORDER RULE (permanent): where a declared format states no order for a
+multi-part answer, every order is accepted — `answer.alt` carries the
+extra hashes (p10 "11 87 3 89", p26 "C 20 14"; spoilers
+PAGE_ALT_SOLUTIONS, enforced by test-content check 1). A correct answer
+must never read as wrong (rule 8). Formats that DO state an order
+(p13 "number, width, letter"; p23 "relation, sex, age") stay single-hash.
+Other run fixes: p03 audit figure corrected to the true skim 4.50;
+p06 rebuilt (see table row); p09 magpie margin rewritten (see table row);
+p14 date auto-parameterized + format three-words-only (see table row);
+p16 heading FOURTEEN→TWELVE STAMPS (campaign rewrite had orphaned the
+old count).
 
 ## Endings (final mechanics)
 

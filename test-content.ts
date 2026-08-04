@@ -26,6 +26,7 @@ import { isAttackable } from './src/engine/graph';
 import type { KeyId } from './src/models';
 import {
   DELIVERY_SOLUTION,
+  PAGE_ALT_SOLUTIONS,
   PAGE_SOLUTIONS,
   PAGE_SOLUTIONS_ACT2,
   PAGE_SOLUTIONS_ACT3,
@@ -47,6 +48,11 @@ for (const c of PAGE_CONTENT) {
     c.answer.hash,
     pageHash(c.id, truth),
     `page ${c.id}: shipped hash matches spoilers (re-run scripts/hash_solutions.ts)`,
+  );
+  assert.deepEqual(
+    c.answer.alt ?? [],
+    (PAGE_ALT_SOLUTIONS[c.id] ?? []).map((a) => pageHash(c.id, a)),
+    `page ${c.id}: shipped alt hashes match spoilers' alternate phrasings`,
   );
 }
 for (const id of Object.keys(ALL_SOLUTIONS).map(Number))
