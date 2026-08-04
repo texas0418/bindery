@@ -17,20 +17,35 @@ import {
 import { BodyText, ChromeText, ChromeTextInput } from '../engine/ui';
 
 import { DELIVERY_ALT_HASHES, DELIVERY_HASH, keyLabel, PAGES } from '../content/unwriting/graph';
+import { answerKey, decryptWithKey } from '../engine/cipher';
 import { checkAnswer } from '../engine/hash';
 import { isAttackable } from '../engine/graph';
 import { LETTER_SLOTS, type Ending, type KeyId } from '../models';
 import { earnedKeys, getKv, putKv, setPageSolved } from '../state';
 import { colors, fonts } from '../theme';
 
-const EPILOGUE: Record<Ending, string> = {
+/** The Delivery epilogue names recipient and place TOGETHER — the assembled
+ *  form rule 15 exists to protect — so it ships encrypted under the player's
+ *  own correct answer (engine/cipher.ts). Plaintext lives only in
+ *  solutions.spoilers.ts; regenerate with scripts/encrypt_epilogue.ts. The
+ *  other two epilogues state no answer and ship plain. */
+const DELIVERY_EPILOGUE_CIPHER =
+  '6fab7b5889fda23a6eb879d988f4a0a86dd977b18bfea5f76cd976348ae3a45b6baf749085e59c766ad9737a84f49aec69b071fd87f49f0b68a07038a6a59de6679a6eaa91deaf3766bc6cdc9091adca6cd39fa90bc83a206dd3a10f0cc73b866ad69ccd0d8c3d5a6bf49e540ed43f6c70c8a6630780342071dfa7de08d435fa6ecea291098937026f9aa4e10acf38b3649a9377038e2d9c65f294a804cc2f23e6d88e377dc6a9e1e59b8c927ce6a78ee4d58b707fd5ac95e3fb89ed7ec9ab47e29987d979eaa32ce1d9861278cfa1c3e09784bf7bc6a61ddfd283327a8ba4f6eed69afd85cbb642edc3993e84c2b4e6e095465d77d761f4e1dc47b978c0636ae295490375d15e40e3c14a9d76c05fd3dcf73f997bcb67b6ddd041f17cdc6949de95437879ca648cdfc744cc7ad1664ae8c752ba7f856e7fe9d1540380d76fd4dac1fe4079b49899d9c1fcc978ff9748dcd6013d77b895fcdbdcffaa76e19420defe04517da29f25dd9102bf7cf09d17e09307d17bf99baadfd4067a7aec9a6ce2de0ab281b8a53ce1dc094c80f0a3db74c21f2a73e250d875d520bd74f0522f72df1b9375f353a473901d1676fa551970d818df77f4569971c41a7f78b658c16edf15fa79f95a466fc9170b7af35bc36cd512007bb65d3c6ddf14697cf25efb6ec0d76405bdf23c6dc5d51704b3f0986ce4d3fb07fcf51c6b8dd22406f8f3bf72dfdd2309f4f8f971cadb9a08f4f770708dda490bf2fbca6f83d8b6';
+
+const EPILOGUE: Record<Exclude<Ending, 'delivery'>, string> = {
   accession:
     'ACCESSION FILED. The volume enters the public record under its author’s name. Somewhere, a catalog search that found nothing for forty years now returns one result: her dates, her name, findable forever. The record is restored. So is her findability. The software files it without comment.',
-  delivery:
-    'RELEASED FOR PRIVATE DELIVERY — c/o E. Nightingale, Notary (estate), for A. Halloran, Arbor Lane. Months later, a letter arrives at the Bindery, no return address, signed only M.: "She taught my mother the flower alphabet. Nobody ever told me why. I am learning it now."',
   blank:
     'DISPOSAL AUTHORIZED. The library shows an empty slot — item deaccessioned by restorer. The damage log dims, key by key, in the order they were found, thirteen letters going out one by one. The last screen is the intake ticket from the first minute, blank. You honored the erasure. You are the last to know her. (QA BUILD: deletion simulated — data retained.)',
 };
+
+/** Delivery decrypts under the key its own solve produced; the others are
+ *  plain (they name nothing the player had to earn). */
+function epilogueFor(chosen: Ending): string {
+  if (chosen !== 'delivery') return EPILOGUE[chosen];
+  const key = getKv('deliveryKey');
+  return key ? decryptWithKey(DELIVERY_EPILOGUE_CIPHER, key) : '';
+}
 
 function NameStrip() {
   const slots = new Map<number, string>();
@@ -60,6 +75,13 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
     putKv('ending', e);
     setPageSolved(28);
     setMode('lines');
+  };
+
+  // The Delivery epilogue decrypts under the player's own answer, so the key
+  // is kept on-device once earned — nothing readable ever sat in the bundle.
+  const signDelivery = (answer: string) => {
+    putKv('deliveryKey', answerKey(answer));
+    choose('delivery');
   };
 
   const missing = page.consumes.filter((k) => !earned.has(k));
@@ -98,7 +120,7 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
               assembled from the record — no part of it typed
             </BodyText>
 
-            {chosen && <BodyText style={s.epilogue}>{EPILOGUE[chosen]}</BodyText>}
+            {chosen && <BodyText style={s.epilogue}>{epilogueFor(chosen)}</BodyText>}
 
             {mode === 'lines' && (
               <View style={s.lines}>
@@ -142,7 +164,7 @@ export default function CertificateScreen({ onBack }: { onBack: () => void }) {
                   placeholderTextColor={colors.inkFaint}
                   onSubmitEditing={() => {
                     if (checkAnswer(28, guess, [DELIVERY_HASH, ...DELIVERY_ALT_HASHES]))
-                      choose('delivery');
+                      signDelivery(guess);
                     else setMissed(true);
                   }}
                 />
