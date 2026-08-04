@@ -61,6 +61,13 @@ export const DELIVERY_SOLUTION = 'HALLORAN ARBOR LANE';
  *  are in the record (p18 traces "A▒N HALLORA▒"). "Magpie" is NOT accepted:
  *  the nickname addresses no one the record can deliver to, which is the
  *  ending's whole point. */
+/** The Delivery epilogue. It states the answer in ASSEMBLED form, so it
+ *  ships as ciphertext keyed by the player's own correct entry (engine/
+ *  cipher.ts) — the plaintext lives here and nowhere else. Regenerate the
+ *  shipped ciphertext with `npx tsx scripts/encrypt_epilogue.ts`. */
+export const DELIVERY_EPILOGUE =
+  'RELEASED FOR PRIVATE DELIVERY — c/o E. Nightingale, Notary (estate), for A. Halloran, Arbor Lane. Months later, a letter arrives at the Bindery, no return address, signed only M.: "She taught my mother the flower alphabet. Nobody ever told me why. I am learning it now."';
+
 const DELIVERY_RECIPIENTS = ['HALLORAN', 'A HALLORAN', 'ANN HALLORAN'];
 const DELIVERY_PLACES = ['ARBOR LANE', 'ARBOR'];
 export const DELIVERY_ALT_SOLUTIONS: string[] = [
