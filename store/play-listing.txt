@@ -1,0 +1,60 @@
+THE BINDERY: UNWRITING — GOOGLE PLAY STORE LISTING (draft 2026-08-15)
+======================================================================
+
+APP NAME (30 chars max)
+The Bindery: Unwriting
+
+SHORT DESCRIPTION (80 chars max)
+A water-damaged puzzle journal. 28 pages. No hints, no timers — brains only.
+
+FULL DESCRIPTION (4000 chars max)
+-----------------------------------------------------
+A water-damaged journal arrives at your workstation from estate lot 44. The flyleaf name has been cut out with a blade. Your job is to restore what someone spent a lifetime erasing.
+
+The Bindery is a conservator's digitization workstation — and the app IS the workstation. Every screen is the lab software: intake tickets, damage logs, calibration plates, restoration procedures. Entry One, UNWRITING, is the journal of an archivist who systematically removed herself from every record she ever touched, and encrypted the one copy of her life she couldn't bear to destroy — locked so that only one person on earth could read it.
+
+You are not that person. Restore it anyway.
+
+HOW IT PLAYS
+• 28 restorable pages, every one browsable from the moment the book is opened — nothing is locked behind doors
+• Solving pages yields keys: recovered words, restoration instruments, letters of a name. Keys are ingredients — later pages consume them, and the software logs every key automatically, so memory is never the challenge. Recognition is.
+• Nearly every page is a new mechanism. No filler, no repeated puzzles wearing new clothes.
+• Three endings, chosen by a single decision you'll understand completely by the time you make it.
+
+NO HINTS. WE MEAN IT.
+No hint button. No nudges. No skip. No pity. Every puzzle declares what kind of answer it wants, everything you need is inside the game, and when you solve something you'll know instantly — the click is the confirmation. If that sentence excites you instead of scaring you, this is your game.
+
+FAIR, NOT CRUEL
+• No timers, no limited guesses, no fail states, no lockouts
+• Answer fields declare their shape — wrong-format guesses are impossible, not punished
+• Puzzle-critical text stays fully legible at maximum text size
+
+PRIVATE BY DESIGN
+The fiction may claim to see you. The app never actually does — everything stays on your device, nothing is collected, nothing leaves.
+
+One-time purchase unlocks the full restoration. No subscription, no ads, no dark patterns. The free portion is a real taste of the real game.
+
+The Bindery is an anthology. UNWRITING is Entry One. Other artifacts will arrive at the lab.
+-----------------------------------------------------
+
+CATEGORY: Puzzle (Games)
+PRIVACY POLICY URL (verified live 2026-08-15): https://texas0418.github.io/bindery/privacy.html
+NOTE: no simonbuilds.app/bindery page exists (site card says "In Review") — use the GitHub Pages URL or add a site page before submission.
+
+GRAPHIC ASSETS (store/)
+- play-icon-512.png — DONE
+- play-feature-graphic.png (1024x500) — DONE (oxblood/gilt, "No hints. Brains only.")
+- screenshots-android/ — captured this run from the release APK (dark workstation shots)
+
+DATA SAFETY FORM (prep)
+- Nothing collected or shared; all state in on-device SQLite kv store (doctrine rule 16: provably nothing off-device)
+- Purchase history via Google Play Billing/RevenueCat for bindery_unwriting_unlock — collected, not shared, app functionality
+
+CONTENT RATING (games get the full IARC questionnaire)
+- Narrative themes: implied domestic control/coercion in backstory, no violence depicted, no profanity expected — answer honestly; likely Everyone 10+ or Teen for "mild thematic elements". Check exact wording during the questionnaire.
+
+IN-APP PURCHASE
+- bindery_unwriting_unlock (one-time, mirror iOS price) — create in Play Console + RevenueCat Google project. Fail-open; gate position is on solving depth per AGENTS.md (open decision — confirm where the Android build gates before submission).
+
+RELEASE NOTES (first release)
+Entry One: UNWRITING. A water-damaged journal, 28 restorable pages, and a name someone died erasing. No hints. Brains only.
