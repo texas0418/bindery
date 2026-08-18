@@ -86,38 +86,42 @@ THEN the three web forms:
   https://indiegamereviewer.com/contact-indie-game-reviewer/
   https://www.pockettactics.com/about-us
 
-SUBJECT: The Bindery: Unwriting - iOS puzzle journal with no hint system, out now
+SUBJECT: The Bindery: Unwriting - iOS puzzle journal, no hints, out now
 
 Hi,
 
-Out now on iOS: The Bindery: Unwriting, a puzzle journal in the Journal 29
-tradition with one deliberate difference. There is no hint button, no skip
-and no nudge - and equally no timers, no guess limits and no fail states.
-That was the trade.
+I've just put out The Bindery: Unwriting on iOS. It is a puzzle journal in
+the Journal 29 mould, with one difference that will either interest you or
+put you straight off: it has no hint system at all.
 
-You play a conservator restoring the journal of an archivist who spent four
-years erasing herself from every record that named her, to escape a husband
-who used paperwork the way other men use their hands. She locked the book so
-only her granddaughter could open it. You are not her granddaughter, and the
-journal works that out.
+You play a conservator restoring a water-damaged journal. The woman who
+wrote it was an archivist who spent four years taking herself out of every
+record that named her, to get away from a husband who used paperwork the way
+other men use their hands. She locked the book so that only her
+granddaughter could open it. You are not her granddaughter, and partway
+through, the journal works that out.
 
-Twenty-eight leaves, twenty-five distinct solving mechanisms - almost nothing
-repeats - and three endings, one of which permanently deletes your save. The
-app asks twice before it does.
+There are twenty-eight leaves and twenty-five of them use a solving method
+that appears nowhere else in the book. One is a census sheet where the
+enumerator's own arithmetic forces the identity of the line that was scraped
+off the page.
 
-One structural note that may interest you more than the premise: the paywall
-gates restoring, never reading. All twenty-eight leaves are browsable from
-the first minute under every instrument the player has calibrated. Act I
-restores free; the rest is a single 5.99 unlock.
+Cutting hints meant cutting the punishments too. Nothing is timed, nothing
+runs out, and there is no way to fail a leaf. Every answer field tells you
+the shape of the answer it wants.
+
+The part that matters for a review: the purchase gates restoring a leaf, not
+reading one. All twenty-eight are browsable from the first minute. Act I
+restores free and the rest is a single 5.99 unlock.
 
 Free to download: https://apps.apple.com/us/app/id6797783492
-Press kit, screenshots, fact sheet, quotes:
+Press kit, screenshots, fact sheet:
 https://texas0418.github.io/bindery/press.html
 
-Review code, no conditions: [PASTE CODE HERE]
+A code for the full unlock, no conditions: [PASTE CODE HERE]
 
-Because there are no hints, a reviewer cannot skim into the later acts, so I
-publish a full walkthrough - happy to send it directly if that helps.
+There is no way to skim a game with no hints, so I have published the full
+solutions. Say the word and I will send them over.
 
 Simon Shih
 Simon Builds
@@ -132,31 +136,31 @@ SUBJECT: A puzzle journal with no hint button (iOS, code inside)
 
 Hi [NAME],
 
-I built a puzzle game called The Bindery: Unwriting and I think it sits
-squarely in what your channel covers - closest in spirit to Journal 29,
-except the whole book is one woman's story rather than a puzzle collection.
-
 [ONE SENTENCE ABOUT A SPECIFIC VIDEO OF THEIRS. Do not skip this line.]
 
-The premise: you are a conservator restoring a water-damaged journal. The
-woman who wrote it spent four years deliberately erasing herself from every
-record that named her, to escape a husband who used paperwork to control her.
-She locked it so only her granddaughter could open it. You are not her
-granddaughter, and the journal works that out.
+I have made a puzzle game called The Bindery: Unwriting. It is closest to
+Journal 29, except that it is one woman's story rather than a book of
+puzzles.
 
-Twenty-eight leaves, twenty-five distinct solving mechanisms, and no hint
-system at all. No skip, no nudge. Also no timers, no limited guesses and no
-fail states, which is the trade I made for it.
+You are a conservator restoring a water-damaged journal. The woman who wrote
+it spent four years taking herself out of every public record, to get away
+from a husband who used paperwork to control her, and she locked the book so
+that only her granddaughter could read it. You are not her granddaughter.
+The journal figures that out partway through.
 
-Act I is free, so you can see whether it suits you before committing. If it
-does, here is a code for the full unlock: [PASTE CODE HERE]
+Twenty-eight leaves, and almost none of them repeat a method. There are no
+hints anywhere. I took out the things that usually make that cruel, so
+nothing is timed, nothing runs out, and no leaf can be failed.
 
-Because there are no hints, I have published a complete walkthrough so you
-are never stuck mid-recording. Happy to send the files directly.
+Act I is free, so ten minutes will tell you whether it is your sort of
+thing. If it is, here is a code for the rest: [PASTE CODE HERE]
+
+I have also published full solutions, so you are never stuck mid-recording.
+Happy to send them.
 
 Press kit and screenshots: https://texas0418.github.io/bindery/press.html
 
-No expectations, no embargo, and no obligation to cover it.
+No obligation either way.
 
 Simon Shih
 
