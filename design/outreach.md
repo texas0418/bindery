@@ -46,13 +46,22 @@ change):
 - **Pocket Gamer / AppSpy** publish a standing how-to-pitch page naming their
   current editors and preferred contact route:
   https://www.pocketgamer.com/articles/067025/developers-how-to-tell-pocket-gamer-and-appspy-about-your-game/
-- **TouchArcade** lists PR contact details on its about page:
-  https://toucharcade.com/about/ — they also have active developer forums where
-  posting your own game is welcomed rather than tolerated.
+- **AppAdvice** — `devcontact@appadvice.com` (verified active).
+- **Gamezebo** — submission page, not email:
+  https://www.gamezebo.com/get-reviewed/ (personalised pitches only).
+- **Pocket Tactics** — very large but strategy-skewed; contact route on
+  https://www.pockettactics.com/about-us . Lowest priority of the four.
 
-I have deliberately not written specific email addresses into this file — the
-search results redacted them and I will not invent an address. Pull them from
-the two pages above at send time.
+**TouchArcade is DEAD** — it shut down in September 2024. An earlier draft of
+this plan listed it. Do not email `tips@` or `news@toucharcade.com`.
+
+Prefer Pocket Gamer's *generic* team addresses over the named staff on their
+pitch page: that page is old and several of those people have moved on (it
+still lists Mark Brown as Editor; he has run Game Maker's Toolkit
+independently for years).
+
+Copy-paste ready versions of every email live in `design/outreach-emails.txt`
+(plain text, no markdown to strip).
 
 ## Tier 3 — communities (Simon posts; see reddit-human-voice memory)
 

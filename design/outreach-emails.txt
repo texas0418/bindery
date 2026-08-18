@@ -1,0 +1,176 @@
+THE BINDERY: UNWRITING - OUTREACH COPY (PLAIN TEXT, COPY-PASTE READY)
+Live: https://apps.apple.com/us/app/id6797783492
+Press kit: https://texas0418.github.io/bindery/press.html
+Attach a promo code to every email. One code per recipient.
+
+
+=====================================================================
+VERIFIED CONTACTS (checked 2026-08-18)
+=====================================================================
+
+APPADVICE - still active
+  devcontact@appadvice.com
+  They prefer to hear about apps BEFORE release, but take post-release
+  submissions. Send the press email below.
+
+POCKET GAMER / APPSPY - still active
+  Use the generic team addresses. They outlast staff turnover:
+  news@pocketgamer.co.uk
+  reviews@pocketgamer.co.uk
+
+  Their public pitch page also lists named staff, but that page is old
+  and several of those people have moved on (Mark Brown, listed there as
+  Editor, has run Game Maker's Toolkit independently for years). Do not
+  lead with a named address unless you confirm the person is current:
+  https://www.pocketgamer.com/pages/contact-us/
+
+GAMEZEBO - still active, submission page not email
+  https://www.gamezebo.com/get-reviewed/
+  Their stated rule: personalised pitch only, no PR-firm spam.
+
+POCKET TACTICS - still active, very large (~10M monthly)
+  Contact route is on https://www.pockettactics.com/about-us
+  Worth a look but they skew strategy; lowest priority of the four.
+
+DO NOT EMAIL - TOUCHARCADE IS DEAD
+  TouchArcade shut down in September 2024. tips@toucharcade.com and
+  news@toucharcade.com are not monitored. I had it in the first draft
+  of the plan; it is removed.
+
+
+=====================================================================
+EMAIL 1 - PRESS (send first, "out now" has about a week of shelf life)
+=====================================================================
+
+TO: devcontact@appadvice.com
+(then separately, one at a time, not CC:)
+TO: news@pocketgamer.co.uk
+TO: reviews@pocketgamer.co.uk
+
+SUBJECT: The Bindery: Unwriting - iOS puzzle journal with no hint system, out now
+
+Hi,
+
+Out now on iOS: The Bindery: Unwriting, a puzzle journal in the Journal 29
+tradition with one deliberate difference. There is no hint button, no skip
+and no nudge - and equally no timers, no guess limits and no fail states.
+That was the trade.
+
+You play a conservator restoring the journal of an archivist who spent four
+years erasing herself from every record that named her, to escape a husband
+who used paperwork the way other men use their hands. She locked the book so
+only her granddaughter could open it. You are not her granddaughter, and the
+journal works that out.
+
+Twenty-eight leaves, twenty-five distinct solving mechanisms - almost nothing
+repeats - and three endings, one of which permanently deletes your save. The
+app asks twice before it does.
+
+One structural note that may interest you more than the premise: the paywall
+gates restoring, never reading. All twenty-eight leaves are browsable from
+the first minute under every instrument the player has calibrated. Act I
+restores free; the rest is a single 5.99 unlock.
+
+Free to download: https://apps.apple.com/us/app/id6797783492
+Press kit, screenshots, fact sheet, quotes:
+https://texas0418.github.io/bindery/press.html
+
+Review code, no conditions: [PASTE CODE HERE]
+
+Because there are no hints, a reviewer cannot skim into the later acts, so I
+publish a full walkthrough - happy to send it directly if that helps.
+
+Simon Shih
+Simon Builds
+sspi.investments@gmail.com
+
+
+=====================================================================
+EMAIL 2 - CREATORS (YouTube / streamers, personalise the first line)
+=====================================================================
+
+SUBJECT: A puzzle journal with no hint button (iOS, code inside)
+
+Hi [NAME],
+
+I built a puzzle game called The Bindery: Unwriting and I think it sits
+squarely in what your channel covers - closest in spirit to Journal 29,
+except the whole book is one woman's story rather than a puzzle collection.
+
+[ONE SENTENCE ABOUT A SPECIFIC VIDEO OF THEIRS. Do not skip this line.]
+
+The premise: you are a conservator restoring a water-damaged journal. The
+woman who wrote it spent four years deliberately erasing herself from every
+record that named her, to escape a husband who used paperwork to control her.
+She locked it so only her granddaughter could open it. You are not her
+granddaughter, and the journal works that out.
+
+Twenty-eight leaves, twenty-five distinct solving mechanisms, and no hint
+system at all. No skip, no nudge. Also no timers, no limited guesses and no
+fail states, which is the trade I made for it.
+
+Act I is free, so you can see whether it suits you before committing. If it
+does, here is a code for the full unlock: [PASTE CODE HERE]
+
+Because there are no hints, I have published a complete walkthrough so you
+are never stuck mid-recording. Happy to send the files directly.
+
+Press kit and screenshots: https://texas0418.github.io/bindery/press.html
+
+No expectations, no embargo, and no obligation to cover it.
+
+Simon Shih
+
+
+=====================================================================
+FINDING CREATORS (do not buy a list, search these)
+=====================================================================
+
+YouTube search terms:
+  journal 29 walkthrough
+  rusty lake review
+  hardest puzzle game ios
+  cube escape playthrough
+  gorogoa review
+
+Rules of thumb:
+  - Mid-size beats huge. A 20k-subscriber channel whose comments argue
+    about solutions converts better than a 2M channel that plays anything.
+  - Anyone who covered Number Nine is already warm. Check that history first.
+  - Ten personalised emails beat a hundred identical ones.
+  - Never pay for coverage. Offer a code, offer the walkthrough, nothing else.
+
+
+=====================================================================
+REDDIT POST - r/iosgaming (you post; do not link-drop and leave)
+=====================================================================
+
+TITLE:
+I spent a month building a puzzle journal with no hint button, and I'd like
+to know if that was a mistake
+
+BODY:
+The Bindery: Unwriting is 28 hand-authored leaves in the Journal 29 and Rusty
+Lake tradition. You play a conservator restoring the journal of a woman who
+deliberately erased herself from every public record to escape a controlling
+husband, and who locked the book so only her granddaughter could read it.
+
+The design decision I keep going back and forth on: no hints at all. No skip,
+no nudge, no ladder. To make that fair rather than cruel I gave up the usual
+pressure valves too - no timers, no limited guesses, no fail states, and every
+answer field tells you the shape of the answer it wants. The bar I set myself
+was that a stuck player shown the answer should say "I had everything I
+needed," not "how was I supposed to know that."
+
+Twenty-five of the twenty-eight leaves use a mechanism that appears nowhere
+else in the book. My favourite is a census sheet where the enumerator's own
+arithmetic forces the identity of the line that was scraped off the page.
+
+Act I is free if you want to see whether it is your kind of thing.
+https://apps.apple.com/us/app/id6797783492
+
+Genuinely interested in the no-hints argument if you think it is the wrong
+call - it is the part I am least sure about.
+
+AFTER POSTING: stay in the thread and answer people. The comments matter
+more than the post.
