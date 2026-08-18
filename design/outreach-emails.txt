@@ -5,47 +5,86 @@ Attach a promo code to every email. One code per recipient.
 
 
 =====================================================================
-VERIFIED CONTACTS (checked 2026-08-18)
+VERIFIED CONTACTS (researched 2026-08-18)
 =====================================================================
+
+--- SEND TO THESE (address taken verbatim from the outlet's own page) ---
+
+148APPS - iOS reviews, still active
+  george.bird@148apps.com
+  Their submit page asks for: a compelling description, screenshots, a
+  video link (YouTube preferred), what makes it different, and ideally a
+  promo code. Keep attachments under 1MB or use a Dropbox link.
+  NOTE: their page says to submit to "Campbell Bird, reviews editor" but
+  prints george.bird@148apps.com as the address. Use the printed address.
+  They also warn about impostors emailing from Gmail claiming to be their
+  reviews editor - if you get a reply from a Gmail account, be careful.
+  https://www.148apps.com/pages/submit-app-review/
 
 APPADVICE - still active
   devcontact@appadvice.com
-  They prefer to hear about apps BEFORE release, but take post-release
-  submissions. Send the press email below.
+  Prefers to hear about apps before release but takes post-release.
 
-POCKET GAMER / APPSPY - still active
-  Use the generic team addresses. They outlast staff turnover:
+POCKET GAMER / APPSPY - still active. Use the generic team addresses.
   news@pocketgamer.co.uk
   reviews@pocketgamer.co.uk
 
-  Their public pitch page also lists named staff, but that page is old
-  and several of those people have moved on (Mark Brown, listed there as
-  Editor, has run Game Maker's Toolkit independently for years). Do not
-  lead with a named address unless you confirm the person is current:
-  https://www.pocketgamer.com/pages/contact-us/
+INDIE GAMES PLUS - active, indie-focused
+  editors@indiegamesplus.com          (general - send here first)
+  joel.indiegames@gmail.com           (Joel Couture, Editor-in-Chief)
+  jupiterigp@gmail.com                (Jupiter Hadley)
+  CAUTION: they skew PC and itch.io. Worth one email to editors@ only.
+  Do NOT email all their writers individually - that reads as a blast.
 
-GAMEZEBO - still active, submission page not email
-  https://www.gamezebo.com/get-reviewed/
-  Their stated rule: personalised pitch only, no PR-firm spam.
+--- SUBMISSION FORMS, NOT EMAIL ---
 
-POCKET TACTICS - still active, very large (~10M monthly)
-  Contact route is on https://www.pockettactics.com/about-us
-  Worth a look but they skew strategy; lowest priority of the four.
+GAMEZEBO       https://www.gamezebo.com/get-reviewed/
+               Their stated rule: personalised pitch only, no PR spam.
+INDIE GAME REVIEWER
+               https://indiegamereviewer.com/contact-indie-game-reviewer/
+POCKET TACTICS https://www.pockettactics.com/about-us
+               Very large (~10M/month) but strategy-skewed. Low priority.
 
-DO NOT EMAIL - TOUCHARCADE IS DEAD
-  TouchArcade shut down in September 2024. tips@toucharcade.com and
-  news@toucharcade.com are not monitored. I had it in the first draft
-  of the plan; it is removed.
+--- HAVE BUT DO NOT USE ---
 
+Pocket Gamer named staff. Their pitch page lists eight individual
+addresses, but that page is old enough to still name Mark Brown as
+Editor and he has run Game Maker's Toolkit independently for years.
+Emailing a person who left years ago marks you as someone who did not
+check. Use news@ and reviews@ instead. If you ever want them:
+  mark.brown@steelmedia.co.uk        harry.slater@pocketgamer.co.uk
+  chris.priestman@steelmedia.co.uk   glen.fox@steelmedia.co.uk
+  christian.valentin@steelmedia.co.uk danny.russell@steelmedia.co.uk
+  peter.willington@steelmedia.co.uk  james.gilmour@steelmedia.co.uk
+
+--- DEAD, DO NOT EMAIL ---
+
+TOUCHARCADE shut down in September 2024. tips@toucharcade.com and
+news@toucharcade.com are not monitored. It was in my first draft; removed.
+
+--- HONEST CONFIDENCE NOTE ---
+
+I pulled every "send to these" address off the outlet's own contact or
+submission page, so they are real addresses that were published. I cannot
+verify a mailbox is still staffed without emailing it. Outlets in this
+space fold quietly - TouchArcade is the proof. Expect some bounces and do
+not read silence as rejection.
 
 =====================================================================
 EMAIL 1 - PRESS (send first, "out now" has about a week of shelf life)
 =====================================================================
 
+SEND SEPARATELY, ONE AT A TIME, NEVER AS A CC LIST:
+TO: george.bird@148apps.com
 TO: devcontact@appadvice.com
-(then separately, one at a time, not CC:)
 TO: news@pocketgamer.co.uk
 TO: reviews@pocketgamer.co.uk
+TO: editors@indiegamesplus.com
+
+THEN the three web forms:
+  https://www.gamezebo.com/get-reviewed/
+  https://indiegamereviewer.com/contact-indie-game-reviewer/
+  https://www.pockettactics.com/about-us
 
 SUBJECT: The Bindery: Unwriting - iOS puzzle journal with no hint system, out now
 
