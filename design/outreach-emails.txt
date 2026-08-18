@@ -1,0 +1,215 @@
+THE BINDERY: UNWRITING - OUTREACH COPY (PLAIN TEXT, COPY-PASTE READY)
+Live: https://apps.apple.com/us/app/id6797783492
+Press kit: https://texas0418.github.io/bindery/press.html
+Attach a promo code to every email. One code per recipient.
+
+
+=====================================================================
+VERIFIED CONTACTS (researched 2026-08-18)
+=====================================================================
+
+--- SEND TO THESE (address taken verbatim from the outlet's own page) ---
+
+148APPS - iOS reviews, still active
+  george.bird@148apps.com
+  Their submit page asks for: a compelling description, screenshots, a
+  video link (YouTube preferred), what makes it different, and ideally a
+  promo code. Keep attachments under 1MB or use a Dropbox link.
+  NOTE: their page says to submit to "Campbell Bird, reviews editor" but
+  prints george.bird@148apps.com as the address. Use the printed address.
+  They also warn about impostors emailing from Gmail claiming to be their
+  reviews editor - if you get a reply from a Gmail account, be careful.
+  https://www.148apps.com/pages/submit-app-review/
+
+APPADVICE - still active
+  devcontact@appadvice.com
+  Prefers to hear about apps before release but takes post-release.
+
+POCKET GAMER / APPSPY - still active. Use the generic team addresses.
+  news@pocketgamer.co.uk
+  reviews@pocketgamer.co.uk
+
+INDIE GAMES PLUS - active, indie-focused
+  editors@indiegamesplus.com          (general - send here first)
+  joel.indiegames@gmail.com           (Joel Couture, Editor-in-Chief)
+  jupiterigp@gmail.com                (Jupiter Hadley)
+  CAUTION: they skew PC and itch.io. Worth one email to editors@ only.
+  Do NOT email all their writers individually - that reads as a blast.
+
+--- SUBMISSION FORMS, NOT EMAIL ---
+
+GAMEZEBO       https://www.gamezebo.com/get-reviewed/
+               Their stated rule: personalised pitch only, no PR spam.
+INDIE GAME REVIEWER
+               https://indiegamereviewer.com/contact-indie-game-reviewer/
+POCKET TACTICS https://www.pockettactics.com/about-us
+               Very large (~10M/month) but strategy-skewed. Low priority.
+
+--- HAVE BUT DO NOT USE ---
+
+Pocket Gamer named staff. Their pitch page lists eight individual
+addresses, but that page is old enough to still name Mark Brown as
+Editor and he has run Game Maker's Toolkit independently for years.
+Emailing a person who left years ago marks you as someone who did not
+check. Use news@ and reviews@ instead. If you ever want them:
+  mark.brown@steelmedia.co.uk        harry.slater@pocketgamer.co.uk
+  chris.priestman@steelmedia.co.uk   glen.fox@steelmedia.co.uk
+  christian.valentin@steelmedia.co.uk danny.russell@steelmedia.co.uk
+  peter.willington@steelmedia.co.uk  james.gilmour@steelmedia.co.uk
+
+--- DEAD, DO NOT EMAIL ---
+
+TOUCHARCADE shut down in September 2024. tips@toucharcade.com and
+news@toucharcade.com are not monitored. It was in my first draft; removed.
+
+--- HONEST CONFIDENCE NOTE ---
+
+I pulled every "send to these" address off the outlet's own contact or
+submission page, so they are real addresses that were published. I cannot
+verify a mailbox is still staffed without emailing it. Outlets in this
+space fold quietly - TouchArcade is the proof. Expect some bounces and do
+not read silence as rejection.
+
+=====================================================================
+EMAIL 1 - PRESS (send first, "out now" has about a week of shelf life)
+=====================================================================
+
+SEND SEPARATELY, ONE AT A TIME, NEVER AS A CC LIST:
+TO: george.bird@148apps.com
+TO: devcontact@appadvice.com
+TO: news@pocketgamer.co.uk
+TO: reviews@pocketgamer.co.uk
+TO: editors@indiegamesplus.com
+
+THEN the three web forms:
+  https://www.gamezebo.com/get-reviewed/
+  https://indiegamereviewer.com/contact-indie-game-reviewer/
+  https://www.pockettactics.com/about-us
+
+SUBJECT: The Bindery: Unwriting - iOS puzzle journal with no hint system, out now
+
+Hi,
+
+Out now on iOS: The Bindery: Unwriting, a puzzle journal in the Journal 29
+tradition with one deliberate difference. There is no hint button, no skip
+and no nudge - and equally no timers, no guess limits and no fail states.
+That was the trade.
+
+You play a conservator restoring the journal of an archivist who spent four
+years erasing herself from every record that named her, to escape a husband
+who used paperwork the way other men use their hands. She locked the book so
+only her granddaughter could open it. You are not her granddaughter, and the
+journal works that out.
+
+Twenty-eight leaves, twenty-five distinct solving mechanisms - almost nothing
+repeats - and three endings, one of which permanently deletes your save. The
+app asks twice before it does.
+
+One structural note that may interest you more than the premise: the paywall
+gates restoring, never reading. All twenty-eight leaves are browsable from
+the first minute under every instrument the player has calibrated. Act I
+restores free; the rest is a single 5.99 unlock.
+
+Free to download: https://apps.apple.com/us/app/id6797783492
+Press kit, screenshots, fact sheet, quotes:
+https://texas0418.github.io/bindery/press.html
+
+Review code, no conditions: [PASTE CODE HERE]
+
+Because there are no hints, a reviewer cannot skim into the later acts, so I
+publish a full walkthrough - happy to send it directly if that helps.
+
+Simon Shih
+Simon Builds
+sspi.investments@gmail.com
+
+
+=====================================================================
+EMAIL 2 - CREATORS (YouTube / streamers, personalise the first line)
+=====================================================================
+
+SUBJECT: A puzzle journal with no hint button (iOS, code inside)
+
+Hi [NAME],
+
+I built a puzzle game called The Bindery: Unwriting and I think it sits
+squarely in what your channel covers - closest in spirit to Journal 29,
+except the whole book is one woman's story rather than a puzzle collection.
+
+[ONE SENTENCE ABOUT A SPECIFIC VIDEO OF THEIRS. Do not skip this line.]
+
+The premise: you are a conservator restoring a water-damaged journal. The
+woman who wrote it spent four years deliberately erasing herself from every
+record that named her, to escape a husband who used paperwork to control her.
+She locked it so only her granddaughter could open it. You are not her
+granddaughter, and the journal works that out.
+
+Twenty-eight leaves, twenty-five distinct solving mechanisms, and no hint
+system at all. No skip, no nudge. Also no timers, no limited guesses and no
+fail states, which is the trade I made for it.
+
+Act I is free, so you can see whether it suits you before committing. If it
+does, here is a code for the full unlock: [PASTE CODE HERE]
+
+Because there are no hints, I have published a complete walkthrough so you
+are never stuck mid-recording. Happy to send the files directly.
+
+Press kit and screenshots: https://texas0418.github.io/bindery/press.html
+
+No expectations, no embargo, and no obligation to cover it.
+
+Simon Shih
+
+
+=====================================================================
+FINDING CREATORS (do not buy a list, search these)
+=====================================================================
+
+YouTube search terms:
+  journal 29 walkthrough
+  rusty lake review
+  hardest puzzle game ios
+  cube escape playthrough
+  gorogoa review
+
+Rules of thumb:
+  - Mid-size beats huge. A 20k-subscriber channel whose comments argue
+    about solutions converts better than a 2M channel that plays anything.
+  - Anyone who covered Number Nine is already warm. Check that history first.
+  - Ten personalised emails beat a hundred identical ones.
+  - Never pay for coverage. Offer a code, offer the walkthrough, nothing else.
+
+
+=====================================================================
+REDDIT POST - r/iosgaming (you post; do not link-drop and leave)
+=====================================================================
+
+TITLE:
+I spent a month building a puzzle journal with no hint button, and I'd like
+to know if that was a mistake
+
+BODY:
+The Bindery: Unwriting is 28 hand-authored leaves in the Journal 29 and Rusty
+Lake tradition. You play a conservator restoring the journal of a woman who
+deliberately erased herself from every public record to escape a controlling
+husband, and who locked the book so only her granddaughter could read it.
+
+The design decision I keep going back and forth on: no hints at all. No skip,
+no nudge, no ladder. To make that fair rather than cruel I gave up the usual
+pressure valves too - no timers, no limited guesses, no fail states, and every
+answer field tells you the shape of the answer it wants. The bar I set myself
+was that a stuck player shown the answer should say "I had everything I
+needed," not "how was I supposed to know that."
+
+Twenty-five of the twenty-eight leaves use a mechanism that appears nowhere
+else in the book. My favourite is a census sheet where the enumerator's own
+arithmetic forces the identity of the line that was scraped off the page.
+
+Act I is free if you want to see whether it is your kind of thing.
+https://apps.apple.com/us/app/id6797783492
+
+Genuinely interested in the no-hints argument if you think it is the wrong
+call - it is the part I am least sure about.
+
+AFTER POSTING: stay in the thread and answer people. The comments matter
+more than the post.
