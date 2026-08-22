@@ -180,6 +180,59 @@ Simon Shih
 
 
 =====================================================================
+CREATORS AND REVIEWERS - THE TEN (researched 2026-08-22)
+=====================================================================
+Every address below was pulled from the outlet's own published page and
+then checked against a live mail server and a live website before it went
+on this list. That is the check AppAdvice failed; none of these fail it.
+One code each. Personalise the first line where marked.
+
+REVIEWED JOURNAL 29 ITSELF (closest possible audience):
+ 1. Escape the Review         escapethereview@outlook.com
+    UK escape-room + puzzle-book reviewer. Called Journal 29 "the closest
+    thing to a gold standard for puzzle books." PERSONALISE: say so.
+ 2. Puzzle Prime              puzzle@puzzleprime.com
+    Reviewed Journal 29 in depth. Their contact page shows the address
+    obfuscated as "puzzle [at] puzzleprime.com" - it is a real inbox (live
+    MX on mxrouting.net, Simon found it 2026-08-22), not a form.
+ 3. Thinky Games              press@thinkygames.com
+    Puzzle-game-only site with a Journal 29 entry in its database. Their
+    About page gives press@ for "press releases or any news or updates
+    about your games" (editorial@ is the reviews desk; contact@ general).
+    Site is behind a bot shield (403 to every fetcher) - the addresses came
+    from a Wayback snapshot of the About page and match the search index.
+    Google MX, live.
+
+PUZZLE / ESCAPE / ADVENTURE SPECIALISTS:
+ 4. Room Escape Artist        contact@roomescapeartist.com
+    Reviews digital escape + puzzle apps (The Room, Gorogoa, ClueKeeper).
+ 5. AppUnwrapper              AppUnwrapper@gmail.com   (also on press list)
+    Solo puzzle/adventure reviewer; says puzzle games most likely covered.
+ 6. Big Boss Battle           editors@bigbossbattle.com
+    Indie reviews incl. point-and-click and puzzle. Jupiter writes here.
+ 7. Alpha Beta Gamer          Admin@alphabetagamer.com
+    Two YouTube channels. NOTE: their site features games IN DEVELOPMENT,
+    but full games can still go on the YouTube channels. Pitch the channel.
+
+YOUTUBE - MANUAL (business emails sit behind a captcha on each About tab):
+ 8. Jeffrey Sparks            jeffreysparkstiktok@gmail.com
+    Found by Simon 2026-08-22 via the About-tab captcha route.
+ 9. (unfilled) Simon searched the puzzle/escape channels on 2026-08-22 and
+    this was the ONLY one with a business email posted. Most channels
+    post none. Do not plan for two YouTube contacts per game - plan for
+    one, and treat a second as a bonus.
+
+HELD FOR A LATER DAY - do not send in the same week as Number Nine:
+10. Jupiter Hadley            Jupi@JupiterHadley.com
+    She was pitched Number Nine on 2026-08-21. Simon's rule: never send one
+    person two games close together - it reads as a blast, not a
+    recommendation. Send this no earlier than ~2 weeks after the Number
+    Nine email, and reference that email when you do.
+
+AVOID: Adventure Gamers (taken over mid-2025, pivoted to gambling).
+DEAD:  TouchArcade (Sept 2024), AppAdvice (Jan 2026).
+
+=====================================================================
 FINDING CREATORS (do not buy a list, search these)
 =====================================================================
 
