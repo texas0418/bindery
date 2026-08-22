@@ -54,7 +54,6 @@ change):
   and puzzle games are the most likely to be covered. Worth a properly
   personalised email rather than the template. They warn about impostors
   farming codes, and they sell paid testing — don't buy it.
-- **AppAdvice** — `devcontact@appadvice.com` (verified active).
 - **Gamezebo** — submission page, not email:
   https://www.gamezebo.com/get-reviewed/ (personalised pitches only).
 - **Pocket Tactics** — very large but strategy-skewed; contact route on
@@ -64,6 +63,11 @@ change):
 over in mid-2025, shut its forums and moved its focus toward online
 gambling. It still ranks well for adventure-game coverage, so it looks
 tempting. It is no longer the audience.
+
+**AppAdvice is DEAD** — shut down 23 January 2026. `devcontact@appadvice.com`
+bounces (554 5.1.3, no such mailbox). An earlier version of this file
+called it "verified active"; it had been checked against a memory note,
+not against the live site. Same lesson as TouchArcade.
 
 **TouchArcade is DEAD** — it shut down in September 2024. An earlier draft of
 this plan listed it. Do not email `tips@` or `news@toucharcade.com`.
