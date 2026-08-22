@@ -10,6 +10,18 @@ VERIFIED CONTACTS (researched 2026-08-18)
 
 --- SEND TO THESE (address taken verbatim from the outlet's own page) ---
 
+APPUNWRAPPER - BEST MATCH ON THIS LIST. Send first.
+  AppUnwrapper@gmail.com
+  A solo reviewer with no staff, whose own submission page says adventure
+  and puzzle games are the most likely to get covered. That is this game
+  exactly, which makes one personalised email here worth more than five
+  pasted into general press inboxes. Include a promo code.
+  They publicly warn that people impersonate them to farm free codes, so
+  expect care on their side and do not be surprised by a cautious reply.
+  They also SELL testing and consulting. Do not buy it. A review request
+  is free.
+  https://www.appunwrapper.com/suggest-a-walkthrough-or-review/
+
 148APPS - iOS reviews, still active
   george.bird@148apps.com
   Their submit page asks for: a compelling description, screenshots, a
@@ -20,10 +32,6 @@ VERIFIED CONTACTS (researched 2026-08-18)
   They also warn about impostors emailing from Gmail claiming to be their
   reviews editor - if you get a reply from a Gmail account, be careful.
   https://www.148apps.com/pages/submit-app-review/
-
-APPADVICE - still active
-  devcontact@appadvice.com
-  Prefers to hear about apps before release but takes post-release.
 
 POCKET GAMER / APPSPY - still active. Use the generic team addresses.
   news@pocketgamer.co.uk
@@ -59,6 +67,12 @@ check. Use news@ and reviews@ instead. If you ever want them:
 
 --- DEAD, DO NOT EMAIL ---
 
+APPADVICE shut down 23 January 2026 (announced on its own X account:
+"Effective immediately, AppAdvice's operation has officially been
+discontinued"). devcontact@appadvice.com BOUNCES - 554 5.1.3, mailbox
+does not exist. Simon hit this live on 2026-08-22. It was in this file as
+"still active"; it was not.
+
 TOUCHARCADE shut down in September 2024. tips@toucharcade.com and
 news@toucharcade.com are not monitored. It was in my first draft; removed.
 
@@ -75,8 +89,8 @@ EMAIL 1 - PRESS (send first, "out now" has about a week of shelf life)
 =====================================================================
 
 SEND SEPARATELY, ONE AT A TIME, NEVER AS A CC LIST:
+TO: AppUnwrapper@gmail.com
 TO: george.bird@148apps.com
-TO: devcontact@appadvice.com
 TO: news@pocketgamer.co.uk
 TO: reviews@pocketgamer.co.uk
 TO: editors@indiegamesplus.com
@@ -164,6 +178,59 @@ No obligation either way.
 
 Simon Shih
 
+
+=====================================================================
+CREATORS AND REVIEWERS - THE TEN (researched 2026-08-22)
+=====================================================================
+Every address below was pulled from the outlet's own published page and
+then checked against a live mail server and a live website before it went
+on this list. That is the check AppAdvice failed; none of these fail it.
+One code each. Personalise the first line where marked.
+
+REVIEWED JOURNAL 29 ITSELF (closest possible audience):
+ 1. Escape the Review         escapethereview@outlook.com
+    UK escape-room + puzzle-book reviewer. Called Journal 29 "the closest
+    thing to a gold standard for puzzle books." PERSONALISE: say so.
+ 2. Puzzle Prime              puzzle@puzzleprime.com
+    Reviewed Journal 29 in depth. Their contact page shows the address
+    obfuscated as "puzzle [at] puzzleprime.com" - it is a real inbox (live
+    MX on mxrouting.net, Simon found it 2026-08-22), not a form.
+ 3. Thinky Games              press@thinkygames.com
+    Puzzle-game-only site with a Journal 29 entry in its database. Their
+    About page gives press@ for "press releases or any news or updates
+    about your games" (editorial@ is the reviews desk; contact@ general).
+    Site is behind a bot shield (403 to every fetcher) - the addresses came
+    from a Wayback snapshot of the About page and match the search index.
+    Google MX, live.
+
+PUZZLE / ESCAPE / ADVENTURE SPECIALISTS:
+ 4. Room Escape Artist        contact@roomescapeartist.com
+    Reviews digital escape + puzzle apps (The Room, Gorogoa, ClueKeeper).
+ 5. AppUnwrapper              AppUnwrapper@gmail.com   (also on press list)
+    Solo puzzle/adventure reviewer; says puzzle games most likely covered.
+ 6. Big Boss Battle           editors@bigbossbattle.com
+    Indie reviews incl. point-and-click and puzzle. Jupiter writes here.
+ 7. Alpha Beta Gamer          Admin@alphabetagamer.com
+    Two YouTube channels. NOTE: their site features games IN DEVELOPMENT,
+    but full games can still go on the YouTube channels. Pitch the channel.
+
+YOUTUBE - MANUAL (business emails sit behind a captcha on each About tab):
+ 8. Jeffrey Sparks            jeffreysparkstiktok@gmail.com
+    Found by Simon 2026-08-22 via the About-tab captcha route.
+ 9. (unfilled) Simon searched the puzzle/escape channels on 2026-08-22 and
+    this was the ONLY one with a business email posted. Most channels
+    post none. Do not plan for two YouTube contacts per game - plan for
+    one, and treat a second as a bonus.
+
+HELD FOR A LATER DAY - do not send in the same week as Number Nine:
+10. Jupiter Hadley            Jupi@JupiterHadley.com
+    She was pitched Number Nine on 2026-08-21. Simon's rule: never send one
+    person two games close together - it reads as a blast, not a
+    recommendation. Send this no earlier than ~2 weeks after the Number
+    Nine email, and reference that email when you do.
+
+AVOID: Adventure Gamers (taken over mid-2025, pivoted to gambling).
+DEAD:  TouchArcade (Sept 2024), AppAdvice (Jan 2026).
 
 =====================================================================
 FINDING CREATORS (do not buy a list, search these)
