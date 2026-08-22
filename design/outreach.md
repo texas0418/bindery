@@ -31,7 +31,10 @@ Room, Gorogoa, Isle of Arrows, or ARG-adjacent mobile puzzlers**. Mid-size
 beats huge: a 20k-subscriber channel whose comments argue about solutions
 converts far better than a 2M-subscriber channel that plays anything.
 
-Where to find them, rather than a list I would be guessing at:
+YouTube hides creator business emails behind a captcha on the channel's
+About tab, so no search or script can extract them — the only reliable
+route is by hand, per channel: About → "View email address" → captcha.
+About sixty seconds each. Where to find the channels worth that minute:
 - YouTube search: `journal 29 walkthrough`, `rusty lake review`, `hardest puzzle game ios`
 - The r/rustylake and r/puzzles sidebars often name the regulars
 - Anyone who reviewed **Number Nine** is already warm — check that outreach history first
@@ -46,11 +49,21 @@ change):
 - **Pocket Gamer / AppSpy** publish a standing how-to-pitch page naming their
   current editors and preferred contact route:
   https://www.pocketgamer.com/articles/067025/developers-how-to-tell-pocket-gamer-and-appspy-about-your-game/
+- **AppUnwrapper** — `AppUnwrapper@gmail.com`. **The best-matched target on
+  this page.** A solo reviewer whose submission page states that adventure
+  and puzzle games are the most likely to be covered. Worth a properly
+  personalised email rather than the template. They warn about impostors
+  farming codes, and they sell paid testing — don't buy it.
 - **AppAdvice** — `devcontact@appadvice.com` (verified active).
 - **Gamezebo** — submission page, not email:
   https://www.gamezebo.com/get-reviewed/ (personalised pitches only).
 - **Pocket Tactics** — very large but strategy-skewed; contact route on
   https://www.pockettactics.com/about-us . Lowest priority of the four.
+
+**Adventure Gamers is compromised as a target** — new owners took the site
+over in mid-2025, shut its forums and moved its focus toward online
+gambling. It still ranks well for adventure-game coverage, so it looks
+tempting. It is no longer the audience.
 
 **TouchArcade is DEAD** — it shut down in September 2024. An earlier draft of
 this plan listed it. Do not email `tips@` or `news@toucharcade.com`.
