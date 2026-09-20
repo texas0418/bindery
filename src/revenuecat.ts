@@ -15,7 +15,7 @@ export const ENTITLEMENT_ID = 'entry';
 export const PRODUCT_ID = 'bindery_unwriting_unlock';
 
 const IOS_KEY = 'appl_dDCXOMnsGwQyhGpdUggbveqGFse';
-const ANDROID_KEY = 'REVENUECAT_ANDROID_KEY_PLACEHOLDER';
+const ANDROID_KEY = 'goog_uORWPRIqtYDXphYCoTZpDvGenNe';
 
 export const keyForPlatform = (): string =>
   Platform.OS === 'android' ? ANDROID_KEY : IOS_KEY;
