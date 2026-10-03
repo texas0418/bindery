@@ -10,6 +10,16 @@ SplashScreen.preventAutoHideAsync().catch(() => {});
 SplashScreen.setOptions({ duration: 450, fade: true });
 const SPLASH_HOLD_MS = 2250;
 
+// Play review 2026-10-02 rejected vc2 frozen on this splash ("app does not
+// open or load"). The ceremonial hide lives in a React effect, so anything
+// that kills the first render leaves the native splash up forever. This
+// module-scope failsafe owes nothing to the component tree: past this point
+// the player sees the bench or the offline card, never a stuck cover.
+const SPLASH_FAILSAFE_MS = 6000;
+setTimeout(() => {
+  SplashScreen.hideAsync().catch(() => {});
+}, SPLASH_FAILSAFE_MS);
+
 // Dynamic Type ceilings live in theme.ts (TYPE_CAPS) and are applied as
 // explicit maxFontSizeMultiplier props per surface — Text.defaultProps is
 // silently DEAD under React 19 (caught in the 2026-08-02 max-type sweep:
@@ -66,10 +76,16 @@ function Root() {
 export default function App() {
   // Lazy one-time init: sqlite is sync, purchases guards itself. Doing it in
   // the state initializer keeps the first frame correct without an effect.
+  // A failed init must not take the tree down with it (the pre-failsafe
+  // freeze): the player gets the workstation's own outage card instead.
   const [ready] = useState(() => {
-    initState();
-    initPurchases(); // fail-open: unlocks the entry in Expo Go / placeholder builds
-    return true;
+    try {
+      initState();
+      initPurchases(); // fail-open: unlocks the entry in Expo Go / placeholder builds
+      return true;
+    } catch {
+      return false;
+    }
   });
   useEffect(() => {
     const t = setTimeout(() => {
@@ -77,7 +93,18 @@ export default function App() {
     }, SPLASH_HOLD_MS);
     return () => clearTimeout(t);
   }, []);
-  if (!ready) return null;
+  if (!ready) {
+    return (
+      <View style={offlineStyles.room}>
+        <StatusBar style="light" />
+        <Text style={offlineStyles.heading}>BINDERY WORKSTATION</Text>
+        <Text style={offlineStyles.body}>
+          LOCAL STORE UNAVAILABLE. CLOSE THE APP AND REOPEN IT; THE BENCH
+          RESUMES WHERE YOU LEFT IT.
+        </Text>
+      </View>
+    );
+  }
   return (
     <>
       <StatusBar style="light" />
@@ -85,3 +112,28 @@ export default function App() {
     </>
   );
 }
+
+const offlineStyles = StyleSheet.create({
+  room: {
+    flex: 1,
+    backgroundColor: '#17191c',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 32,
+  },
+  heading: {
+    color: '#9aa3ad',
+    fontFamily: 'Menlo',
+    fontSize: 13,
+    letterSpacing: 3,
+    marginBottom: 16,
+  },
+  body: {
+    color: '#6e767f',
+    fontFamily: 'Menlo',
+    fontSize: 12,
+    lineHeight: 20,
+    textAlign: 'center',
+    maxWidth: 320,
+  },
+});
