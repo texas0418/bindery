@@ -1,9 +1,8 @@
 // src/revenuecat.ts
-// RevenueCat config for The Bindery. The iOS key is live (project "The
-// Bindery", App Store app com.bindery.game); the Play key is live. The
-// Amazon key stays a placeholder until the app exists in the Amazon
-// developer console, and proAccess.ts fails OPEN on any placeholder — so
-// an Amazon build never gates.
+// RevenueCat config for The Bindery. All three store keys are live: App
+// Store, Play Store, and Amazon Appstore (RevenueCat app appdb9b4bf46a,
+// created 2026-10-05). proAccess.ts still fails OPEN on any placeholder,
+// which is why a placeholder here would silently give the book away.
 //
 // The SDK keys below are PUBLIC keys: they are designed to ship inside the
 // app bundle and identify the app to RevenueCat. They grant no dashboard
@@ -24,7 +23,7 @@ export const PRODUCT_ID = 'bindery_unwriting_unlock';
 
 const IOS_KEY = 'appl_dDCXOMnsGwQyhGpdUggbveqGFse';
 const ANDROID_KEY = 'goog_uORWPRIqtYDXphYCoTZpDvGenNe';
-const AMAZON_KEY = 'amzn_PLACEHOLDER';
+const AMAZON_KEY = 'amzn_WXWZsksllardGPPtaENHUVahIAw';
 
 export const IS_AMAZON_BUILD = process.env.EXPO_PUBLIC_STORE === 'amazon';
 
