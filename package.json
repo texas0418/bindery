@@ -33,5 +33,24 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "install": {
+      "exclude": [
+        "expo",
+        "expo-asset",
+        "expo-constants",
+        "expo-dev-client",
+        "expo-file-system",
+        "expo-font",
+        "expo-haptics",
+        "expo-keep-awake",
+        "expo-splash-screen",
+        "expo-sqlite",
+        "expo-system-ui",
+        "react-native",
+        "eslint-config-expo"
+      ]
+    }
+  }
 }
