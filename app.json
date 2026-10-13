@@ -35,7 +35,8 @@
           "imageWidth": 240
         }
       ],
-      "./plugins/withReleaseSigning.js"
+      "./plugins/withReleaseSigning.js",
+      "./plugins/withAmazonAuthKey.js"
     ]
   }
 }
